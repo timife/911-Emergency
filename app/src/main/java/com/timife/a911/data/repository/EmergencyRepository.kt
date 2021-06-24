@@ -1,10 +1,10 @@
-package com.timife.a911.data.source
+package com.timife.a911.data.repository
 
-import androidx.lifecycle.LiveData
 import com.timife.a911.data.EmergencyInfo
 import com.timife.a911.data.Result
 
-interface EmergencyDataSource {
+interface EmergencyRepository {
+
     suspend fun upsert(item: EmergencyInfo)
 
     suspend fun delete(item: EmergencyInfo)

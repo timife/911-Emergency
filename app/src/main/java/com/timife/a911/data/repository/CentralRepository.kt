@@ -1,18 +1,16 @@
-package com.timife.a911.data.source.local
+package com.timife.a911.data.repository
 
-import androidx.lifecycle.LiveData
 import com.timife.a911.data.EmergencyInfo
 import com.timife.a911.data.Result
-import com.timife.a911.data.source.EmergencyDataSource
+import com.timife.a911.data.source.local.EmergencyLocalDataSource
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
-class EmergencyLocalDataSource @Inject constructor(
-        private val emergencyDao: EmergencyDao,
-        private val ioDispatcher: CoroutineDispatcher =
-                Dispatchers.IO
-) :EmergencyDataSource{
+class CentralRepository @Inject constructor(
+        private val emergencyLocalDataSource: EmergencyLocalDataSource,
+        private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+) : EmergencyRepository {
     override suspend fun upsert(item: EmergencyInfo) {
         TODO("Not yet implemented")
     }

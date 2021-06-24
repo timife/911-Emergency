@@ -1,6 +1,7 @@
 package com.timife.a911.di
 
 import android.content.Context
+import com.timife.a911.di.modules.AppModule
 import com.timife.a911.di.modules.SubcomponentsModule
 import com.timife.a911.di.modules.ViewModelBuilderModule
 import com.timife.a911.emergencyHome.di.HomeComponent
@@ -13,7 +14,7 @@ import javax.inject.Singleton
 
 
 @Singleton
-@Component(modules = [ViewModelBuilderModule::class,SubcomponentsModule::class])
+@Component(modules = [AppModule::class,ViewModelBuilderModule::class,SubcomponentsModule::class])
 interface EmergencyComponent {
 
     @Component.Factory
