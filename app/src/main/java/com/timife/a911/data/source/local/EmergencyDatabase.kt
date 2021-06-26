@@ -6,5 +6,5 @@ import com.timife.a911.data.EmergencyInfo
 
 @Database(entities = [EmergencyInfo::class],version = 1,exportSchema =false)
 abstract class EmergencyDatabase:RoomDatabase(){
-    abstract fun emergencyDao(): EmergencyDao
+    abstract val emergencyDao: EmergencyDao
 }

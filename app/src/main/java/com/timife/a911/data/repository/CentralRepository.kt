@@ -8,8 +8,8 @@ import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
 class CentralRepository @Inject constructor(
-        private val emergencyLocalDataSource: EmergencyLocalDataSource,
-        private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+    private val emergencyLocalDataSource: EmergencyLocalDataSource,
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : EmergencyRepository {
     override suspend fun upsert(item: EmergencyInfo) {
         TODO("Not yet implemented")

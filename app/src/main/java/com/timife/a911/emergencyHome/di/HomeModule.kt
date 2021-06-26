@@ -1,5 +1,7 @@
 package com.timife.a911.emergencyHome.di
 
+//import com.timife.a911.di.modules.ViewModelKey
+import androidx.lifecycle.ViewModel
 import com.timife.a911.di.modules.ViewModelKey
 import com.timife.a911.emergencyHome.ui.HomeViewModel
 import dagger.Binds
@@ -13,5 +15,5 @@ abstract class HomeModule {
     @Binds
     @IntoMap
     @ViewModelKey(HomeViewModel::class)
-    abstract fun bindViewModel(viewmodel: HomeViewModel)
+    abstract fun bindViewModel(viewmodel: HomeViewModel): ViewModel
 }

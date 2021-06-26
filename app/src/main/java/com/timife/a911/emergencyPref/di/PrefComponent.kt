@@ -4,7 +4,7 @@ import com.timife.a911.emergencyHome.di.HomeComponent
 import com.timife.a911.emergencyPref.ui.PrefFragment
 import dagger.Subcomponent
 
-@Subcomponent(modules = [PrefModule::class])
+@Subcomponent
 interface PrefComponent {
 
     @Subcomponent.Factory

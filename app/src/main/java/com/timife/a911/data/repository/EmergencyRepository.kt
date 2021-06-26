@@ -11,6 +11,6 @@ interface EmergencyRepository {
 
     suspend fun checkIfExist(item: EmergencyInfo): Result<Boolean>
 
-    suspend fun getEmergencyServicesItem() : Result<List<EmergencyInfo>>
+    suspend fun getEmergencyServicesItem(): Result<List<EmergencyInfo>>
     suspend fun getNonEmergencyServicesItem(): Result<List<EmergencyInfo>>
 }

@@ -1,20 +1,15 @@
 package com.timife.a911.emergencySearch.ui
 
-import androidx.lifecycle.ViewModelProvider
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.timife.a911.EmergencyApplication
 import com.timife.a911.R
 
 class SearchFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = SearchFragment()
-    }
-
-    private lateinit var viewModel: SearchViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,10 +18,11 @@ class SearchFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_search, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity().application as EmergencyApplication).emergencyComponent.searchComponent()
+            .create().inject(this)
+
     }
 
 }

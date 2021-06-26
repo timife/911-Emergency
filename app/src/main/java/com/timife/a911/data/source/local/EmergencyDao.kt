@@ -1,6 +1,5 @@
 package com.timife.a911.data.source.local
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.timife.a911.data.EmergencyInfo
 
@@ -14,12 +13,12 @@ interface EmergencyDao {
 
     @Query("SELECT EXISTS ( SELECT 1 from emergency_info WHERE name = :name AND number = :phone AND type = :type AND location = :location) ")
     fun exists(
-            name: String,
-            phone: String,
-            type: String,
-            location: String
+        name: String,
+        phone: String,
+        type: String,
+        location: String
     ): Boolean
 
     @Query("SELECT * from emergency_info WHERE type = :emergencyType ")
-    fun getSavedEmergencyItem(emergencyType: String): LiveData<List<EmergencyInfo>>
+    fun getSavedEmergencyItem(emergencyType: String): List<EmergencyInfo>
 }

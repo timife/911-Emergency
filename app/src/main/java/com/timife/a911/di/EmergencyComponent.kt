@@ -1,7 +1,9 @@
 package com.timife.a911.di
 
 import android.content.Context
+import com.timife.a911.MainActivity
 import com.timife.a911.di.modules.AppModule
+import com.timife.a911.di.modules.BindModule
 import com.timife.a911.di.modules.SubcomponentsModule
 import com.timife.a911.di.modules.ViewModelBuilderModule
 import com.timife.a911.emergencyHome.di.HomeComponent
@@ -14,7 +16,7 @@ import javax.inject.Singleton
 
 
 @Singleton
-@Component(modules = [AppModule::class,ViewModelBuilderModule::class,SubcomponentsModule::class])
+@Component(modules = [AppModule::class,BindModule::class,ViewModelBuilderModule::class,SubcomponentsModule::class])
 interface EmergencyComponent {
 
     @Component.Factory
@@ -30,6 +32,7 @@ interface EmergencyComponent {
 
     fun prefComponent(): PrefComponent.Factory
 
+    fun inject(activity: MainActivity)
 
 }
 

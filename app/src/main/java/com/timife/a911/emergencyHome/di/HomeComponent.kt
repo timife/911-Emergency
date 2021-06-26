@@ -4,7 +4,7 @@ import com.timife.a911.emergencyHome.ui.HomeFragment
 import dagger.Subcomponent
 
 
-@Subcomponent(modules = [HomeModule::class])
+@Subcomponent
 interface HomeComponent {
 
     @Subcomponent.Factory

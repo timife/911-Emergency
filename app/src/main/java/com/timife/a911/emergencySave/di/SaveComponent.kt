@@ -5,7 +5,7 @@ import com.timife.a911.emergencySave.ui.SaveFragment
 import dagger.Subcomponent
 
 
-@Subcomponent(modules = [SaveModule::class])
+@Subcomponent(modules=[SaveModule::class])
 interface SaveComponent {
 
     @Subcomponent.Factory
