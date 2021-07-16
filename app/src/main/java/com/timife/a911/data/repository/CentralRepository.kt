@@ -6,7 +6,9 @@ import com.timife.a911.data.source.local.EmergencyLocalDataSource
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class CentralRepository @Inject constructor(
     private val emergencyLocalDataSource: EmergencyLocalDataSource,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO

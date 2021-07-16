@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (requireActivity().application as EmergencyApplication).emergencyComponent.homeComponent().create().inject(this)
+        (requireActivity().application as EmergencyApplication).emergencyComponent.inject(this)
     }
 
 

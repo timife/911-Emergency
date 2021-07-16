@@ -12,6 +12,8 @@ import com.timife.a911.R
 
 class PrefFragment : Fragment() {
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,7 +23,7 @@ class PrefFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (requireActivity().application as EmergencyApplication).emergencyComponent.prefComponent().create().inject(this)
+        (requireActivity().application as EmergencyApplication).emergencyComponent.inject(this)
 
     }
 }

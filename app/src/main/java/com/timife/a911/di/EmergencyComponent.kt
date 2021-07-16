@@ -4,19 +4,18 @@ import android.content.Context
 import com.timife.a911.MainActivity
 import com.timife.a911.di.modules.AppModule
 import com.timife.a911.di.modules.BindModule
-import com.timife.a911.di.modules.SubcomponentsModule
 import com.timife.a911.di.modules.ViewModelBuilderModule
-import com.timife.a911.emergencyHome.di.HomeComponent
-import com.timife.a911.emergencyPref.di.PrefComponent
-import com.timife.a911.emergencySave.di.SaveComponent
-import com.timife.a911.emergencySearch.di.SearchComponent
+import com.timife.a911.emergencyHome.ui.HomeFragment
+import com.timife.a911.emergencyPref.ui.PrefFragment
+import com.timife.a911.emergencySave.ui.SaveFragment
+import com.timife.a911.emergencySearch.ui.SearchFragment
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
 
 @Singleton
-@Component(modules = [AppModule::class,BindModule::class,ViewModelBuilderModule::class,SubcomponentsModule::class])
+@Component(modules = [AppModule::class,BindModule::class,ViewModelBuilderModule::class])
 interface EmergencyComponent {
 
     @Component.Factory
@@ -24,13 +23,11 @@ interface EmergencyComponent {
         fun create(@BindsInstance applicationContext: Context): EmergencyComponent
     }
 
-    fun homeComponent(): HomeComponent.Factory
+    fun inject(fragment: HomeFragment)
+    fun inject(fragment: SearchFragment)
+    fun inject(fragment:SaveFragment)
+    fun inject(fragment:PrefFragment)
 
-    fun searchComponent(): SearchComponent.Factory
-
-    fun saveComponent(): SaveComponent.Factory
-
-    fun prefComponent(): PrefComponent.Factory
 
     fun inject(activity: MainActivity)
 

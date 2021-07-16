@@ -2,10 +2,15 @@ package com.timife.a911.di.modules
 
 import android.content.Context
 import androidx.room.Room
+import com.timife.a911.data.repository.CentralRepository
+import com.timife.a911.data.repository.EmergencyRepository
+import com.timife.a911.data.source.EmergencyDataSource
 import com.timife.a911.data.source.local.EmergencyDao
 import com.timife.a911.data.source.local.EmergencyDatabase
+import com.timife.a911.data.source.local.EmergencyLocalDataSource
 import dagger.Module
 import dagger.Provides
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
 
@@ -33,5 +38,17 @@ object AppModule {
     @Singleton
     @Provides
     fun provideIoDispatcher() = Dispatchers.IO
+
+    @Singleton
+    @Provides
+    fun provideRepository(datasource:EmergencyLocalDataSource,ioDispatcher: CoroutineDispatcher): EmergencyRepository{
+        return CentralRepository(datasource,ioDispatcher)
+    }
+
+    @Singleton
+    @Provides
+    fun provideDataSource(emergencyDao: EmergencyDao,ioDispatcher: CoroutineDispatcher): EmergencyDataSource{
+        return EmergencyLocalDataSource(emergencyDao, ioDispatcher)
+    }
 
 }
