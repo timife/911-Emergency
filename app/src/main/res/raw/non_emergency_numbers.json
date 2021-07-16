@@ -1,0 +1,308 @@
+{
+  "non_emergency_numbers": [
+    {
+      "place": "Hong Kong",
+      "numbers": [
+        {
+          "Anti-Scam Helpline Public Enquiry Hotline": "18222"
+        },
+        {
+          "Non-emergency Police Hotline ": "+85228070707"
+        },
+        {
+          "Travel Industry Council of Hong Kong": "+85228070707"
+        }
+      ]
+    },
+    {
+      "place": "Shanghai",
+      "numbers": [
+        {
+          "Traffic Accidents": "122"
+        },
+        {
+          "Complaints about Goods Qualities": "12315"
+        },
+        {
+          "SOS in Water": "12395"
+        }
+      ]
+    },
+    {
+      "place": "Beijing",
+      "numbers": [
+        {
+          "Tourist Hotline": "12301"
+        },
+        {
+          "International SOS Assistance": "+861064629100"
+        }
+      ]
+    },
+    {
+      "place": "New York City",
+      "numbers": [
+        {
+          "Police Hotline (Non emergencies)": "311"
+        },
+        {
+          "Anti-Robbery": "2772"
+        }
+      ]
+    },
+    {
+      "place": "Los Angeles",
+      "numbers": [
+        {
+          "Non-emergencies": "1-877-275-5273"
+        },
+        {
+          "California Highway Patrol": "3239063434"
+        },
+        {
+          "Department Of Water And Power": "800-342-5397"
+        }
+      ]
+    },
+    {
+      "place": "Chicago",
+      "numbers": [
+        {
+          "Non-emergencies": "311"
+        }
+      ]
+    },
+    {
+      "place": "Miami",
+      "numbers": [
+        {
+          "Non-emergencies": "311"
+        },
+        {
+          "Florida Power & Light Company": "8004688243"
+        }
+      ]
+    },
+    {
+      "place": "Toronto",
+      "numbers": [
+        {
+          "Non-emergency hotline": "311"
+        }
+      ]
+    },
+    {
+      "place": "Vancouver",
+      "numbers": [
+        {
+          "Non-emergencies": "(604) 717-3321"
+        }
+      ]
+    },
+    {
+      "place": "Montreal",
+      "numbers": [
+        {
+          "Non-emergencies": "311"
+        }
+      ]
+    },
+    {
+      "place": "Calgary",
+      "numbers": [
+        {
+          "Non-emergencies": "403-266-1234"
+        },
+        {
+          "Traffic Unit": "403-428-4000"
+        }
+      ]
+    },
+    {
+      "place": "Bangkok",
+      "numbers": [
+        {
+          "Tourist Police": "1155"
+        },
+        {
+          "Highway Police": "1193"
+        },
+        {
+          "Crime Report": "1195"
+        }
+      ]
+    },
+    {
+      "place": "Phuket",
+      "numbers": [
+        {
+          "Tourist Police": "1155"
+        },
+        {
+          "Phuket Police (Non-emergencies)": "0726 212 046"
+        },
+        {
+          "Suspected Crime Report": "1195"
+        }
+      ]
+    },
+    {
+      "place": "Pataya",
+      "numbers": [
+        {
+          "Tourist Hotline": "03842 9371"
+        },
+        {
+          "Pattaya Highway Police": "038 425 440"
+        },
+        {
+          "Pattaya City Police Station (Non-emergencies)": "038424186"
+        },
+        {
+          "Electricity Pattaya": "0-3842-6463"
+        }
+      ]
+    },
+    {
+      "place": "London",
+      "numbers": [
+        {
+          "Non-emergencies": "101"
+        }
+      ]
+    },
+    {
+      "place": "Singapore",
+      "numbers": [
+        {
+          "Police Hotline (Non-emergencies)": "1800 255 0000"
+        },
+        {
+          "Non-Emergency Ambulance": "1777"
+        },
+        {
+          "Traffic Police Information Hotline": "6547 0000"
+        },
+        {
+          "Building & Construction Authority": "6325 7191"
+        }
+      ]
+    },
+    {
+      "place": "Rome",
+      "numbers": [
+        {
+          "Road Accident Emergency Service": "800 116 800"
+        },
+        {
+          "Electricity": "800 130332"
+        },
+        {
+          "Gas": "800 900999"
+        },
+        {
+          "Water": "800 1303335"
+        },
+        {
+          "Domestic/Women Abuse": "1522"
+        }
+      ]
+    },
+    {
+      "place": "Tokyo",
+      "numbers": [
+        {
+          "Suicide Prevention Life Phone": "0120-783-556"
+        },
+        {
+          "Police non-Emergency": "#9110"
+        },
+        {
+          "Road Problem Reporting": "#9910"
+        },
+        {
+          "Foreign Residents Support Center FRESC ": "0570-011000"
+        }
+      ]
+    },
+    {
+      "place": "Paris",
+      "numbers": [
+        {
+          "Police Department (Non-emergencies)": "(903) 784-6688"
+        },
+        {
+          "Reporting child abuse": "119"
+        }
+      ]
+    },
+    {
+      "place": "Dubai",
+      "numbers": [
+        {
+          "Police Hotline (Non emergencies)": "901"
+        },
+        {
+          " Dubai Tourist Security ": "800 4438"
+        },
+        {
+          " Roads & Transport Authority": "800 90 90"
+        },
+        {
+          "Consumer Rights": "600 545 555"
+        }
+      ]
+    },
+    {
+      "place": "Mumbai",
+      "numbers": [
+        {
+          "Police Infoline": "1090"
+        },
+        {
+          " Railway Enquiry": "139"
+        },
+        {
+          " Tourist Police": "022-22621855"
+        },
+        {
+          "Women Helpline": "022-22633333"
+        }
+      ]
+    },
+    {
+      "place": "Delhi",
+      "numbers": [
+        {
+          "Non-emergency Police hotline": "513-825-2260"
+        },
+        {
+          "Tourist Helpline": "1363"
+        },
+        {
+          " Women Helpline": "1091"
+        },
+        {
+          "Road Accident Service": "1073"
+        },
+        {
+          " Railway Enquiry": "139"
+        }
+      ]
+    },
+    {
+      "place": "Lagos",
+      "numbers": [
+        {
+          "Non-emergency Police hotline": "08033011052"
+        },
+        {
+          "Domestic Violence": "8057542266"
+        },
+        {
+          "Lagos State Traffic Authority ": "08075005411 "
+        }
+      ]
+    }
+  ]
+}
