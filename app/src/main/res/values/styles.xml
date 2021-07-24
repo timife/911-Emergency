@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="universal_text">
+        <item name="android:textColor">
+            @color/on_surface
+        </item>
+        <item name="android:textStyle">
+            normal
+        </item>
+        <item name="android:fontFamily">
+
+        </item>
+    </style>
+</resources>
