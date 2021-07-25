@@ -9,16 +9,19 @@ import android.view.View
 import android.view.ViewGroup
 import com.timife.a911.EmergencyApplication
 import com.timife.a911.R
+import com.timife.a911.databinding.FragmentPrefBinding
 
 class PrefFragment : Fragment() {
+    private lateinit var binding: FragmentPrefBinding
 
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_pref, container, false)
+    ): View {
+        binding = FragmentPrefBinding.inflate(inflater)
+        return binding.root
     }
 
     override fun onAttach(context: Context) {

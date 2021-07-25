@@ -8,14 +8,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.timife.a911.EmergencyApplication
 import com.timife.a911.R
+import com.timife.a911.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {
+    private lateinit var binding: FragmentSearchBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_search, container, false)
+        binding = FragmentSearchBinding.inflate(inflater)
+
+
+
+        return binding.root
     }
 
     override fun onAttach(context: Context) {
