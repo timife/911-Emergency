@@ -108,6 +108,9 @@ dependencies {
 
     implementation "com.github.florent37:expansionpanel:1.2.4"
 
+    implementation 'com.github.RaviKoradiya:Toolbar-Center-Title:1.0.3'
+
+
 
 
 
