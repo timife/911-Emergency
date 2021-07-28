@@ -10,7 +10,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background=""
         tools:context=".emergencySearch.ui.SearchFragment">
 
 
@@ -29,15 +28,63 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="60dp"
+            android:id="@+id/search_constraint"
             android:background="@drawable/rounded_corner_back"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" >
+            <com.mancj.materialsearchbar.MaterialSearchBar
+                android:layout_width="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:id="@+id/search_bar"
+                android:layout_marginTop="22dp"
+                app:mt_searchIconTint="@color/searchBarIconColor"
+                style="@style/MaterialSearchBarLight"
+                app:mt_hint="Search Numbers"
+                app:mt_hintColor="@color/searchBarHintColor"
+                app:mt_placeholder="Search city, country"
+                app:mt_roundedSearchBarEnabled="true"
+                app:mt_maxSuggestionsCount="10"
+                app:layout_constraintTop_toTopOf="@id/search_constraint"
+                android:layout_height="48dp"/>
+
+            <TextView
+                android:id="@+id/no_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="260dp"
+                android:gravity="center"
+                android:text="@string/no_results_to_display"
+                android:textAppearance="@style/error_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_bar" />
+
+            <TextView
+                android:id="@+id/emergency_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="50dp"
+                android:minLines="3"
+                android:layout_marginStart="54dp"
+                android:layout_marginEnd="54dp"
+                android:textAppearance="@style/pre_info"
+                android:text="@string/use_emergency_services_if_you_require_immediate_help_and_non_emergency_services_if_you_require_non_immediate_help"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/no_result" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

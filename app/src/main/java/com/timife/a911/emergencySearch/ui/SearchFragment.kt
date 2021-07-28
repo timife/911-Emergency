@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.ravikoradiya.library.CenterTitle
 import com.timife.a911.EmergencyApplication
-import com.timife.a911.R
 import com.timife.a911.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {
@@ -18,8 +18,11 @@ class SearchFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+
         binding = FragmentSearchBinding.inflate(inflater)
+        CenterTitle.centerTitle(binding.searchToolbar, true)
+
         return binding.root
     }
 
@@ -32,6 +35,7 @@ class SearchFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         (requireActivity().application as EmergencyApplication).emergencyComponent.inject(this)
+
 
     }
 

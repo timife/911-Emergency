@@ -110,6 +110,8 @@ dependencies {
 
     implementation 'com.github.RaviKoradiya:Toolbar-Center-Title:1.0.3'
 
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
+
 
 
 
