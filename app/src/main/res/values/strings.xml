@@ -5,5 +5,10 @@
     <string name="saved">Saved Numbers</string>
     <string name="pref">Preferences</string>
     <string name="no_results_to_display">No results to display</string>
-    <string name="use_emergency_services_if_you_require_immediate_help_and_non_emergency_services_if_you_require_non_immediate_help">Use emergency services if you require <b><u>immediate help</u></b> and non-emergency services if you require <b><u>non-immediate help.</u></b></string>
+    <string name="use_emergency_services_if_you_require_immediate_help_and_non_emergency_services_if_you_require_non_immediate_help">Use emergency services if you require&lt;br /&gt;<b><u>immediate help</u></b> and non-emergency services&lt;br /&gt;if you require <b><u>non-immediate help.</u></b></string>
+    <string name="create_a_profile_to_save_numbers">Create a Profile to Save<br />Numbers</string>
+    <string name="create_a_profile_so_you_can_start_saving_numbers_from_the_home_and_search_directory_pages">Create a profile so you can start saving<br />numbers from the ‘Home’ and ‘Search’<br />directory pages.</string>
+    <string name="account">account</string>
+    <string name="bookmark">bookmark</string>
+    <string name="create_profile">Create Profile</string>
 </resources>
