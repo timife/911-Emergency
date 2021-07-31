@@ -11,11 +11,13 @@
         <entry key="app/src/main/res/drawable/ic_arrow.xml" value="0.2260135135135135" />
         <entry key="app/src/main/res/drawable/ic_bookmark.xml" value="0.2260135135135135" />
         <entry key="app/src/main/res/drawable/ic_bookmark_border.xml" value="0.2260135135135135" />
+        <entry key="app/src/main/res/drawable/ic_filter.xml" value="0.2260135135135135" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.28425925925925927" />
         <entry key="app/src/main/res/drawable/ic_pref.xml" value="0.28425925925925927" />
         <entry key="app/src/main/res/drawable/ic_saved.xml" value="0.28425925925925927" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.28425925925925927" />
         <entry key="app/src/main/res/drawable/rounded_corner_back.xml" value="0.34307692307692306" />
+        <entry key="app/src/main/res/font/poppins.xml" value="0.1358108108108108" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2798913043478261" />
         <entry key="app/src/main/res/layout/fragment_pref.xml" value="0.33229166666666665" />
@@ -23,6 +25,7 @@
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.2" />
         <entry key="app/src/main/res/layout/search_item.xml" value="0.2953703703703704" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/save_menu.xml" value="0.25" />
       </map>
     </option>
   </component>
