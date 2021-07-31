@@ -29,37 +29,38 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/search_constraint"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="60dp"
-            android:id="@+id/search_constraint"
             android:background="@drawable/rounded_corner_back"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent">
+
             <com.mancj.materialsearchbar.MaterialSearchBar
-                android:layout_width="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
                 android:id="@+id/search_bar"
-                android:layout_marginTop="22dp"
-                app:mt_searchIconTint="@color/searchBarIconColor"
                 style="@style/MaterialSearchBarLight"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintTop_toTopOf="@id/search_constraint"
                 app:mt_hint="Search Numbers"
-                app:mt_searchIconDrawable="@drawable/ic_search"
                 app:mt_hintColor="@color/searchBarHintColor"
+                app:mt_maxSuggestionsCount="10"
                 app:mt_placeholder="Search city, country"
                 app:mt_roundedSearchBarEnabled="true"
-                app:mt_maxSuggestionsCount="10"
-                app:layout_constraintTop_toTopOf="@id/search_constraint"
-                android:layout_height="48dp"/>
+                app:mt_searchIconDrawable="@drawable/ic_search"
+                app:mt_searchIconTint="@color/searchBarIconColor" />
 
             <TextView
                 android:id="@+id/no_result"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="260dp"
+                android:layout_marginTop="200dp"
                 android:gravity="center"
                 android:text="@string/no_results_to_display"
                 android:textAppearance="@style/error_text"
@@ -72,11 +73,11 @@
                 android:id="@+id/emergency_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="50dp"
+                android:gravity="center"
                 android:minLines="3"
-                android:textAppearance="@style/pre_info"
                 android:text="@string/use_emergency_services_if_you_require_immediate_help_and_non_emergency_services_if_you_require_non_immediate_help"
+                android:textAppearance="@style/pre_info"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
