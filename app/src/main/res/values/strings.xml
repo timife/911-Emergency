@@ -15,4 +15,7 @@
     <string name="access_the_save_number_option_under_icon_on_the_home_and_search_directory_pages">Access the save number option under icon<br /> on the ‘Home’ and ‘Search’ directory pages.</string>
     <string name="save_numbers_from">Save Numbers from</string>
     <string name="filter">Filter</string>
+    <string name="give_feedback">Give Feedback</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="report_issue">Report Issue</string>
 </resources>
