@@ -24,5 +24,30 @@
         android:id="@+id/prefFragment"
         android:name="com.timife.a911.emergencyPref.ui.PrefFragment"
         android:label="Preferences"
-        tools:layout="@layout/fragment_pref" />
+        tools:layout="@layout/fragment_pref" >
+        <action
+            android:id="@+id/action_prefFragment_to_feedBackFragment"
+            app:destination="@id/feedBackFragment" />
+        <action
+            android:id="@+id/action_prefFragment_to_reportIssueFragment"
+            app:destination="@id/reportIssueFragment" />
+        <action
+            android:id="@+id/action_prefFragment_to_privacyFragment"
+            app:destination="@id/privacyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedBackFragment"
+        tools:layout="@layout/fragment_feed_back"
+        android:name="com.timife.a911.emergencyPref.ui.FeedBackFragment"
+        android:label="FeedBackFragment" />
+    <fragment
+        android:id="@+id/privacyFragment"
+        tools:layout="@layout/fragment_privacy"
+        android:name="com.timife.a911.emergencyPref.ui.PrivacyFragment"
+        android:label="PrivacyFragment" />
+    <fragment
+        android:id="@+id/reportIssueFragment"
+        tools:layout="@layout/fragment_report_issue"
+        android:name="com.timife.a911.emergencyPref.ui.ReportIssueFragment"
+        android:label="ReportIssueFragment" />
 </navigation>
