@@ -2,6 +2,7 @@ package com.timife.a911.di
 
 import android.content.Context
 import com.timife.a911.MainActivity
+import com.timife.a911.createProfile.ui.CreateProfileFragment
 import com.timife.a911.di.modules.AppModule
 import com.timife.a911.di.modules.BindModule
 import com.timife.a911.di.modules.ViewModelBuilderModule
@@ -27,6 +28,7 @@ interface EmergencyComponent {
     fun inject(fragment: SearchFragment)
     fun inject(fragment:SaveFragment)
     fun inject(fragment:PrefFragment)
+    fun inject(fragment:CreateProfileFragment)
 
 
     fun inject(activity: MainActivity)

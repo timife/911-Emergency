@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "206025054691",
+    "project_id": "emergency-33e13",
+    "storage_bucket": "emergency-33e13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206025054691:android:6dee799f41929d92b568d6",
+        "android_client_info": {
+          "package_name": "com.timife.a911"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206025054691-u72rb3jd7j8t2of1685c0t3hlvbg0ujq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP8y69HQy4oZCwArflzJZGTkwU1kQDj3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206025054691-u72rb3jd7j8t2of1685c0t3hlvbg0ujq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
