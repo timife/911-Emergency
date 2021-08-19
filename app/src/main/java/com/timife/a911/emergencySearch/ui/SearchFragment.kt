@@ -17,21 +17,19 @@ class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private lateinit var navController: NavController
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
         binding = FragmentSearchBinding.inflate(inflater)
-        CenterTitle.centerTitle(binding.searchToolbar, true)
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = findNavController()
-        binding.searchToolbar.setupWithNavController(navController)
     }
 
     override fun onAttach(context: Context) {

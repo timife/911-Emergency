@@ -10,22 +10,37 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/primary"
         tools:context=".emergencySave.ui.SaveFragment">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/save_appbar"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="53dp"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/saved"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/save_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="60dp" />
-
-        </com.google.android.material.appbar.AppBarLayout>
+            app:layout_constraintStart_toStartOf="parent" />
+        <ImageButton
+            android:id="@+id/filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:clickable="true"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/primary"
+            android:src="@drawable/ic_filter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/toolbar_title"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/filter"
+            android:focusable="true" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/save_constraint"
@@ -36,7 +51,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/toolbar_title">
 
             <TextView
                 android:id="@+id/create_profile"
@@ -132,7 +147,10 @@
                 android:id="@+id/error_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="180dp"
+                android:layout_marginTop="210dp"
+                android:clickable="true"
+                android:background="@drawable/custom_ripple"
+                android:focusable="true"
                 android:contentDescription="@string/bookmark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -143,7 +161,7 @@
                 android:id="@+id/no_saved_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:gravity="center"
                 android:minLines="2"
                 android:text="@string/you_have_no_numbers_saved"
@@ -172,7 +190,6 @@
                 android:layout_width="200dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="25dp"
-                android:background="@drawable/custom_ripple"
                 app:cardBackgroundColor="@color/primary"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -181,8 +198,10 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/custom_ripple">
+                    android:focusable="true"
+                    android:background="@drawable/custom_ripple"
+                    android:clickable="true"
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/save_text"
@@ -215,7 +234,6 @@
                 android:layout_width="200dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="18dp"
-                android:background="@drawable/custom_ripple"
                 app:cardBackgroundColor="@color/primary"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -224,8 +242,10 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/custom_ripple">
+                    android:clickable="true"
+                    android:background="@drawable/custom_ripple"
+                    android:focusable="true"
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/save_text_from_home"

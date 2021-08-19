@@ -5,14 +5,14 @@
     <string name="saved">Saved Numbers</string>
     <string name="pref">Preferences</string>
     <string name="no_results_to_display">No results to display</string>
-    <string name="use_emergency_services_if_you_require_immediate_help_and_non_emergency_services_if_you_require_non_immediate_help">Use emergency services if you require&lt;br /&gt;<b><u>immediate help</u></b> and non-emergency services&lt;br /&gt;if you require <b><u>non-immediate help.</u></b></string>
+    <string name="use_emergency_services_if_you_require_immediate_help_and_non_emergency_services_if_you_require_non_immediate_help">Use emergency services if you require \n <b><u>immediate help</u></b> and non-emergency services \n if you require <b><u>non-immediate help.</u></b></string>
     <string name="create_a_profile_to_save_numbers">Create a Profile to Save<br />Numbers</string>
-    <string name="create_a_profile_so_you_can_start_saving_numbers_from_the_home_and_search_directory_pages">Create a profile so you can start saving<br />numbers from the ‘Home’ and ‘Search’<br />directory pages.</string>
+    <string name="create_a_profile_so_you_can_start_saving_numbers_from_the_home_and_search_directory_pages">Create a profile so you can start saving \n numbers from the ‘Home’ and ‘Search’ \n directory pages.</string>
     <string name="account">account</string>
     <string name="bookmark">bookmark</string>
     <string name="create_profile">Create Profile</string>
     <string name="you_have_no_numbers_saved">You Have No Numbers Saved</string>
-    <string name="access_the_save_number_option_under_icon_on_the_home_and_search_directory_pages">Access the save number option under icon<br /> on the ‘Home’ and ‘Search’ directory pages.</string>
+    <string name="access_the_save_number_option_under_icon_on_the_home_and_search_directory_pages">Access the save number option under icon \n on the ‘Home’ and ‘Search’ directory pages.</string>
     <string name="save_numbers_from">Save Numbers from</string>
     <string name="filter">Filter</string>
     <string name="give_feedback">Give Feedback</string>
@@ -21,4 +21,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="by_saving_this_profile_you_agree_to_911_s_privacy_policy">By saving this profile you agree to 911+’s <br /><u>Privacy Policy</u>.</string>
+    <string name="save_profile">Save Profile</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
 </resources>

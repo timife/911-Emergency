@@ -14,7 +14,11 @@
         android:id="@+id/saveFragment"
         android:name="com.timife.a911.emergencySave.ui.SaveFragment"
         android:label="Saved Numbers"
-        tools:layout="@layout/fragment_save" />
+        tools:layout="@layout/fragment_save" >
+        <action
+            android:id="@+id/action_saveFragment_to_createProfileFragment"
+            app:destination="@id/createProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.timife.a911.emergencySearch.ui.SearchFragment"
@@ -50,4 +54,9 @@
         tools:layout="@layout/fragment_report_issue"
         android:name="com.timife.a911.emergencyPref.ui.ReportIssueFragment"
         android:label="ReportIssueFragment" />
+    <dialog
+        android:id="@+id/createProfileFragment"
+        android:name="com.timife.a911.createProfile.ui.CreateProfileFragment"
+        android:label="CreateProfileFragment"
+        tools:layout="@layout/fragment_create_profile"/>
 </navigation>

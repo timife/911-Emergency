@@ -31,7 +31,7 @@ interface EmergencyComponent {
     fun inject(fragment:CreateProfileFragment)
 
 
-    fun inject(activity: MainActivity)
+//    fun inject(activity: MainActivity)
 
 }
 

@@ -12,6 +12,7 @@ import com.ravikoradiya.library.CenterTitle
 import com.timife.a911.EmergencyApplication
 import com.timife.a911.R
 import com.timife.a911.databinding.FragmentSaveBinding
+import com.timife.a911.databinding.FragmentSearchBinding
 
 class SaveFragment : Fragment() {
     private lateinit var binding: FragmentSaveBinding
@@ -22,15 +23,14 @@ class SaveFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSaveBinding.inflate(inflater)
-        CenterTitle.centerTitle(binding.saveToolbar, true)
         return binding.root
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         (requireActivity().application as EmergencyApplication).emergencyComponent.inject(this)
-        navController = findNavController()
-        binding.saveToolbar.setupWithNavController(navController)
+//        navController = findNavController()
+//        binding.saveToolbar.setupWithNavController(navController)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
