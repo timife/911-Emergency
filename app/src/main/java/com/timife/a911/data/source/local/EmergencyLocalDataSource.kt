@@ -3,18 +3,18 @@ package com.timife.a911.data.source.local
 import com.timife.a911.data.EmergencyInfo
 import com.timife.a911.data.Result
 import com.timife.a911.data.source.EmergencyDataSource
-
+import com.timife.a911.di.qualifiers.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class EmergencyLocalDataSource @Inject constructor(
         private val emergencyDao: EmergencyDao,
-        private val ioDispatcher: CoroutineDispatcher =
-                Dispatchers.IO
+        @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : EmergencyDataSource{
     override suspend fun upsert(item: EmergencyInfo) {
-        TODO("Not yet implemented")
+
     }
 
     override suspend fun delete(item: EmergencyInfo) {
