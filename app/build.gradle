@@ -18,7 +18,7 @@ android {
 
     defaultConfig {
         applicationId "com.timife.a911"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -116,6 +116,11 @@ dependencies {
 //    implementation 'com.google.firebase:firebase-analytics-ktx'
 //    implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'de.hdodenhof:circleimageview:2.1.0'
+
+    //Moshi
+    implementation "com.squareup.moshi:moshi:1.8.0"
+    implementation "com.squareup.moshi:moshi-kotlin:1.8.0"
+
 
 
 

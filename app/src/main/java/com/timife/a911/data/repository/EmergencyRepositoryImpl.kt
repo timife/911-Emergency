@@ -1,7 +1,7 @@
 package com.timife.a911.data.repository
 
-import com.timife.a911.data.EmergencyInfo
 import com.timife.a911.data.Result
+import com.timife.a911.data.model.databasemodel.EmergencyInfo
 import com.timife.a911.data.source.EmergencyDataSource
 import com.timife.a911.di.qualifiers.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
