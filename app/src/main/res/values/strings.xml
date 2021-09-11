@@ -28,4 +28,5 @@
     <string name="map_view">Map View</string>
     <string name="map_off">Map Off</string>
     <string name="map_on">Map On</string>
+    <string name="logo">logo</string>
 </resources>

@@ -20,12 +20,15 @@
         <entry key="app/src/main/res/drawable/ic_pref_arrow.xml" value="0.2260135135135135" />
         <entry key="app/src/main/res/drawable/ic_saved.xml" value="0.28425925925925927" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.28425925925925927" />
+        <entry key="app/src/main/res/drawable/nine.xml" value="0.22398648648648647" />
+        <entry key="app/src/main/res/drawable/one.xml" value="0.22398648648648647" />
+        <entry key="app/src/main/res/drawable/plus.xml" value="0.22398648648648647" />
         <entry key="app/src/main/res/drawable/rounded_corner_back.xml" value="0.34307692307692306" />
         <entry key="app/src/main/res/font/poppins.xml" value="0.1358108108108108" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16395864106351551" />
         <entry key="app/src/main/res/layout/fragment_create_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_feed_back.xml" value="0.20540540540540542" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_pref.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_privacy.xml" value="0.21554054054054053" />
         <entry key="app/src/main/res/layout/fragment_report_issue.xml" value="0.21554054054054053" />
