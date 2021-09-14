@@ -52,7 +52,6 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:background="@drawable/custom_ripple"
                 android:clickable="true"
                 android:focusable="true"
                 android:id="@+id/privacy_policy">
@@ -84,7 +83,6 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:clickable="true"
-                android:background="@drawable/custom_ripple"
                 android:focusable="true"
                 android:layout_height="75dp"
                 android:id="@+id/report_issue">

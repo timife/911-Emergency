@@ -18,7 +18,7 @@
             android:layout_height="53dp"
             android:gravity="center"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Search Directory"
+            android:text="@string/search_directory"
             android:textSize="22sp"
             android:textColor="@color/white"
             android:textStyle="bold"
