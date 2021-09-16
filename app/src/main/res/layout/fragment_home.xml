@@ -25,6 +25,7 @@
                 android:layout_width="30dp"
                 android:layout_height="60dp"
                 android:id="@+id/nine"
+                android:src="@drawable/nine"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="30dp"
@@ -34,6 +35,7 @@
             <ImageView
                 android:id="@+id/one_1"
                 android:layout_width="20dp"
+                android:src="@drawable/one"
                 android:layout_height="60dp"
                 app:layout_constraintBottom_toBottomOf="@id/nine"
                 app:layout_constraintStart_toEndOf="@id/nine"
@@ -44,6 +46,7 @@
                 android:id="@+id/one_2"
                 android:layout_width="20dp"
                 android:layout_height="60dp"
+                android:src="@drawable/one"
                 app:layout_constraintBottom_toBottomOf="@id/one_1"
                 app:layout_constraintStart_toEndOf="@id/one_1"
                 android:contentDescription="@string/logo" />
@@ -51,6 +54,7 @@
             <ImageView
                 android:id="@+id/plus"
                 android:layout_width="20dp"
+                android:src="@drawable/plus"
                 android:layout_height="60dp"
                 app:layout_constraintBottom_toBottomOf="@id/one_2"
                 app:layout_constraintStart_toEndOf="@id/one_2"
