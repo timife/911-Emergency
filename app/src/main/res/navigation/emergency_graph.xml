@@ -43,17 +43,17 @@
         android:id="@+id/feedBackFragment"
         tools:layout="@layout/fragment_feed_back"
         android:name="com.timife.a911.emergencyPref.ui.FeedBackFragment"
-        android:label="FeedBackFragment" />
+         />
     <fragment
         android:id="@+id/privacyFragment"
         tools:layout="@layout/fragment_privacy"
         android:name="com.timife.a911.emergencyPref.ui.PrivacyFragment"
-        android:label="PrivacyFragment" />
+         />
     <fragment
         android:id="@+id/reportIssueFragment"
         tools:layout="@layout/fragment_report_issue"
         android:name="com.timife.a911.emergencyPref.ui.ReportIssueFragment"
-        android:label="ReportIssueFragment" />
+         />
     <dialog
         android:id="@+id/createProfileFragment"
         android:name="com.timife.a911.createProfile.ui.CreateProfileFragment"

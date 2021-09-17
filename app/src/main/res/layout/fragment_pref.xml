@@ -12,20 +12,20 @@
         android:layout_height="match_parent"
         android:background="@color/primary"
         tools:context=".emergencyPref.ui.PrefFragment">
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="53dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/pref"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-        <TextView
-            android:id="@+id/toolbar_title"
-            android:layout_width="wrap_content"
-            android:layout_height="53dp"
-            android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/pref"
-            android:textSize="22sp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/pref_constraint"
@@ -52,7 +52,9 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
+                android:layout_marginTop="22dp"
                 android:clickable="true"
+                android:background="@drawable/custom_ripple"
                 android:focusable="true"
                 android:id="@+id/privacy_policy">
 
@@ -83,6 +85,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:clickable="true"
+                android:background="@drawable/custom_ripple"
                 android:focusable="true"
                 android:layout_height="75dp"
                 android:id="@+id/report_issue">
