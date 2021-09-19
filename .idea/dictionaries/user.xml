@@ -2,6 +2,7 @@
   <dictionary name="user">
     <words>
       <w>datasource</w>
+      <w>povider</w>
       <w>subcomponents</w>
       <w>timife</w>
       <w>upsert</w>

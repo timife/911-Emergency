@@ -31,4 +31,5 @@
     <string name="logo">logo</string>
     <string name="search_directory">Search Directory</string>
     <string name="privacy">Privacy</string>
+    <string name="location">location</string>
 </resources>
