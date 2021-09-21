@@ -157,8 +157,9 @@
             android:textColor="@color/white"
             android:textOff="@string/map_off"
             android:textOn="@string/map_on"
+            android:layout_marginEnd="60dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/profile_image"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:trackTint="@color/on_background" />
 

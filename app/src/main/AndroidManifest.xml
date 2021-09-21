@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.911Emergency"
         android:fullBackupContent="true">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key"/>
         <activity android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

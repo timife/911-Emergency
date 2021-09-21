@@ -6,16 +6,20 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
+import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.SwitchCompat
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -63,25 +67,36 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     }
 
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater)
+        isLocationServicesEnabled()
         initGoogleMap(savedInstanceState)
 
-        isLocationServicesEnabled()
+        //MapView Switch functionality
+        val switch: SwitchCompat = binding.mapSwitch
+        switch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                binding.map.visibility = View.VISIBLE
+                binding.locationLayout.visibility = View.GONE
+                binding.profileImage.visibility = View.GONE
+                binding.mapSwitch.setTextColor(Color.BLACK)
+            } else {
+                binding.map.visibility = View.GONE
+                binding.locationLayout.visibility = View.VISIBLE
+                binding.profileImage.visibility = View.VISIBLE
+                binding.mapSwitch.setTextColor(Color.WHITE)
+            }
+        }
 
         return binding.root
     }
 
-    private fun initGoogleMap(savedInstanceState: Bundle?) {
-        val mapViewBundle = savedInstanceState?.getBundle(MAPVIEW_BUNDLE_KEY)
-        mapView = binding.map
-        mapView.onCreate(mapViewBundle)
-        mapView.getMapAsync(this)
-    }
-
+    //Check if location and GPS is enabled or otherwise.
     private fun isLocationServicesEnabled() {
         val lm: LocationManager =
             requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -90,6 +105,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         try {
             gpsEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER)
         } catch (ex: java.lang.Exception) {
+
         }
 
         if (!gpsEnabled) {
@@ -103,6 +119,14 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                 .show()
         }
     }
+
+    private fun initGoogleMap(savedInstanceState: Bundle?) {
+        val mapViewBundle = savedInstanceState?.getBundle(MAPVIEW_BUNDLE_KEY)
+        mapView = binding.map
+        mapView.onCreate(mapViewBundle)
+        mapView.getMapAsync(this)
+    }
+
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -187,8 +211,8 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     private fun updateLocation() {
         val locationRequest = LocationRequest()
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        locationRequest.interval = 10000
-        locationRequest.fastestInterval = 5000
+        locationRequest.interval = 5000
+        locationRequest.fastestInterval = 2500
         FusedLocationProviderClient(requireActivity()).also { mFusedLocationPoviderClient = it }
         if (ActivityCompat.checkSelfPermission(
                 requireContext(),
@@ -209,33 +233,51 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     }
 
     private var mLocationCallback = object : LocationCallback() {
-        override fun onLocationResult(p0: LocationResult?) {
-            val location: Location = p0!!.lastLocation
+        override fun onLocationResult(locationResult: LocationResult?) {
+            val location: Location = locationResult!!.lastLocation
             map.clear()
             val homeLatLng = LatLng(location.latitude, location.longitude)
             val zoomLevel = 15f
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
             map.addMarker(MarkerOptions().position(homeLatLng))
 
-//            updateAddressUI(location)
+            updateAddressUI(location)
         }
     }
 
-//    private fun updateAddressUI(location: Location) {
-//        val geocoder: Geocoder
-//        val addressList: ArrayList<Address>
-//        try {
-//            geocoder = Geocoder(requireContext(), Locale.getDefault())
-//            addressList = geocoder.getFromLocation(
-//                location.latitude,
-//                location.longitude,
-//                1
-//            ) as ArrayList<Address>
-//            binding.locationAddress.text = "You are at " + addressList[0].getAddressLine(0)
-//            setUpEmergencyNumbers(addressList[0].adminArea, addressList[0].countryName)
-//        } catch (e: Exception) {
-//            binding.locationAddress.text = "Error loading address"
-//        }    }
+    private fun updateAddressUI(location: Location) {
+        val geocoder: Geocoder
+        val addressList: ArrayList<Address>
+        try {
+            geocoder = Geocoder(requireContext(), Locale.getDefault())
+            addressList = geocoder.getFromLocation(
+                location.latitude,
+                location.longitude,
+                1
+            ) as ArrayList<Address>
+            binding.locationAddress.text = "You are at " + addressList[0].getAddressLine(0)
+            setUpEmergencyNumbers(addressList[0].adminArea, addressList[0].countryName)
+        } catch (e: Exception) {
+            binding.locationAddress.text = "Error loading address"
+        }
+    }
+
+    private fun setUpEmergencyNumbers(adminArea: String?, countryName: String?) {
+//        Toast.makeText(requireContext(), "This is a setup Emergency", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == REQUEST_LOCATION_PERMISSION) {
+            if (grantResults.isNotEmpty() && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                enableMyLocation(map)
+                //get address
+            }
+        }
+    }
 
 
 }
