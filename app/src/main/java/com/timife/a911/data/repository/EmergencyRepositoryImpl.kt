@@ -2,9 +2,12 @@ package com.timife.a911.data.repository
 
 import com.timife.a911.data.Result
 import com.timife.a911.data.model.databasemodel.EmergencyInfo
+import com.timife.a911.data.model.jsonmodel.Emergency
+import com.timife.a911.data.model.jsonmodel.NonEmergency
 import com.timife.a911.data.source.EmergencyDataSource
 import com.timife.a911.di.qualifiers.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class EmergencyRepositoryImpl @Inject constructor(
@@ -30,4 +33,18 @@ class EmergencyRepositoryImpl @Inject constructor(
     override suspend fun getNonEmergencyServicesItem(): Result<List<EmergencyInfo>> {
         TODO("Not yet implemented")
     }
+
+    override suspend fun getEmergencyNumbers(): ArrayList<Emergency> {
+       return withContext(ioDispatcher){
+            emergencyLocalDataSource.getEmergencyNumbers()
+        }
+    }
+
+
+    override suspend fun getNonEmergencyNumbers(): ArrayList<NonEmergency> {
+        return withContext(ioDispatcher){
+            emergencyLocalDataSource.getNonEmergencyNumbers()
+        }
+    }
+
 }

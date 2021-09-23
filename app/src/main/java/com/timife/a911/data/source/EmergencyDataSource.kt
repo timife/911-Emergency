@@ -2,6 +2,8 @@ package com.timife.a911.data.source
 
 import com.timife.a911.data.Result
 import com.timife.a911.data.model.databasemodel.EmergencyInfo
+import com.timife.a911.data.model.jsonmodel.Emergency
+import com.timife.a911.data.model.jsonmodel.NonEmergency
 
 interface EmergencyDataSource {
     suspend fun upsert(item: EmergencyInfo)
@@ -13,4 +15,10 @@ interface EmergencyDataSource {
     suspend fun getEmergencyServicesItem(): Result<List<EmergencyInfo>>
 
     suspend fun getNonEmergencyServicesItem(): Result<List<EmergencyInfo>>
+
+    suspend fun getEmergencyNumbers():ArrayList<Emergency>
+
+    suspend fun getNonEmergencyNumbers():ArrayList<NonEmergency>
+
+
 }

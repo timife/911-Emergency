@@ -2,9 +2,8 @@ package com.timife.a911.data.model.jsonmodel
 
 import android.os.Parcelable
 import com.squareup.moshi.Json
-import kotlinx.android.parcel.Parcelize
 
-@Parcelize
+@kotlinx.parcelize.Parcelize
 data class Emergency(
     @Json(name = "Country") val country: String?,
     @Json(name = "Ambulance") val ambulance: String?,
