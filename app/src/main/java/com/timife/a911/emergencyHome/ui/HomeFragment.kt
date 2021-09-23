@@ -92,7 +92,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                 binding.mapSwitch.setTextColor(Color.WHITE)
             }
         }
-
         return binding.root
     }
 
@@ -101,7 +100,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         val lm: LocationManager =
             requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
         var gpsEnabled = false
-
         try {
             gpsEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER)
         } catch (ex: java.lang.Exception) {
@@ -245,6 +243,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateAddressUI(location: Location) {
         val geocoder: Geocoder
         val addressList: ArrayList<Address>
