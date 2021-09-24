@@ -25,6 +25,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -35,7 +36,10 @@ import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.timife.a911.EmergencyApplication
+import com.timife.a911.HomeAdapter
 import com.timife.a911.databinding.FragmentHomeBinding
 import java.util.*
 import javax.inject.Inject
@@ -43,6 +47,8 @@ import javax.inject.Inject
 const val REQUEST_LOCATION_PERMISSION = 1
 
 class HomeFragment : Fragment(), OnMapReadyCallback {
+
+
 
     companion object {
         private const val MAPVIEW_BUNDLE_KEY = "MapViewBundleKey"
@@ -52,6 +58,10 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     private lateinit var map: GoogleMap
 
     private lateinit var binding: FragmentHomeBinding
+
+
+    private lateinit var viewPager: ViewPager2
+    private lateinit var tabLayout: TabLayout
 
     private lateinit var mFusedLocationPoviderClient: FusedLocationProviderClient
 
@@ -74,6 +84,9 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater)
+        viewPager = binding.viewPager
+        tabLayout = binding.tabLayout
+        setupViewPager(tabLayout, viewPager)
         isLocationServicesEnabled()
         initGoogleMap(savedInstanceState)
 
@@ -93,6 +106,20 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             }
         }
         return binding.root
+    }
+
+    private fun setupViewPager(tabLayout: TabLayout, viewPager: ViewPager2) {
+        val adapter =
+            ViewPagerAdapter(childFragmentManager, lifecycle)
+//        adapter.addFragment(ESvFragment())
+//        adapter.addFragment(NonESvFragment())
+        viewPager.adapter = adapter
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            when (position) {
+                0 -> tab.text = "EMERGENCY SERVICES"
+                1 -> tab.text = "NON-EMERGENCY SERVICES"
+            }
+        }.attach()
     }
 
     //Check if location and GPS is enabled or otherwise.
