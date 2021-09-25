@@ -1,20 +1,29 @@
 package com.timife.a911.data.source.local
 
-import com.timife.a911.data.EmergencyInfo
+import android.content.Context
+import android.util.Log
+import android.widget.Toast
+import com.timife.a911.R
+import com.timife.a911.Utils
 import com.timife.a911.data.Result
+import com.timife.a911.data.model.databasemodel.EmergencyInfo
+import com.timife.a911.data.model.jsonmodel.Emergency
+import com.timife.a911.data.model.jsonmodel.NonEmergency
 import com.timife.a911.data.source.EmergencyDataSource
-
+import com.timife.a911.di.qualifiers.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import org.json.JSONArray
+import org.json.JSONObject
 import javax.inject.Inject
 
 class EmergencyLocalDataSource @Inject constructor(
         private val emergencyDao: EmergencyDao,
-        private val ioDispatcher: CoroutineDispatcher =
-                Dispatchers.IO
+        @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
+        private val context: Context
 ) : EmergencyDataSource{
     override suspend fun upsert(item: EmergencyInfo) {
-        TODO("Not yet implemented")
+
     }
 
     override suspend fun delete(item: EmergencyInfo) {
@@ -32,5 +41,44 @@ class EmergencyLocalDataSource @Inject constructor(
     override suspend fun getNonEmergencyServicesItem(): Result<List<EmergencyInfo>> {
         TODO("Not yet implemented")
     }
+
+    override suspend fun getEmergencyNumbers(): ArrayList<Emergency> =
+        withContext(ioDispatcher){
+            val json = Utils.getJsonDataFromAsset(context ,R.raw.emergency_numbers)
+            val jsonObject: JSONObject = JSONObject(json!!)
+            val emergencyNumbers : JSONArray = jsonObject.getJSONArray("emergency_numbers")
+            val allEmergencyNumbers = ArrayList<Emergency>()
+            for(i in 0 until emergencyNumbers.length()){
+                val item = emergencyNumbers.getJSONObject(i)
+                val singleEmergencyNo =
+                    Emergency(item.getJSONObject("Country").getString("Name"),
+                        item.getJSONObject("Ambulance").getJSONArray("All").get(0)?.toString(),
+                        item.getJSONObject("Fire").getJSONArray("All").get(0)?.toString(),
+                        item.getJSONObject("Police").getJSONArray("All").get(0)?.toString())
+                allEmergencyNumbers.add(singleEmergencyNo)
+            }
+            return@withContext allEmergencyNumbers
+        }
+
+    override suspend fun getNonEmergencyNumbers(): ArrayList<NonEmergency> =
+        withContext(ioDispatcher){
+            val json = Utils.getJsonDataFromAsset(context,R.raw.non_emergency_numbers)
+            val jsonObject: JSONObject = JSONObject(json!!)
+            val nonEmergencyNumbers : JSONArray = jsonObject.getJSONArray("non_emergency_numbers")
+            val nonEmergencyList = ArrayList<NonEmergency>()
+            for(i in 0 until nonEmergencyNumbers.length()){
+                val item = nonEmergencyNumbers.getJSONObject(i)
+                val numbersArray = item.getJSONArray("numbers")
+                val numbers = mutableMapOf<Any,Any>()
+                for(j in 0 until numbersArray.length()){
+                    val numberItem = numbersArray.getJSONObject(j)
+                    val key = numberItem.keys().next()
+                    numbers[key] = numberItem.getString(key)
+                }
+                val singleNonEmergencyNo = NonEmergency(item.getString("place"),numbers)
+                nonEmergencyList.add(singleNonEmergencyNo)
+            }
+            return@withContext nonEmergencyList
+        }
 
 }

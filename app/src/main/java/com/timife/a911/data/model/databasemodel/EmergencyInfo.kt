@@ -1,4 +1,4 @@
-package com.timife.a911.data
+package com.timife.a911.data.model.databasemodel
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -17,4 +17,3 @@ data class EmergencyInfo(
     var place: String
 )
 
-data class NonEmergency(val place: String, val numbers: Map<Any, Any>)

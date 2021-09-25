@@ -14,15 +14,49 @@
         android:id="@+id/saveFragment"
         android:name="com.timife.a911.emergencySave.ui.SaveFragment"
         android:label="Saved Numbers"
-        tools:layout="@layout/fragment_save" />
+        tools:layout="@layout/fragment_save" >
+        <action
+            android:id="@+id/action_saveFragment_to_createProfileFragment"
+            app:destination="@id/createProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.timife.a911.emergencySearch.ui.SearchFragment"
-        android:label="Search"
+        android:label="Search Directory"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/prefFragment"
         android:name="com.timife.a911.emergencyPref.ui.PrefFragment"
         android:label="Preferences"
-        tools:layout="@layout/fragment_pref" />
+        tools:layout="@layout/fragment_pref" >
+        <action
+            android:id="@+id/action_prefFragment_to_feedBackFragment"
+            app:destination="@id/feedBackFragment" />
+        <action
+            android:id="@+id/action_prefFragment_to_reportIssueFragment"
+            app:destination="@id/reportIssueFragment" />
+        <action
+            android:id="@+id/action_prefFragment_to_privacyFragment"
+            app:destination="@id/privacyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedBackFragment"
+        tools:layout="@layout/fragment_feed_back"
+        android:name="com.timife.a911.emergencyPref.ui.FeedBackFragment"
+         />
+    <fragment
+        android:id="@+id/privacyFragment"
+        tools:layout="@layout/fragment_privacy"
+        android:name="com.timife.a911.emergencyPref.ui.PrivacyFragment"
+         />
+    <fragment
+        android:id="@+id/reportIssueFragment"
+        tools:layout="@layout/fragment_report_issue"
+        android:name="com.timife.a911.emergencyPref.ui.ReportIssueFragment"
+         />
+    <dialog
+        android:id="@+id/createProfileFragment"
+        android:name="com.timife.a911.createProfile.ui.CreateProfileFragment"
+        android:label="CreateProfileFragment"
+        tools:layout="@layout/fragment_create_profile"/>
 </navigation>

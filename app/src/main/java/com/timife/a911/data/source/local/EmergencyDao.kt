@@ -1,7 +1,7 @@
 package com.timife.a911.data.source.local
 
 import androidx.room.*
-import com.timife.a911.data.EmergencyInfo
+import com.timife.a911.data.model.databasemodel.EmergencyInfo
 
 @Dao
 interface EmergencyDao {
@@ -21,4 +21,6 @@ interface EmergencyDao {
 
     @Query("SELECT * from emergency_info WHERE type = :emergencyType ")
     fun getSavedEmergencyItem(emergencyType: String): List<EmergencyInfo>
+
+
 }
