@@ -19,6 +19,7 @@
         <entry key="app/src/main/res/drawable/ic_home_profile_circle.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.21776315789473685" />
         <entry key="app/src/main/res/drawable/ic_location.xml" value="0.21776315789473685" />
+        <entry key="app/src/main/res/drawable/ic_phone.xml" value="0.3453125" />
         <entry key="app/src/main/res/drawable/ic_pref.xml" value="0.28425925925925927" />
         <entry key="app/src/main/res/drawable/ic_pref_arrow.xml" value="0.2260135135135135" />
         <entry key="app/src/main/res/drawable/ic_saved.xml" value="0.28425925925925927" />
@@ -32,6 +33,7 @@
         <entry key="app/src/main/res/font/poppins.xml" value="0.1358108108108108" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16395864106351551" />
         <entry key="app/src/main/res/layout/fragment_create_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_e_sv.xml" value="0.32916666666666666" />
         <entry key="app/src/main/res/layout/fragment_feed_back.xml" value="0.20540540540540542" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_pref.xml" value="0.22" />

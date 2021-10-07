@@ -16,9 +16,9 @@ interface EmergencyDataSource {
 
     suspend fun getNonEmergencyServicesItem(): Result<List<EmergencyInfo>>
 
-    suspend fun getEmergencyNumbers():ArrayList<Emergency>
+    fun getEmergencyNumbers():ArrayList<Emergency>
 
-    suspend fun getNonEmergencyNumbers():ArrayList<NonEmergency>
+    fun getNonEmergencyNumbers():ArrayList<NonEmergency>
 
 
 }

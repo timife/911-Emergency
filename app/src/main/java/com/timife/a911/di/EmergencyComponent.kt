@@ -4,7 +4,9 @@ import android.content.Context
 import com.timife.a911.MainActivity
 import com.timife.a911.createProfile.ui.CreateProfileFragment
 import com.timife.a911.di.modules.*
+import com.timife.a911.emergencyHome.ui.ESvFragment
 import com.timife.a911.emergencyHome.ui.HomeFragment
+import com.timife.a911.emergencyHome.ui.NonESvFragment
 import com.timife.a911.emergencyPref.ui.PrefFragment
 import com.timife.a911.emergencySave.ui.SaveFragment
 import com.timife.a911.emergencySearch.ui.SearchFragment
@@ -25,6 +27,8 @@ interface EmergencyComponent {
     fun inject(fragment: HomeFragment)
     fun inject(fragment: SearchFragment)
     fun inject(fragment:SaveFragment)
+    fun inject(fragment: ESvFragment)
+    fun inject(fragment: NonESvFragment)
     fun inject(fragment:PrefFragment)
     fun inject(fragment:CreateProfileFragment)
 
