@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.location.Address
@@ -41,6 +42,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.timife.a911.EmergencyApplication
 import com.timife.a911.HomeAdapter
 import com.timife.a911.databinding.FragmentHomeBinding
+import java.io.IOException
 import java.util.*
 import javax.inject.Inject
 
@@ -48,6 +50,8 @@ const val REQUEST_LOCATION_PERMISSION = 1
 
 class HomeFragment : Fragment(), OnMapReadyCallback {
 
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var geocoder: Geocoder
 
 
     companion object {
@@ -77,18 +81,21 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     }
 
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater)
+        sharedPreferences =
+            requireActivity().getSharedPreferences("countryPref", Context.MODE_PRIVATE)
+        geocoder = Geocoder(requireContext(), Locale.getDefault())
+
+
+        isLocationServicesEnabled()
+        initGoogleMap(savedInstanceState)
         viewPager = binding.viewPager
         tabLayout = binding.tabLayout
         setupViewPager(tabLayout, viewPager)
-        isLocationServicesEnabled()
-        initGoogleMap(savedInstanceState)
 
         //MapView Switch functionality
         val switch: SwitchCompat = binding.mapSwitch
@@ -111,13 +118,14 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     private fun setupViewPager(tabLayout: TabLayout, viewPager: ViewPager2) {
         val adapter =
             ViewPagerAdapter(childFragmentManager, lifecycle)
-//        adapter.addFragment(ESvFragment())
-//        adapter.addFragment(NonESvFragment())
+        adapter.addFragment(ESvFragment())
+        adapter.addFragment(NonESvFragment())
         viewPager.adapter = adapter
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             when (position) {
-                0 -> tab.text = "EMERGENCY SERVICES"
-                1 -> tab.text = "NON-EMERGENCY SERVICES"
+                0 -> {tab.text = "EMERGENCY \n SERVICES"
+                }
+                1 -> tab.text = "NON-EMERGENCY \n SERVICES"
             }
         }.attach()
     }
@@ -236,8 +244,8 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     private fun updateLocation() {
         val locationRequest = LocationRequest()
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        locationRequest.interval = 5000
-        locationRequest.fastestInterval = 2500
+        locationRequest.interval = 10000
+        locationRequest.fastestInterval = 5000
         FusedLocationProviderClient(requireActivity()).also { mFusedLocationPoviderClient = it }
         if (ActivityCompat.checkSelfPermission(
                 requireContext(),
@@ -254,7 +262,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             mLocationCallback,
             Looper.myLooper()
         )
-
     }
 
     private var mLocationCallback = object : LocationCallback() {
@@ -263,33 +270,52 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             map.clear()
             val homeLatLng = LatLng(location.latitude, location.longitude)
             val zoomLevel = 15f
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
-            map.addMarker(MarkerOptions().position(homeLatLng))
+            try {
+                val addressList: ArrayList<Address> = geocoder.getFromLocation(
+                    location.latitude,
+                    location.longitude,
+                    1
+                ) as ArrayList<Address>
 
-            updateAddressUI(location)
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
+                val state = sharedPreferences.getString("state", "loading...")
+                val country = sharedPreferences.getString("country", "loading...")
+                val address = "$state,$country"
+                val snippet = "You are at " + addressList[0].getAddressLine(0)
+                val infoWindow = map.addMarker(
+                    MarkerOptions().position(homeLatLng).title(address).snippet(snippet)
+                )
+                updateAddressUI(location)
+                infoWindow!!.showInfoWindow()
+            } catch (e: IOException) {
+
+            }
         }
+
     }
 
     @SuppressLint("SetTextI18n")
     private fun updateAddressUI(location: Location) {
-        val geocoder: Geocoder
         val addressList: ArrayList<Address>
         try {
-            geocoder = Geocoder(requireContext(), Locale.getDefault())
             addressList = geocoder.getFromLocation(
                 location.latitude,
                 location.longitude,
                 1
             ) as ArrayList<Address>
             binding.locationAddress.text = "You are at " + addressList[0].getAddressLine(0)
-            setUpEmergencyNumbers(addressList[0].adminArea, addressList[0].countryName)
+
+            // Save Country and state in shared preferences
+            val editor = sharedPreferences.edit()
+            editor.apply {
+                putString("country", addressList[0].countryName)
+                putString("state", addressList[0].adminArea)
+                apply()
+            }
         } catch (e: Exception) {
+            binding.locationLayout.visibility = View.GONE
             binding.locationAddress.text = "Error loading address"
         }
-    }
-
-    private fun setUpEmergencyNumbers(adminArea: String?, countryName: String?) {
-//        Toast.makeText(requireContext(), "This is a setup Emergency", Toast.LENGTH_LONG).show()
     }
 
     override fun onRequestPermissionsResult(
@@ -304,6 +330,4 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             }
         }
     }
-
-
 }

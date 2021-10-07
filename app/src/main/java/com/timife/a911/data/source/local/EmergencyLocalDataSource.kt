@@ -42,43 +42,43 @@ class EmergencyLocalDataSource @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override suspend fun getEmergencyNumbers(): ArrayList<Emergency> =
-        withContext(ioDispatcher){
-            val json = Utils.getJsonDataFromAsset(context ,R.raw.emergency_numbers)
-            val jsonObject: JSONObject = JSONObject(json!!)
-            val emergencyNumbers : JSONArray = jsonObject.getJSONArray("emergency_numbers")
-            val allEmergencyNumbers = ArrayList<Emergency>()
-            for(i in 0 until emergencyNumbers.length()){
-                val item = emergencyNumbers.getJSONObject(i)
-                val singleEmergencyNo =
-                    Emergency(item.getJSONObject("Country").getString("Name"),
-                        item.getJSONObject("Ambulance").getJSONArray("All").get(0)?.toString(),
-                        item.getJSONObject("Fire").getJSONArray("All").get(0)?.toString(),
-                        item.getJSONObject("Police").getJSONArray("All").get(0)?.toString())
-                allEmergencyNumbers.add(singleEmergencyNo)
-            }
-            return@withContext allEmergencyNumbers
+    override fun getEmergencyNumbers(): ArrayList<Emergency> {
+        val json = Utils.getJsonDataFromAsset(context, R.raw.emergency_numbers)
+        val jsonObject = JSONObject(json!!)
+        val emergencyNumbers: JSONArray = jsonObject.getJSONArray("emergency_numbers")
+        val allEmergencyNumbers = ArrayList<Emergency>()
+        for (i in 0 until emergencyNumbers.length()) {
+            val item = emergencyNumbers.getJSONObject(i)
+            val singleEmergencyNo =
+                Emergency(
+                    item.getJSONObject("Country").getString("Name"),
+                    item.getJSONObject("Ambulance").getJSONArray("All").get(0)?.toString(),
+                    item.getJSONObject("Fire").getJSONArray("All").get(0)?.toString(),
+                    item.getJSONObject("Police").getJSONArray("All").get(0)?.toString()
+                )
+            allEmergencyNumbers.add(singleEmergencyNo)
         }
+        return allEmergencyNumbers
+    }
 
-    override suspend fun getNonEmergencyNumbers(): ArrayList<NonEmergency> =
-        withContext(ioDispatcher){
-            val json = Utils.getJsonDataFromAsset(context,R.raw.non_emergency_numbers)
-            val jsonObject: JSONObject = JSONObject(json!!)
-            val nonEmergencyNumbers : JSONArray = jsonObject.getJSONArray("non_emergency_numbers")
-            val nonEmergencyList = ArrayList<NonEmergency>()
-            for(i in 0 until nonEmergencyNumbers.length()){
-                val item = nonEmergencyNumbers.getJSONObject(i)
-                val numbersArray = item.getJSONArray("numbers")
-                val numbers = mutableMapOf<Any,Any>()
-                for(j in 0 until numbersArray.length()){
-                    val numberItem = numbersArray.getJSONObject(j)
-                    val key = numberItem.keys().next()
-                    numbers[key] = numberItem.getString(key)
-                }
-                val singleNonEmergencyNo = NonEmergency(item.getString("place"),numbers)
-                nonEmergencyList.add(singleNonEmergencyNo)
+
+    override fun getNonEmergencyNumbers(): ArrayList<NonEmergency> {
+        val json = Utils.getJsonDataFromAsset(context, R.raw.non_emergency_numbers)
+        val jsonObject = JSONObject(json!!)
+        val nonEmergencyNumbers: JSONArray = jsonObject.getJSONArray("non_emergency_numbers")
+        val nonEmergencyList = ArrayList<NonEmergency>()
+        for (i in 0 until nonEmergencyNumbers.length()) {
+            val item = nonEmergencyNumbers.getJSONObject(i)
+            val numbersArray = item.getJSONArray("numbers")
+            val numbers = mutableMapOf<Any, Any>()
+            for (j in 0 until numbersArray.length()) {
+                val numberItem = numbersArray.getJSONObject(j)
+                val key = numberItem.keys().next()
+                numbers[key] = numberItem.getString(key)
             }
-            return@withContext nonEmergencyList
+            val singleNonEmergencyNo = NonEmergency(item.getString("place"), numbers)
+            nonEmergencyList.add(singleNonEmergencyNo)
         }
-
+        return nonEmergencyList
+    }
 }

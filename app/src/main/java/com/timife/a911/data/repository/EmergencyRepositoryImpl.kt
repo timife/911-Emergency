@@ -34,17 +34,12 @@ class EmergencyRepositoryImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override suspend fun getEmergencyNumbers(): ArrayList<Emergency> {
-       return withContext(ioDispatcher){
-            emergencyLocalDataSource.getEmergencyNumbers()
-        }
-    }
+    override fun getEmergencyNumbers(): ArrayList<Emergency> =
+        emergencyLocalDataSource.getEmergencyNumbers()
 
 
-    override suspend fun getNonEmergencyNumbers(): ArrayList<NonEmergency> {
-        return withContext(ioDispatcher){
-            emergencyLocalDataSource.getNonEmergencyNumbers()
-        }
-    }
+    override fun getNonEmergencyNumbers(): ArrayList<NonEmergency> =
+        emergencyLocalDataSource.getNonEmergencyNumbers()
+
 
 }

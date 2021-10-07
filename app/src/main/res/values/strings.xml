@@ -6,6 +6,8 @@
     <string name="pref">Preferences</string>
     <string name="no_results_to_display">No results to display</string>
     <string name="use_emergency_services_if_you_require_immediate_help_and_non_emergency_services_if_you_require_non_immediate_help">Use emergency services if you require \n <b><u>immediate help</u></b> and non-emergency services \n if you require <b><u>non-immediate help.</u></b></string>
+    <string name="use_this_emergency_service">Use these services in your location if you \n require <b><u>immediate help. </u></b></string>
+    <string name="use_this_non_emergency_service">Use these services in your location if you \n require <b><u>non-immediate help. </u></b></string>
     <string name="create_a_profile_to_save_numbers">Create a Profile to Save<br />Numbers</string>
     <string name="create_a_profile_so_you_can_start_saving_numbers_from_the_home_and_search_directory_pages">Create a profile so you can start saving \n numbers from the ‘Home’ and ‘Search’ \n directory pages.</string>
     <string name="account">account</string>
@@ -19,7 +21,6 @@
     <string name="privacy_policy">Privacy Policy</string>
     <string name="report_issue">Report Issue</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="by_saving_this_profile_you_agree_to_911_s_privacy_policy">By saving this profile you agree to 911+’s <br /><u>Privacy Policy</u>.</string>
     <string name="save_profile">Save Profile</string>
     <string name="password">Password</string>
@@ -30,6 +31,12 @@
     <string name="map_on">Map On</string>
     <string name="logo">logo</string>
     <string name="search_directory">Search Directory</string>
-    <string name="privacy">Privacy</string>
+    <string name="privacy">Privacy Policy</string>
     <string name="location">location</string>
+    <string name="ambulance">Ambulance \n (911) </string>
+    <string name="non_emergency">Crime Report \n (0800 555 111) </string>
+    <string name="feedback">Give Feedback</string>
+    <string name="crime_report">Crime Report</string>
+    <string name="police">Police</string>
+    <string name="_090544342242">(090544342242)</string>
 </resources>

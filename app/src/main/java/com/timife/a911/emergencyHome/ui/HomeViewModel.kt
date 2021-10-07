@@ -14,6 +14,7 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
     private val _emergency = MutableLiveData<List<Emergency>>()
     private val _nonEmergency = MutableLiveData<List<NonEmergency>>()
 
+
     init {
         getEmergencyNumbers()
     }
@@ -25,29 +26,29 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
         }
     }
 
-    fun searchEmergencyNumbers(country:String): LiveData<Emergency> {
+    fun searchEmergencyNumbers(country: String): LiveData<Emergency> {
         val emergencyNumbers = MutableLiveData<Emergency>()
-        viewModelScope.launch {
-            val emergencyNumbersList  = _emergency.value?.filter {
-                it.country.equals(country, ignoreCase = true)
-            }
-            if (emergencyNumbersList != null) {
-                if(emergencyNumbersList.isNotEmpty()){
-                    emergencyNumbers.value = emergencyNumbersList[0]
-                }
+        val emergencyNumbersList = _emergency.value?.filter {
+            it.country.equals(country, ignoreCase = true)
+        }
+        if (emergencyNumbersList != null) {
+            if (emergencyNumbersList.isNotEmpty()) {
+                emergencyNumbers.value = emergencyNumbersList[0]
             }
         }
+
         return emergencyNumbers
     }
 
-    fun searchNonEmergencyNumbers(state:String): LiveData<NonEmergency> {
+
+    fun searchNonEmergencyNumbers(state: String): LiveData<NonEmergency> {
         val nonEmergencyNumbers = MutableLiveData<NonEmergency>()
         viewModelScope.launch {
-            val nonEmergencyNumbersList  = _nonEmergency.value?.filter {
+            val nonEmergencyNumbersList = _nonEmergency.value?.filter {
                 it.place.equals(state, ignoreCase = true)
             }
             if (nonEmergencyNumbersList != null) {
-                if(nonEmergencyNumbersList.isNotEmpty()){
+                if (nonEmergencyNumbersList.isNotEmpty()) {
                     nonEmergencyNumbers.value = nonEmergencyNumbersList[0]
                 }
             }
@@ -55,13 +56,6 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
         return nonEmergencyNumbers
 
     }
-
-
-
-
-
-
-
 
 
 }
