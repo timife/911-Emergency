@@ -60,7 +60,6 @@
                 app:layout_constraintStart_toEndOf="@id/one_2"
                 android:contentDescription="@string/logo" />
 
-
             <com.google.android.gms.maps.MapView
                 android:id="@+id/map"
                 android:layout_width="match_parent"
@@ -135,7 +134,7 @@
             android:id="@+id/emergency_constraint"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="300dp"
+            android:layout_marginTop="310dp"
             android:background="@drawable/rounded_corner_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -145,15 +144,20 @@
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout"
                 android:layout_width="match_parent"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
-                android:layout_height="wrap_content"
+                android:layout_height="?attr/actionBarSize"
                 app:tabSelectedTextColor="@color/primary"
-                app:tabTextColor="@color/tab"
-                app:tabMode="scrollable"
+                app:tabTextColor="@color/ripple_color"
+                app:tabMode="fixed"
+                app:tabGravity="fill"
+                app:tabIndicatorGravity="bottom"
+                app:tabIndicatorAnimationMode="elastic"
+                app:tabTextAppearance="@style/MineCustomTabText"
+                app:layout_constraintBottom_toTopOf="@id/view_pager"
                 app:tabIndicatorColor="@color/primary"
-                app:tabIndicatorHeight="2dp"
+                app:tabIndicatorHeight="3dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -166,12 +170,11 @@
                 android:id="@+id/view_pager"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginTop="5dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tab_layout"
                 app:layout_constraintBottom_toBottomOf="parent"/>
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
