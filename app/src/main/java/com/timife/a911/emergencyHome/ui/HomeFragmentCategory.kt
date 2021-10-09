@@ -26,7 +26,6 @@ class HomeFragmentCategory : Fragment() {
 
     private lateinit var emergencyType: String
     private lateinit var binding: FragmentHomeCategoryBinding
-    private lateinit var saveAdapter: ESvRecyclerViewAdapter
     private lateinit var sharedPreferences: SharedPreferences
 
     @Inject
@@ -56,9 +55,6 @@ class HomeFragmentCategory : Fragment() {
 
         sharedPreferences =
             requireActivity().getSharedPreferences("countryPref", Context.MODE_PRIVATE)
-
-        val country = sharedPreferences.getString("country", "Nigeria")
-        val state = sharedPreferences.getString("state", "Lagos")
 
         return binding.root
     }

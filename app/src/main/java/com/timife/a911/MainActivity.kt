@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        
 
         (application as EmergencyApplication).emergencyComponent.inject(this)
+        isLocationServicesEnabled()
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -40,7 +40,6 @@ class MainActivity : AppCompatActivity() {
         try {
             gpsEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER)
         } catch (ex: java.lang.Exception) {
-
         }
 
         if (!gpsEnabled) {

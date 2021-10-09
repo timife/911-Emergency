@@ -14,7 +14,6 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
     private val _emergency = MutableLiveData<List<Emergency>>()
     private val _nonEmergency = MutableLiveData<List<NonEmergency>>()
 
-
     init {
         getEmergencyNumbers()
     }
@@ -37,10 +36,8 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
                     emergencyNumbers.value = emergencyNumbersList[0]
                 }
             }
-
         }
         return emergencyNumbers
-
     }
 
 
@@ -57,7 +54,6 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
             }
         }
         return nonEmergencyNumbers
-
     }
 
 
