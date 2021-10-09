@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.timife.a911.EmergencyApplication
-import com.timife.a911.R
 import com.timife.a911.databinding.FragmentCreateProfileBinding
 
 class CreateProfileFragment : BottomSheetDialogFragment() {
@@ -17,7 +16,7 @@ class CreateProfileFragment : BottomSheetDialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding  = FragmentCreateProfileBinding.inflate(inflater)
         return binding.root
     }

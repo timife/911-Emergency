@@ -196,34 +196,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/error_redirect">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/save_text"
                     android:layout_width="match_parent"
-                    android:focusable="true"
-                    android:clickable="true"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/save_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="15dp"
-                        android:gravity="center_vertical"
-                        android:text="@string/save_numbers_from"
-                        android:textAppearance="@style/error_text"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="6dp"
-                        android:layout_marginTop="2dp"
-                        android:contentDescription="@string/bookmark"
-                        android:src="@drawable/ic_search"
-                        app:tint="@color/white" />
-                </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingEnd="15dp"
+                    android:text="@string/save_numbers_from"
+                    android:textAppearance="@style/error_text"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:drawableEndCompat="@drawable/ic_search"
+                    tools:ignore="RtlSymmetry"
+                    app:drawableTint="@color/white" />
 
 
             </androidx.cardview.widget.CardView>
@@ -239,36 +225,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/save_numbers_from">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/save_text_from_home"
                     android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:clickable="true"
                     android:focusable="true"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/save_text_from_home"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="11dp"
-                        android:layout_marginBottom="11dp"
-                        android:gravity="center_vertical"
-                        android:text="@string/save_numbers_from"
-                        android:textAppearance="@style/error_text"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="6dp"
-                        android:layout_marginTop="2dp"
-                        android:contentDescription="@string/bookmark"
-                        android:src="@drawable/ic_home"
-                        app:tint="@color/white" />
-                </LinearLayout>
+                    android:text="@string/save_numbers_from"
+                    android:textAppearance="@style/error_text"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:paddingEnd="15dp"
+                    app:drawableEndCompat="@drawable/ic_home"
+                    app:drawableTint="@color/white"
+                    tools:ignore="RtlSymmetry" />
 
             </androidx.cardview.widget.CardView>
 

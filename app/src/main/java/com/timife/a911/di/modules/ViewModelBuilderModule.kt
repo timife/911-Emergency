@@ -17,7 +17,6 @@ abstract class ViewModelBuilderModule {
     ): ViewModelProvider.Factory
 }
 
-
 @Target(
     AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER
 )

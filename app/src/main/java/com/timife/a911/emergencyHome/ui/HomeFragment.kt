@@ -2,24 +2,18 @@ package com.timife.a911.emergencyHome.ui
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
-import android.location.LocationManager
-import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Looper
-import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -40,7 +34,6 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.timife.a911.EmergencyApplication
-import com.timife.a911.HomeAdapter
 import com.timife.a911.databinding.FragmentHomeBinding
 import java.io.IOException
 import java.util.*
@@ -48,11 +41,11 @@ import javax.inject.Inject
 
 const val REQUEST_LOCATION_PERMISSION = 1
 
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class HomeFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var geocoder: Geocoder
-
 
     companion object {
         private const val MAPVIEW_BUNDLE_KEY = "MapViewBundleKey"
@@ -60,9 +53,8 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mapView: MapView
     private lateinit var map: GoogleMap
-
     private lateinit var binding: FragmentHomeBinding
-
+    private lateinit var adapter: ViewPagerAdapter
 
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
@@ -74,7 +66,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
     private val viewModel by viewModels<HomeViewModel> { viewModelFactory }
 
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         (requireActivity().application as EmergencyApplication).emergencyComponent.inject(this)
@@ -85,13 +76,12 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater)
         sharedPreferences =
             requireActivity().getSharedPreferences("countryPref", Context.MODE_PRIVATE)
+
+        binding = FragmentHomeBinding.inflate(inflater)
         geocoder = Geocoder(requireContext(), Locale.getDefault())
 
-
-        isLocationServicesEnabled()
         initGoogleMap(savedInstanceState)
         viewPager = binding.viewPager
         tabLayout = binding.tabLayout
@@ -114,43 +104,31 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         }
         return binding.root
     }
+    //View pager different fragments
 
     private fun setupViewPager(tabLayout: TabLayout, viewPager: ViewPager2) {
-        val adapter =
+        adapter =
             ViewPagerAdapter(childFragmentManager, lifecycle)
-        adapter.addFragment(ESvFragment())
-        adapter.addFragment(NonESvFragment())
+        addFragmentPagerData()
         viewPager.adapter = adapter
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             when (position) {
-                0 -> {tab.text = "EMERGENCY \n SERVICES"
+                0 -> {
+                    tab.text = "EMERGENCY \n SERVICES"
                 }
                 1 -> tab.text = "NON-EMERGENCY \n SERVICES"
             }
         }.attach()
     }
 
-    //Check if location and GPS is enabled or otherwise.
-    private fun isLocationServicesEnabled() {
-        val lm: LocationManager =
-            requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        var gpsEnabled = false
-        try {
-            gpsEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER)
-        } catch (ex: java.lang.Exception) {
+    private var emergencyFragmentInstance = HomeFragmentCategory.newInstance(EMERGENCY_SERVICES)
+    private var nonEmergencyFragmentInstance = HomeFragmentCategory.newInstance(
+        NON_EMERGENCY_SERVICES
+    )
 
-        }
-
-        if (!gpsEnabled) {
-            // notify user
-            AlertDialog.Builder(context)
-                .setMessage("You need to turn on Location Services")
-                .setPositiveButton(
-                    "Enable Location"
-                ) { _, _ -> requireActivity().startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)) }
-                .setNegativeButton("Close", null)
-                .show()
-        }
+    private fun addFragmentPagerData() {
+        adapter.addFragment(emergencyFragmentInstance)
+        adapter.addFragment(nonEmergencyFragmentInstance)
     }
 
     private fun initGoogleMap(savedInstanceState: Bundle?) {
@@ -159,7 +137,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         mapView.onCreate(mapViewBundle)
         mapView.getMapAsync(this)
     }
-
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -229,7 +206,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             }
             map.isMyLocationEnabled = true
             updateLocation()
-            binding.locationAddress.text = updateLocation().toString()
         } else {
             requestPermissions(
                 arrayOf(
@@ -276,7 +252,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                     location.longitude,
                     1
                 ) as ArrayList<Address>
-
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
                 val state = sharedPreferences.getString("state", "loading...")
                 val country = sharedPreferences.getString("country", "loading...")
@@ -288,10 +263,8 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                 updateAddressUI(location)
                 infoWindow!!.showInfoWindow()
             } catch (e: IOException) {
-
             }
         }
-
     }
 
     @SuppressLint("SetTextI18n")
@@ -314,7 +287,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             }
         } catch (e: Exception) {
             binding.locationLayout.visibility = View.GONE
-            binding.locationAddress.text = "Error loading address"
         }
     }
 
@@ -326,7 +298,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         if (requestCode == REQUEST_LOCATION_PERMISSION) {
             if (grantResults.isNotEmpty() && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 enableMyLocation(map)
-                //get address
             }
         }
     }

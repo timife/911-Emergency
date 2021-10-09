@@ -28,16 +28,19 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
 
     fun searchEmergencyNumbers(country: String): LiveData<Emergency> {
         val emergencyNumbers = MutableLiveData<Emergency>()
-        val emergencyNumbersList = _emergency.value?.filter {
-            it.country.equals(country, ignoreCase = true)
-        }
-        if (emergencyNumbersList != null) {
-            if (emergencyNumbersList.isNotEmpty()) {
-                emergencyNumbers.value = emergencyNumbersList[0]
+        viewModelScope.launch {
+            val emergencyNumbersList = _emergency.value?.filter {
+                it.country.equals(country, ignoreCase = true)
             }
-        }
+            if (emergencyNumbersList != null) {
+                if (emergencyNumbersList.isNotEmpty()) {
+                    emergencyNumbers.value = emergencyNumbersList[0]
+                }
+            }
 
+        }
         return emergencyNumbers
+
     }
 
 

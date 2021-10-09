@@ -32,7 +32,7 @@
             android:clipToPadding="false"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
-            android:paddingBottom="100dp"
+            android:paddingBottom="50dp"
             tools:listitem="@layout/fragment_e_sv" />
 
     </RelativeLayout>
