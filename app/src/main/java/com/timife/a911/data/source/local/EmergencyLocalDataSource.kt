@@ -1,8 +1,6 @@
 package com.timife.a911.data.source.local
 
 import android.content.Context
-import android.util.Log
-import android.widget.Toast
 import com.timife.a911.R
 import com.timife.a911.Utils
 import com.timife.a911.data.Result
@@ -12,7 +10,6 @@ import com.timife.a911.data.model.jsonmodel.NonEmergency
 import com.timife.a911.data.source.EmergencyDataSource
 import com.timife.a911.di.qualifiers.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
 import org.json.JSONArray
 import org.json.JSONObject
 import javax.inject.Inject

@@ -7,7 +7,6 @@ import com.timife.a911.data.model.jsonmodel.NonEmergency
 import com.timife.a911.data.source.EmergencyDataSource
 import com.timife.a911.di.qualifiers.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class EmergencyRepositoryImpl @Inject constructor(

@@ -12,6 +12,7 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/emergency_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -19,20 +20,20 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="30dp"
             android:gravity="center"
-            android:textAppearance="@style/pre_info"
-            android:text="@string/use_this_non_emergency_service"
-            android:id="@+id/non_emergency_title" />
+            android:text="@string/use_this_emergency_service"
+            android:textAppearance="@style/pre_info" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/non_esv_recycler"
+            android:id="@+id/esv_recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/non_emergency_title"
+            android:layout_height="match_parent"
+            android:layout_below="@id/emergency_title"
             android:layout_marginTop="15dp"
-            android:paddingBottom="100dp"
             android:clipToPadding="false"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
-            tools:listitem="@layout/fragment_non_esv" />
+            android:paddingBottom="50dp"
+            tools:listitem="@layout/fragment_e_sv" />
+
     </RelativeLayout>
 </layout>

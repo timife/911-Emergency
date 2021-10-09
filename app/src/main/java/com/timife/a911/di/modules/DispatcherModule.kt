@@ -8,6 +8,7 @@ import dagger.Provides
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 
+
 @Module
 object DispatcherModule {
 
@@ -22,6 +23,5 @@ object DispatcherModule {
     @MainDispatcher
     @Provides
     fun provideMainDispatcher():CoroutineDispatcher = Dispatchers.Main
-
 
 }

@@ -32,6 +32,9 @@ class ESvRecyclerViewAdapter(
                 "Fire" -> {
                     binding.imageEmer.setImageResource(R.drawable.ic_fire)
                 }
+                else -> {
+                    binding.imageEmer.setImageResource(R.drawable.ic_phone)
+                }
             }
             binding.fragmentEsv.setOnClickListener {
                 val intent = Intent(Intent.ACTION_DIAL)

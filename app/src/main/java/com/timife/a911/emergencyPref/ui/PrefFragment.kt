@@ -1,12 +1,11 @@
 package com.timife.a911.emergencyPref.ui
 
 import android.content.Context
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.timife.a911.EmergencyApplication
 import com.timife.a911.R
