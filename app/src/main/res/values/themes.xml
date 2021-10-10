@@ -13,6 +13,21 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/primary</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.SplashActivity" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!--        <item name="bottomSheetDialogTheme">@style/CustomBottomSheetDialog</item>-->
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
     <!-- Set parent theme as app theme. -->
     <style name="DialogTheme" parent="Theme.911Emergency">
         <item name="android:windowNoTitle">true</item>
