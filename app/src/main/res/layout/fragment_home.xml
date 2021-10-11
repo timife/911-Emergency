@@ -11,14 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".emergencyHome.ui.HomeFragment">
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:id="@+id/home_progress"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/map_constraint"
@@ -149,6 +142,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintVertical_weight="0.5">
+
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout"
                 android:layout_width="match_parent"

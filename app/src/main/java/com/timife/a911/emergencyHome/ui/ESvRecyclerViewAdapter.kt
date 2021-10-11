@@ -37,6 +37,7 @@ class ESvRecyclerViewAdapter(
                 }
             }
             binding.fragmentEsv.setOnClickListener {
+
                 val intent = Intent(Intent.ACTION_DIAL)
                 intent.data = Uri.parse("tel:${emergencyInfo.phone}")
                 binding.emergencyText.context.startActivity(intent)

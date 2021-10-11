@@ -81,7 +81,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
         binding = FragmentHomeBinding.inflate(inflater)
         geocoder = Geocoder(requireContext(), Locale.getDefault())
-
         initGoogleMap(savedInstanceState)
         viewPager = binding.viewPager
         tabLayout = binding.tabLayout

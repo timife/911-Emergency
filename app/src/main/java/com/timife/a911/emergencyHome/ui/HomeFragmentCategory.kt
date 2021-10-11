@@ -52,6 +52,8 @@ class HomeFragmentCategory : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentHomeCategoryBinding.inflate(inflater)
+//        viewModel =
+//            ViewModelProvider(requireActivity(), viewModelFactory).get(HomeViewModel::class.java)
 
         sharedPreferences =
             requireActivity().getSharedPreferences("countryPref", Context.MODE_PRIVATE)

@@ -29,9 +29,10 @@
         <entry key="app/src/main/res/drawable/nine.xml" value="0.22398648648648647" />
         <entry key="app/src/main/res/drawable/one.xml" value="0.22398648648648647" />
         <entry key="app/src/main/res/drawable/plus.xml" value="0.22398648648648647" />
+        <entry key="app/src/main/res/drawable/progress.xml" value="0.29078947368421054" />
         <entry key="app/src/main/res/drawable/rounded_corner_back.xml" value="0.34307692307692306" />
         <entry key="app/src/main/res/font/poppins.xml" value="0.1358108108108108" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16395864106351551" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2735930735930736" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.26359649122807016" />
         <entry key="app/src/main/res/layout/fragment_create_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_e_sv.xml" value="0.32916666666666666" />
