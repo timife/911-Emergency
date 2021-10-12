@@ -91,6 +91,7 @@ class HomeFragmentCategory : Fragment() {
             if (it is Emergency) {
                 val emergencyNumbersAdapter =
                     ESvRecyclerViewAdapter(
+                        requireContext(),
                         listOf(
                             EmergencyInfo(
                                 UUID.randomUUID().toString(),
@@ -143,7 +144,7 @@ class HomeFragmentCategory : Fragment() {
                         )
                     )
                 }
-                val nonEsvAdapter = ESvRecyclerViewAdapter(numbersList)
+                val nonEsvAdapter = ESvRecyclerViewAdapter(requireContext(), numbersList)
                 binding.esvRecycler.setHasFixedSize(false)
                 binding.esvRecycler.addItemDecoration(
                     GridItemDecoration(

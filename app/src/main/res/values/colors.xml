@@ -11,5 +11,6 @@
     <color name="on_secondary">#FAF9F7</color>
     <color name="white">#FFFFFFFF</color>
     <color name="tab">#C0C0C0</color>
+    <color name="dialog_button">#2C98F0</color>
     <color name="ripple_color">#7E8494</color>
 </resources>
