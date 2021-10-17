@@ -81,7 +81,6 @@ class HomeFragmentCategory : Fragment() {
                     context?.getString(R.string.use_this_non_emergency_service)
                 setUpNonEmergencyNumbers("Lagos")
             }
-
         }
     }
 
