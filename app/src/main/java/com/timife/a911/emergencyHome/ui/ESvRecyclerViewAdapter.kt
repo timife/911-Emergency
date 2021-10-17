@@ -14,7 +14,8 @@ import com.timife.a911.databinding.FragmentESvBinding
 
 class ESvRecyclerViewAdapter(
     private val context: Context,
-    private val emergencyInfo: List<EmergencyInfo>
+    private val emergencyInfo: List<EmergencyInfo>,
+    private val clickListener: OnClickListener
 ) : RecyclerView.Adapter<ESvRecyclerViewAdapter.EmergencyViewHolder>() {
 
     inner class EmergencyViewHolder(private var binding: FragmentESvBinding) :
@@ -24,7 +25,7 @@ class ESvRecyclerViewAdapter(
             binding.emergencyText.text = emergencyInfo.name
             binding.phone.text = emergencyInfo.phone
             binding.option.setOnClickListener {
-
+                clickListener.onClick(emergencyInfo)
             }
             when (emergencyInfo.name) {
                 "Police" -> {
@@ -71,5 +72,9 @@ class ESvRecyclerViewAdapter(
 
     override fun getItemCount(): Int = emergencyInfo.size
 
-
+    class OnClickListener(val clickListener: (number: EmergencyInfo) -> Unit) {
+        fun onClick(number: EmergencyInfo) {
+            clickListener(number)
+        }
+    }
 }

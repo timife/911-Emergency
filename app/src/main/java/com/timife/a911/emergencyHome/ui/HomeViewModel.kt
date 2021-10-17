@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.hadilq.liveevent.LiveEvent
+import com.timife.a911.data.model.databasemodel.EmergencyInfo
 import com.timife.a911.data.model.jsonmodel.Emergency
 import com.timife.a911.data.model.jsonmodel.NonEmergency
 import com.timife.a911.data.repository.EmergencyRepository
@@ -13,6 +15,10 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(private val repository: EmergencyRepository) : ViewModel() {
     private val _emergency = MutableLiveData<List<Emergency>>()
     private val _nonEmergency = MutableLiveData<List<NonEmergency>>()
+
+    private val _navigateToSaveOption = LiveEvent<EmergencyInfo>()
+    val navigateToSaveOption: LiveEvent<EmergencyInfo>
+        get() = _navigateToSaveOption
 
     init {
         getEmergencyNumbers()
@@ -55,6 +61,11 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
         }
         return nonEmergencyNumbers
     }
+
+    fun passEmergencyDetails(number: EmergencyInfo) {
+        _navigateToSaveOption.value = number
+    }
+
 
 
 }

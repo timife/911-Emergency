@@ -116,6 +116,9 @@ class HomeFragmentCategory : Fragment() {
                                 country
                             )
                         ),
+                        ESvRecyclerViewAdapter.OnClickListener {
+                            viewModel.passEmergencyDetails(it)
+                        }
                     )
 
                 binding.esvRecycler.setHasFixedSize(false)
@@ -145,7 +148,12 @@ class HomeFragmentCategory : Fragment() {
                         )
                     )
                 }
-                val nonEsvAdapter = ESvRecyclerViewAdapter(requireContext(), numbersList)
+                val nonEsvAdapter = ESvRecyclerViewAdapter(
+                    requireContext(),
+                    numbersList,
+                    ESvRecyclerViewAdapter.OnClickListener { emergencyInfo ->
+                        viewModel.passEmergencyDetails(emergencyInfo)
+                    })
                 binding.esvRecycler.setHasFixedSize(false)
                 binding.esvRecycler.addItemDecoration(
                     GridItemDecoration(

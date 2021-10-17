@@ -5,6 +5,7 @@ import com.timife.a911.MainActivity
 import com.timife.a911.SplashActivity
 import com.timife.a911.createProfile.ui.CreateProfileFragment
 import com.timife.a911.di.modules.*
+import com.timife.a911.emergencyHome.ui.CallOptionDialog
 import com.timife.a911.emergencyHome.ui.HomeFragment
 import com.timife.a911.emergencyHome.ui.HomeFragmentCategory
 import com.timife.a911.emergencyPref.ui.PrefFragment
@@ -32,6 +33,7 @@ interface EmergencyComponent {
     fun inject(fragment: PrefFragment)
     fun inject(fragment: CreateProfileFragment)
     fun inject(fragment: HomeFragmentCategory)
+    fun inject(fragment: CallOptionDialog)
     fun inject(activity: MainActivity)
     fun inject(activity: SplashActivity)
 

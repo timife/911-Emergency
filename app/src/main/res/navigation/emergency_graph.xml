@@ -59,4 +59,18 @@
         android:name="com.timife.a911.createProfile.ui.CreateProfileFragment"
         android:label="CreateProfileFragment"
         tools:layout="@layout/fragment_create_profile"/>
+    <dialog
+        android:id="@+id/callOptionDialog"
+        tools:layout="@layout/fragment_call_option_dialog"
+        android:name="com.timife.a911.emergencyHome.ui.CallOptionDialog"
+        android:label="CallOptionDialog" />
+    <fragment
+        android:id="@+id/homeFragmentCategory"
+        tools:layout="@layout/fragment_home_category"
+        android:name="com.timife.a911.emergencyHome.ui.HomeFragmentCategory"
+        android:label="HomeFragmentCategory" >
+        <action
+            android:id="@+id/action_homeFragmentCategory_to_callOptionDialog"
+            app:destination="@id/callOptionDialog" />
+    </fragment>
 </navigation>
