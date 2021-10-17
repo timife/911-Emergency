@@ -125,7 +125,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                 .setMessage("You need to turn on Location Services")
                 .setPositiveButton(
                     "Enable Location"
-                ) { dialog, which -> requireActivity().startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)) }
+                ) { _, _ -> requireActivity().startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)) }
                 .setNegativeButton("Close", null)
                 .show()
         }
