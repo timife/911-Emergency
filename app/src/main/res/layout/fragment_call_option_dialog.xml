@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#1A000000"
+        tools:context=".emergencyHome.ui.CallOptionDialog">
+
+        <!-- TODO: Update blank fragment layout -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+
+            style="@style/mini_card_item">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="@string/save_number"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:id="@+id/save_option"
+                    android:background="@drawable/custom_ripple"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:textAppearance="@style/error_text"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="55dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/report_option"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/custom_ripple"
+                    android:text="@string/report_number"
+                    android:layout_marginStart="10dp"
+                    android:textAppearance="@style/error_text"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="55dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            style="@style/mini_card_item"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/cancel_option"
+            android:layout_height="45dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/custom_ripple"
+                android:gravity="center"
+                android:textAppearance="@style/error_text"
+                android:text="@string/cancel_low"/>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

@@ -45,4 +45,7 @@
     <string name="place_call"><b>Place Call?</b></string>
     <string name="cancel">CANCEL</string>
     <string name="call">CALL</string>
+    <string name="save_number">Save Number</string>
+    <string name="report_number">Report Number</string>
+    <string name="cancel_low">Cancel</string>
 </resources>

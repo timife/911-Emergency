@@ -24,6 +24,7 @@ class ESvRecyclerViewAdapter(
             binding.emergencyText.text = emergencyInfo.name
             binding.phone.text = emergencyInfo.phone
             binding.option.setOnClickListener {
+
             }
             when (emergencyInfo.name) {
                 "Police" -> {
@@ -54,6 +55,7 @@ class ESvRecyclerViewAdapter(
                         binding.emergencyText.context.startActivity(intent)
                         dialog.dismiss()
                     }.show()
+
             }
             binding.executePendingBindings()
         }
