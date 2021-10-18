@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.timife.a911.emergencyHome.ui.CallOptionViewModel" />
 
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#1A000000"
         tools:context=".emergencyHome.ui.CallOptionDialog">
 
         <!-- TODO: Update blank fragment layout -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="110dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:id="@+id/option_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             style="@style/save_option_card">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -25,8 +33,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:text="@string/save_number"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
                     android:id="@+id/save_option"
                     android:background="@drawable/custom_ripple"
                     android:focusable="true"
@@ -40,10 +46,8 @@
                     android:id="@+id/report_option"
                     android:clickable="true"
                     android:focusable="true"
-                    android:layout_marginEnd="10dp"
                     android:background="@drawable/custom_ripple"
                     android:text="@string/report_number"
-                    android:layout_marginStart="10dp"
                     android:textAppearance="@style/error_text"
                     android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"
@@ -54,18 +58,23 @@
             android:layout_width="match_parent"
             style="@style/mini_card_item"
             android:clickable="true"
+            android:backgroundTint="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/option_card"
             android:focusable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:id="@+id/cancel_option"
             android:layout_height="45dp">
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:background="@drawable/custom_ripple"
                 android:gravity="center"
+                android:background="@drawable/custom_ripple"
                 android:textAppearance="@style/error_text"
                 android:text="@string/cancel_low"/>
         </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

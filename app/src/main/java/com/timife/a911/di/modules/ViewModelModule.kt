@@ -2,6 +2,7 @@ package com.timife.a911.di.modules
 
 import androidx.lifecycle.ViewModel
 import com.timife.a911.createProfile.ui.CreateProfileViewModel
+import com.timife.a911.emergencyHome.ui.CallOptionViewModel
 import com.timife.a911.emergencyHome.ui.HomeViewModel
 import com.timife.a911.emergencyPref.ui.PrefViewModel
 import com.timife.a911.emergencySave.ui.SaveViewModel
@@ -36,5 +37,10 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(CreateProfileViewModel::class)
-    abstract fun bindViewModel(viewmodel: CreateProfileViewModel): ViewModel
+    abstract fun bindProfileViewModel(viewmodel: CreateProfileViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CallOptionViewModel::class)
+    abstract fun bindOptionViewModel(viewModel:CallOptionViewModel): ViewModel
 }

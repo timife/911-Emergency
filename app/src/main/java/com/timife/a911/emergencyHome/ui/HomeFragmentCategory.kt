@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.timife.a911.EmergencyApplication
 import com.timife.a911.R
 import com.timife.a911.data.model.databasemodel.EmergencyInfo
@@ -65,6 +66,12 @@ class HomeFragmentCategory : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getCategoryData(emergencyType)
+
+        viewModel.navigateToSaveOption.observe(viewLifecycleOwner, {
+            this.findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
+            )
+        })
     }
 
 
@@ -166,6 +173,7 @@ class HomeFragmentCategory : Fragment() {
             }
         }
     }
+
 
     companion object {
 
