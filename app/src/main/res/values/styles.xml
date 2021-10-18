@@ -55,6 +55,18 @@
             @font/roboto
         </item>
     </style>
+    <style name="option_card_text">
+        <item name="android:textColor">
+            @color/on_surface
+        </item>
+        <item name="android:textSize">
+            18sp
+        </item>
+
+        <item name="android:fontFamily">
+            @font/roboto
+        </item>
+    </style>
     <style name="pre_info">
         <item name="android:textColor">
             @color/on_surface
@@ -84,8 +96,6 @@
         <item name="cardElevation">20dp</item>
         <item name="android:layout_marginTop">15dp</item>
         <item name="android:layout_marginBottom">3dp</item>
-        <item name="android:layout_marginEnd">3dp</item>
-        <item name="android:layout_marginStart">3dp</item>
         <item name="cornerRadius">10dp</item>
         <item name="cardCornerRadius">12dp</item>
         <item name="android:foreground">?selectableItemBackground</item>
@@ -93,8 +103,6 @@
     <style name="save_option_card">
         <item name="cardElevation">20dp</item>
         <item name="cornerRadius">10dp</item>
-        <item name="android:layout_marginEnd">3dp</item>
-        <item name="android:layout_marginStart">3dp</item>
         <item name="android:layout_marginTop">3dp</item>
         <item name="cardCornerRadius">12dp</item>
         <item name="android:foreground">?selectableItemBackground</item>

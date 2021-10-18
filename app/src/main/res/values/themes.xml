@@ -63,6 +63,8 @@
     </style>
     <style name="CustomBottomSheetDialog" parent="Widget.MaterialComponents.BottomSheet">
         <item name="android:windowIsFloating">true</item>
+        <item name="android:layout_marginStart">13dp</item>
+        <item name="android:layout_marginEnd">13dp</item>
         <item name="android:backgroundTint">#1A000000</item>
         <item name="shapeAppearanceOverlay">@style/CustomShapeAppearanceBottomSheetDialog</item>
     </style>

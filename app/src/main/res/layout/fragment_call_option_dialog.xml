@@ -37,7 +37,7 @@
                     android:background="@drawable/custom_ripple"
                     android:focusable="true"
                     android:clickable="true"
-                    android:textAppearance="@style/error_text"
+                    android:textAppearance="@style/option_card_text"
                     android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"
                     android:layout_height="55dp"/>
@@ -48,7 +48,7 @@
                     android:focusable="true"
                     android:background="@drawable/custom_ripple"
                     android:text="@string/report_number"
-                    android:textAppearance="@style/error_text"
+                    android:textAppearance="@style/option_card_text"
                     android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"
                     android:layout_height="55dp"/>
