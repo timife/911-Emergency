@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -35,10 +36,26 @@ class CallOptionDialog : BottomSheetDialogFragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentCallOptionDialogBinding.inflate(inflater)
+        val argument = CallOptionDialogArgs.fromBundle(requireArguments()).selectedNumber
 
-        viewModel.selectedNumber.observe(viewLifecycleOwner,{
+        binding.cancelOption.setOnClickListener{
+            dismiss()
+        }
+        binding.saveOption.setOnClickListener {
+            val number = argument.name
+            Toast.makeText(requireContext(),"$number saved successfully",Toast.LENGTH_SHORT).show()
+        }
+        binding.reportOption.setOnClickListener {
+            val report = argument.phone
+            Toast.makeText(requireContext(),"$report successfully reported",Toast.LENGTH_SHORT).show()
+        }
 
-        })
+
+//        viewModel.selectedNumber.observe(viewLifecycleOwner,{
+//
+//        })
+
+
         return binding.root
     }
 

@@ -53,9 +53,6 @@ class HomeFragmentCategory : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentHomeCategoryBinding.inflate(inflater)
-//        viewModel =
-//            ViewModelProvider(requireActivity(), viewModelFactory).get(HomeViewModel::class.java)
-
         sharedPreferences =
             requireActivity().getSharedPreferences("countryPref", Context.MODE_PRIVATE)
 
@@ -76,17 +73,29 @@ class HomeFragmentCategory : Fragment() {
 
 
     private fun getCategoryData(fragment: String) {
-        val country = sharedPreferences.getString("country", "Nigeria")
+        val country = sharedPreferences.getString("country", null)
         val state = sharedPreferences.getString("state", "Lagos")
 
         when (fragment) {
             EMERGENCY_SERVICES -> {
-                setUpEmergencyNumbers(country)
+                if (country != null){
+                    binding.progressBar.visibility = View.VISIBLE
+                    setUpEmergencyNumbers(country)
+                    binding.progressBar.visibility = View.GONE
+                }else{
+                    binding.progressBar.visibility = View.VISIBLE
+                }
             }
             NON_EMERGENCY_SERVICES -> {
                 binding.emergencyTitle.text =
                     context?.getString(R.string.use_this_non_emergency_service)
-                setUpNonEmergencyNumbers("Lagos")
+                if (state != null){
+                        binding.progressBar.visibility = View.VISIBLE
+                        setUpNonEmergencyNumbers("Lagos")
+                        binding.progressBar.visibility = View.GONE
+                }else{
+                    binding.progressBar.visibility = View.VISIBLE
+                }
             }
         }
     }

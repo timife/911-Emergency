@@ -7,7 +7,7 @@
     <string name="no_results_to_display">No results to display</string>
     <string name="use_emergency_services_if_you_require_immediate_help_and_non_emergency_services_if_you_require_non_immediate_help">Use emergency services if you require \n <b><u>immediate help</u></b> and non-emergency services \n if you require <b><u>non-immediate help.</u></b></string>
     <string name="use_this_emergency_service">Use these services in your location if you \n require <b><u>immediate help. </u></b></string>
-    <string name="use_this_non_emergency_service">Use these services in your location if you \n require <b><u>non-immediate help. </u></b></string>
+    <string name="use_this_non_emergency_service">Use these services in your location if you \n require <b><u>non-immediate help.</u></b></string>
     <string name="create_a_profile_to_save_numbers">Create a Profile to Save<br />Numbers</string>
     <string name="create_a_profile_so_you_can_start_saving_numbers_from_the_home_and_search_directory_pages">Create a profile so you can start saving \n numbers from the ‘Home’ and ‘Search’ \n directory pages.</string>
     <string name="account">account</string>
