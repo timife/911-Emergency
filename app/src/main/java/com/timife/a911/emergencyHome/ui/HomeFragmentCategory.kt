@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.timife.a911.EmergencyApplication
 import com.timife.a911.R
 import com.timife.a911.data.model.databasemodel.EmergencyInfo
@@ -52,7 +53,6 @@ class HomeFragmentCategory : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentHomeCategoryBinding.inflate(inflater)
-
         sharedPreferences =
             requireActivity().getSharedPreferences("countryPref", Context.MODE_PRIVATE)
 
@@ -63,21 +63,40 @@ class HomeFragmentCategory : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getCategoryData(emergencyType)
+
+        viewModel.navigateToSaveOption.observe(viewLifecycleOwner, {
+            this.findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
+            )
+        })
     }
 
 
     private fun getCategoryData(fragment: String) {
-        val country = sharedPreferences.getString("country", "Nigeria")
+        val country = sharedPreferences.getString("country", null)
         val state = sharedPreferences.getString("state", "Lagos")
 
         when (fragment) {
             EMERGENCY_SERVICES -> {
-                setUpEmergencyNumbers(country)
+                if (country != null){
+                    binding.progressBar.visibility = View.VISIBLE
+                    setUpEmergencyNumbers(country)
+                    binding.progressBar.visibility = View.GONE
+                }else{
+                    binding.progressBar.visibility = View.VISIBLE
+                }
             }
             NON_EMERGENCY_SERVICES -> {
-                setUpNonEmergencyNumbers("Lagos")
+                binding.emergencyTitle.text =
+                    context?.getString(R.string.use_this_non_emergency_service)
+                if (state != null){
+                        binding.progressBar.visibility = View.VISIBLE
+                        setUpNonEmergencyNumbers("Lagos")
+                        binding.progressBar.visibility = View.GONE
+                }else{
+                    binding.progressBar.visibility = View.VISIBLE
+                }
             }
-
         }
     }
 
@@ -89,6 +108,7 @@ class HomeFragmentCategory : Fragment() {
             if (it is Emergency) {
                 val emergencyNumbersAdapter =
                     ESvRecyclerViewAdapter(
+                        requireContext(),
                         listOf(
                             EmergencyInfo(
                                 UUID.randomUUID().toString(),
@@ -112,6 +132,9 @@ class HomeFragmentCategory : Fragment() {
                                 country
                             )
                         ),
+                        ESvRecyclerViewAdapter.OnClickListener {
+                            viewModel.passEmergencyDetails(it)
+                        }
                     )
 
                 binding.esvRecycler.setHasFixedSize(false)
@@ -141,7 +164,12 @@ class HomeFragmentCategory : Fragment() {
                         )
                     )
                 }
-                val nonEsvAdapter = ESvRecyclerViewAdapter(numbersList)
+                val nonEsvAdapter = ESvRecyclerViewAdapter(
+                    requireContext(),
+                    numbersList,
+                    ESvRecyclerViewAdapter.OnClickListener { emergencyInfo ->
+                        viewModel.passEmergencyDetails(emergencyInfo)
+                    })
                 binding.esvRecycler.setHasFixedSize(false)
                 binding.esvRecycler.addItemDecoration(
                     GridItemDecoration(
@@ -154,6 +182,7 @@ class HomeFragmentCategory : Fragment() {
             }
         }
     }
+
 
     companion object {
 

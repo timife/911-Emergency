@@ -2,15 +2,19 @@ package com.timife.a911.emergencyHome.ui
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
+import android.location.LocationManager
 import android.os.Bundle
 import android.os.Looper
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -81,7 +85,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
         binding = FragmentHomeBinding.inflate(inflater)
         geocoder = Geocoder(requireContext(), Locale.getDefault())
-
+        isLocationServicesEnabled()
         initGoogleMap(savedInstanceState)
         viewPager = binding.viewPager
         tabLayout = binding.tabLayout
@@ -103,6 +107,28 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             }
         }
         return binding.root
+    }
+
+    // TAKE USER TO SETTING TO TURN ON LOCATION IF OFF
+    private fun isLocationServicesEnabled() {
+        val lm: LocationManager =
+            requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        var gpsEnabled = false
+
+        try {
+            gpsEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER)
+        } catch (ex: java.lang.Exception) {
+        }
+        if (!gpsEnabled) {
+            // notify user
+            AlertDialog.Builder(context)
+                .setMessage("You need to turn on Location Services")
+                .setPositiveButton(
+                    "Enable Location"
+                ) { _, _ -> requireActivity().startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)) }
+                .setNegativeButton("Close", null)
+                .show()
+        }
     }
     //View pager different fragments
 
@@ -147,6 +173,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     }
 
     override fun onResume() {
+        requestLocationPermissions()
         mapView.onResume()
         super.onResume()
     }
@@ -188,6 +215,36 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             requireContext(),
             Manifest.permission.ACCESS_FINE_LOCATION
         ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun requestLocationPermissions() {
+        if (isPermissionGranted()) {
+            return
+        }
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale(
+                requireActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+        ) {
+            showPermissionRationale()
+        }
+    }
+
+    private fun showPermissionRationale() {
+
+        AlertDialog.Builder(requireContext())
+            .setTitle("Location permission")
+            .setMessage("Emergency-911 needs the permission to send your location")
+            .setPositiveButton("YES") { dialog, _ ->
+                dialog.dismiss()
+                requestPermissions(
+                    arrayOf(
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION
+                    ), REQUEST_LOCATION_PERMISSION
+                )
+            }.show()
     }
 
     private fun enableMyLocation(map: GoogleMap) {
