@@ -18,8 +18,8 @@ interface EmergencyRepository {
 
     suspend fun getNonEmergencyServicesItem(): Result<List<EmergencyInfo>>
 
-    fun getEmergencyNumbers():ArrayList<Emergency>
+    suspend fun getEmergencyNumbers():ArrayList<Emergency>
 
-    fun getNonEmergencyNumbers(): ArrayList<NonEmergency>
+    suspend fun getNonEmergencyNumbers(): ArrayList<NonEmergency>
 
 }
