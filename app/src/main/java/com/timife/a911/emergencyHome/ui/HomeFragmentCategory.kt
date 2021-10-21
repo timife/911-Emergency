@@ -7,13 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.timife.a911.EmergencyApplication
 import com.timife.a911.R
 import com.timife.a911.data.model.databasemodel.EmergencyInfo
-import com.timife.a911.data.model.jsonmodel.NonEmergency
 import com.timife.a911.databinding.FragmentHomeCategoryBinding
 import java.util.*
 import javax.inject.Inject
@@ -27,11 +25,12 @@ class HomeFragmentCategory : Fragment() {
     private lateinit var emergencyType: String
     private lateinit var binding: FragmentHomeCategoryBinding
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var viewModel: HomeViewModel
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private val viewModel by viewModels<HomeViewModel> { viewModelFactory }
+//    private val viewModel by viewModels<HomeViewModel> { viewModelFactory }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -52,16 +51,16 @@ class HomeFragmentCategory : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentHomeCategoryBinding.inflate(inflater)
+        viewModel =
+            ViewModelProvider(requireActivity(), viewModelFactory).get(HomeViewModel::class.java)
         sharedPreferences =
             requireActivity().getSharedPreferences("countryPref", Context.MODE_PRIVATE)
-//        binding.viewModel = viewModel
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         getCategoryData(emergencyType)
 
         viewModel.navigateToSaveOption.observe(viewLifecycleOwner, {
@@ -78,23 +77,29 @@ class HomeFragmentCategory : Fragment() {
 
         when (fragment) {
             EMERGENCY_SERVICES -> {
-                binding.progressBar.visibility =View.VISIBLE
+                if (country != null) {
+                    binding.progressBar.visibility = View.VISIBLE
                     setUpEmergencyNumbers(country)
-                binding.progressBar.visibility = View.GONE
+                    binding.progressBar.visibility = View.GONE
+                } else {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
             }
             NON_EMERGENCY_SERVICES -> {
                 binding.emergencyTitle.text =
                     context?.getString(R.string.use_this_non_emergency_service)
-                binding.progressBar.visibility =View.VISIBLE
+                if (state != null) {
+                    binding.progressBar.visibility = View.VISIBLE
                     setUpNonEmergencyNumbers("Lagos")
-                binding.progressBar.visibility = View.GONE
+                    binding.progressBar.visibility = View.GONE
+                } else {
+                    binding.progressBar.visibility = View.GONE
+                }
             }
         }
     }
 
     private fun setUpEmergencyNumbers(country: String?) {
-//        binding.progressBar.visibility =View.VISIBLE
-
         viewModel.emergency.observe(viewLifecycleOwner, {
             val emergencyNumbersList = it.filter {
                 it.country.equals(country, ignoreCase = true)
@@ -144,11 +149,9 @@ class HomeFragmentCategory : Fragment() {
 
             }
         })
-//        binding.progressBar.visibility =View.GONE
     }
 
     private fun setUpNonEmergencyNumbers(state: String?) {
-
         viewModel.nonEmergency.observe(viewLifecycleOwner, {
             val nonEmergencyNumbersList = it.filter {
                 it.place.equals(state, ignoreCase = true)

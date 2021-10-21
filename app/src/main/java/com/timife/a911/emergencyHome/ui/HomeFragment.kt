@@ -280,7 +280,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         locationRequest.interval = 10000
         locationRequest.fastestInterval = 5000
-        FusedLocationProviderClient(requireActivity()).also { mFusedLocationPoviderClient = it }
+        FusedLocationProviderClient(requireActivity()).also {mFusedLocationPoviderClient = it}
         if (ActivityCompat.checkSelfPermission(
                 requireContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION
