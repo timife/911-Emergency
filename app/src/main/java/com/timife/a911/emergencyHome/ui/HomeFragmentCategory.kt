@@ -65,7 +65,7 @@ class HomeFragmentCategory : Fragment() {
         getCategoryData(emergencyType)
 
         viewModel.navigateToSaveOption.observe(viewLifecycleOwner, {
-            this.findNavController().navigate(
+             this.findNavController().navigate(
                 HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
             )
         })
