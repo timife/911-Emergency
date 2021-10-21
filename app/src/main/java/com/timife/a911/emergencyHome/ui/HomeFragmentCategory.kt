@@ -66,6 +66,7 @@ class HomeFragmentCategory : Fragment() {
         viewModel.navigateToSaveOption.observe(viewLifecycleOwner, {
             this.findNavController().navigate(
                 HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
+//                    HomeFragmentCategoryDirections.actionHomeFragmentCategoryToCallOptionDialog(it)
             )
         })
     }

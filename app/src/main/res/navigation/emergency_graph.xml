@@ -76,7 +76,5 @@
         android:id="@+id/homeFragmentCategory"
         tools:layout="@layout/fragment_home_category"
         android:name="com.timife.a911.emergencyHome.ui.HomeFragmentCategory"
-        android:label="HomeFragmentCategory" >
-
-    </fragment>
+        android:label="HomeFragmentCategory" />
 </navigation>
