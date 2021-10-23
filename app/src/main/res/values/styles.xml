@@ -40,6 +40,20 @@
             @font/roboto
         </item>
     </style>
+    <style name="alert_dialog_text">
+        <item name="android:textColor">
+            @color/on_surface
+        </item>
+        <item name="android:textSize">
+            15sp
+        </item>
+        <item name="android:textStyle">
+            normal
+        </item>
+        <item name="fontFamily">
+            @font/roboto
+        </item>
+    </style>
 
     <style name="error_text">
         <item name="android:textColor">
@@ -72,7 +86,7 @@
             @color/on_surface
         </item>
         <item name="android:textSize">
-            16sp
+            18sp
         </item>
         <item name="android:textStyle">
             normal
@@ -132,7 +146,7 @@
         @color/dialog_button
         </item>
         <item name="android:textSize">
-            16sp
+            18sp
         </item>
     </style>
 
@@ -143,6 +157,7 @@
     <style name="MaterialAlertDialog.App.Title.Text" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
         <item name="android:textColor">@color/on_surface</item>
         <item name="android:textStyle">bold</item>
+        <item name="titleCentered">true</item>
         <item name="android:textSize">22sp</item>
     </style>
 

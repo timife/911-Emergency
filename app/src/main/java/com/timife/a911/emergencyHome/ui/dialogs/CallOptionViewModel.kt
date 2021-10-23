@@ -1,4 +1,4 @@
-package com.timife.a911.emergencyHome.ui
+package com.timife.a911.emergencyHome.ui.dialogs
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -9,18 +9,29 @@ import com.timife.a911.data.model.databasemodel.EmergencyInfo
 import com.timife.a911.data.model.jsonmodel.Emergency
 import com.timife.a911.data.model.jsonmodel.NonEmergency
 import com.timife.a911.data.repository.EmergencyRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 enum class EmergencyStatus { LOADING, ERROR, DONE }
 
 class HomeViewModel @Inject constructor(private val repository: EmergencyRepository) : ViewModel() {
     private val _emergency = MutableLiveData<List<Emergency>>()
+    val emergency: LiveData<List<Emergency>>
+        get() = _emergency
+
     private val _nonEmergency = MutableLiveData<List<NonEmergency>>()
+    val nonEmergency: LiveData<List<NonEmergency>>
+        get() = _nonEmergency
 
     private val _navigateToSaveOption = LiveEvent<EmergencyInfo>()
     val navigateToSaveOption: LiveEvent<EmergencyInfo>
         get() = _navigateToSaveOption
+    private val _navigateToNonSaveOption = LiveEvent<EmergencyInfo>()
+    val navigateToNonSaveOption: LiveEvent<EmergencyInfo>
+        get() = _navigateToNonSaveOption
+
 
     private val _status = MutableLiveData<EmergencyStatus>()
     val status: LiveData<EmergencyStatus>
@@ -34,55 +45,29 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
     private fun getEmergencyNumbers() {
         viewModelScope.launch {
             try {
-                _emergency.value = repository.getEmergencyNumbers()
-                _nonEmergency.value = repository.getNonEmergencyNumbers()
+                _status.value = EmergencyStatus.LOADING
+                val emergency = withContext(Dispatchers.IO) {
+                    repository.getEmergencyNumbers()
+                }
+                val nonEmergency = withContext(Dispatchers.IO) {
+                    repository.getNonEmergencyNumbers()
+                }
+
+                _emergency.value = emergency
+                _nonEmergency.value = nonEmergency
+                _status.value = EmergencyStatus.DONE
             } catch (e: Exception) {
+                _status.value = EmergencyStatus.LOADING
                 _emergency.value = ArrayList()
-            }
-
-
-        }
-    }
-
-    fun searchEmergencyNumbers(country: String): LiveData<Emergency> {
-        val emergencyNumbers = MutableLiveData<Emergency>()
-        viewModelScope.launch {
-            val emergencyNumbersList = _emergency.value?.filter {
-                it.country.equals(country, ignoreCase = true)
-            }
-            if (emergencyNumbersList != null) {
-                if (emergencyNumbersList.isNotEmpty()) {
-                    emergencyNumbers.value = emergencyNumbersList[0]
-                }
+                _nonEmergency.value = ArrayList()
             }
         }
-
-        return emergencyNumbers
-
-    }
-
-
-    fun searchNonEmergencyNumbers(state: String): LiveData<NonEmergency> {
-        val nonEmergencyNumbers = MutableLiveData<NonEmergency>()
-        viewModelScope.launch {
-            val nonEmergencyNumbersList = _nonEmergency.value?.filter {
-                it.place.equals(state, ignoreCase = true)
-            }
-            if (nonEmergencyNumbersList != null) {
-                if (nonEmergencyNumbersList.isNotEmpty()) {
-                    nonEmergencyNumbers.value = nonEmergencyNumbersList[0]
-                }
-            }
-        }
-        return nonEmergencyNumbers
     }
 
     fun passEmergencyDetails(number: EmergencyInfo) {
         _navigateToSaveOption.value = number
     }
-//    fun passEmergencyDetailsComplete(){
-//        _navigateToSaveOption.value =
-//    }
-
-
+    fun passNonEmergencyDetails(number: EmergencyInfo) {
+        _navigateToNonSaveOption.value = number
+    }
 }

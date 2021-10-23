@@ -33,11 +33,11 @@ class EmergencyRepositoryImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override fun getEmergencyNumbers(): ArrayList<Emergency> =
+    override suspend fun getEmergencyNumbers(): ArrayList<Emergency> =
         emergencyLocalDataSource.getEmergencyNumbers()
 
 
-    override fun getNonEmergencyNumbers(): ArrayList<NonEmergency> =
+    override suspend fun getNonEmergencyNumbers(): ArrayList<NonEmergency> =
         emergencyLocalDataSource.getNonEmergencyNumbers()
 
 

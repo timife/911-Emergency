@@ -56,7 +56,6 @@ class ESvRecyclerViewAdapter(
                         binding.emergencyText.context.startActivity(intent)
                         dialog.dismiss()
                     }.show()
-
             }
             binding.executePendingBindings()
         }

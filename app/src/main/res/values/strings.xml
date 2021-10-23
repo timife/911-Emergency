@@ -7,7 +7,10 @@
     <string name="no_results_to_display">No results to display</string>
     <string name="use_emergency_services_if_you_require_immediate_help_and_non_emergency_services_if_you_require_non_immediate_help">Use emergency services if you require \n <b><u>immediate help</u></b> and non-emergency services \n if you require <b><u>non-immediate help.</u></b></string>
     <string name="use_this_emergency_service">Use these services in your location if you \n require <b><u>immediate help. </u></b></string>
+    <string name="non_clickable_emergency">Use these services in your location if you \n require %1$s </string>
+    <string name="clickable_immediate_help">immediate help.</string>
     <string name="use_this_non_emergency_service">Use these services in your location if you \n require <b><u>non-immediate help.</u></b></string>
+    <string name="clickable_non_immediate">non-immediate help.</string>
     <string name="create_a_profile_to_save_numbers">Create a Profile to Save<br />Numbers</string>
     <string name="create_a_profile_so_you_can_start_saving_numbers_from_the_home_and_search_directory_pages">Create a profile so you can start saving \n numbers from the ‘Home’ and ‘Search’ \n directory pages.</string>
     <string name="account">account</string>
@@ -48,4 +51,20 @@
     <string name="save_number">\u0020 Save Number</string>
     <string name="report_number">\u0020 Report Number</string>
     <string name="cancel_low">Cancel</string>
+    <string name="send_report"><b>Send Report</b></string>
+    <string name="non_immediate_help_title">Situations Requiring \nNon-Immediate Help…</string>
+    <string name="immediate_help_title">Situations Requiring Immediate \nHelp…</string>
+    <string name="immediate_help_subtitle">Examples of emergency situations could be:</string>
+    <string name="non_immediate_subtitle">Examples of non-emergency situations could \nbe:</string>
+    <string name="immediate_text1">• An event that involves an immediate threat to \nperson or property: screams, attacks, gunshots, \nfire, car accident with injuries or any other \nmedical emergency.</string>
+    <string name="immediate_text2">• A substantive, in-progress crime. This includes \nfights, break and enters (if there is a suspect on \nscene) or a report of an impaired driver.</string>
+    <string name="immediate_text3">• A serious crime that has just occurred (e.g., \nsexual assault or robbery).</string>
+    <string name="immediate_text4">• A suspicious circumstance that may indicate \nan immediate criminal act (e.g., robber, vandal).</string>
+    <string name="alert_bottom">Definitions and examples obtained from E-Comm Emergency \n Communications for British Columbia Incorporated.</string>
+    <string name="non_text1">• Reporting a crime with no suspect (e.g., theft \nof licence plate).</string>
+    <string name="non_text2">• Reporting a crime with suspect, but suspect is \nnot on the scene (e.g.,fraud).</string>
+    <string name="non_text3">• Reporting a serious crime with suspect, but \nwith a lengthy delay (e.g., assault that occurred \nlast night at a bar).</string>
+    <string name="non_text4">• Non-emergency incidents in progress \n(e.g., noisy party, drug use).</string>
+    <string name="non_text5">• Ongoing crime issues or crimes that are not in \nprogress (e.g., graffiti or ongoing drug dealing \nwith no suspect on scene).</string>
+    <string name="non_text6">• A suspicious circumstance that may indicate \nan ongoing criminal activity (e.g., illegal drug \noperation).</string>
 </resources>
