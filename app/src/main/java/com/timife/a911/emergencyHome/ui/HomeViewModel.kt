@@ -28,6 +28,10 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
     private val _navigateToSaveOption = LiveEvent<EmergencyInfo>()
     val navigateToSaveOption: LiveEvent<EmergencyInfo>
         get() = _navigateToSaveOption
+    private val _navigateToNonSaveOption = LiveEvent<EmergencyInfo>()
+    val navigateToNonSaveOption: LiveEvent<EmergencyInfo>
+        get() = _navigateToNonSaveOption
+
 
     private val _status = MutableLiveData<EmergencyStatus>()
     val status: LiveData<EmergencyStatus>
@@ -36,7 +40,6 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
 
     init {
         getEmergencyNumbers()
-        getNonEmergencyNumbers()
     }
 
     private fun getEmergencyNumbers() {
@@ -46,27 +49,17 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
                 val emergency = withContext(Dispatchers.IO) {
                     repository.getEmergencyNumbers()
                 }
-                _emergency.value = emergency
-                _status.value = EmergencyStatus.DONE
-            } catch (e: Exception) {
-                _status.value = EmergencyStatus.LOADING
-                _emergency.value = ArrayList()
-            }
-        }
-    }
-
-    private fun getNonEmergencyNumbers() {
-        viewModelScope.launch {
-            try {
-                _status.value = EmergencyStatus.LOADING
                 val nonEmergency = withContext(Dispatchers.IO) {
                     repository.getNonEmergencyNumbers()
                 }
+
+                _emergency.value = emergency
                 _nonEmergency.value = nonEmergency
                 _status.value = EmergencyStatus.DONE
             } catch (e: Exception) {
                 _status.value = EmergencyStatus.LOADING
                 _emergency.value = ArrayList()
+                _nonEmergency.value = ArrayList()
             }
         }
     }
@@ -74,9 +67,7 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
     fun passEmergencyDetails(number: EmergencyInfo) {
         _navigateToSaveOption.value = number
     }
-//    fun passEmergencyDetailsComplete(){
-//        _navigateToSaveOption.value =
-//    }
-
-
+    fun passNonEmergencyDetails(number: EmergencyInfo) {
+        _navigateToNonSaveOption.value = number
+    }
 }

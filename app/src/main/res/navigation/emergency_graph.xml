@@ -66,7 +66,7 @@
     <dialog
         android:id="@+id/callOptionDialog"
         tools:layout="@layout/fragment_call_option_dialog"
-        android:name="com.timife.a911.emergencyHome.ui.CallOptionDialog"
+        android:name="com.timife.a911.emergencyHome.ui.dialogs.CallOptionDialog"
         android:label="CallOptionDialog" >
         <argument
             android:name="selectedNumber"
