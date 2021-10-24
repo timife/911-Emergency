@@ -65,12 +65,6 @@ class HomeFragmentCategory : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getCategoryData(emergencyType)
-
-        viewModel.navigateToSaveOption.observe(viewLifecycleOwner, {
-            this.findNavController().navigate(
-                HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
-            )
-        })
     }
 
 
