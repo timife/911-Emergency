@@ -10,7 +10,7 @@ import com.timife.a911.databinding.FragmentImmediateDialogBinding
 
 
 class ImmediateDialog : DialogFragment() {
-    private lateinit var binding : FragmentImmediateDialogBinding
+    private lateinit var binding: FragmentImmediateDialogBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

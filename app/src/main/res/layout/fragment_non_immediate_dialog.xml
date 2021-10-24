@@ -38,7 +38,7 @@
             android:id="@+id/help_subtitle"
             android:text="@string/non_immediate_subtitle"
             android:layout_gravity="center"
-            android:textSize="14sp"
+            android:textSize="18sp"
             android:maxLines="2"
             android:layout_marginTop="25dp"
             android:textAppearance="@style/alert_dialog_text" />
@@ -107,9 +107,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/immediate_bottom"
-            android:textAppearance="@style/alert_dialog_text"
+            android:textAppearance="@style/universal_text"
             android:text="@string/alert_bottom"
             android:layout_gravity="center"
+            android:textSize="14sp"
             android:gravity="center"
             android:textColor="@color/ripple_color"
             android:layout_marginTop="50dp" />

@@ -45,7 +45,7 @@
             @color/on_surface
         </item>
         <item name="android:textSize">
-            13sp
+            15sp
         </item>
         <item name="android:textStyle">
             normal

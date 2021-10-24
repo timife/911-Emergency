@@ -1,7 +1,6 @@
 package com.timife.a911.emergencyHome.ui.dialogs
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +16,7 @@ class NonImmediateDialog : DialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        dialog?.window?.setBackgroundDrawableResource(R.drawable.round_corner_dialog)
         binding = FragmentNonImmediateDialogBinding.inflate(inflater)
         binding.cancel.setOnClickListener {
             dismiss()
@@ -24,4 +24,10 @@ class NonImmediateDialog : DialogFragment() {
         return binding.root
     }
 
+    override fun onStart() {
+        super.onStart()
+        val width = (resources.displayMetrics.widthPixels * 0.85).toInt()
+        val height = (resources.displayMetrics.heightPixels * 0.40).toInt()
+        dialog?.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
+    }
 }
