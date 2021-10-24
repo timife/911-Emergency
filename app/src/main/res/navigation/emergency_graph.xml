@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_homeFragment_to_callOptionDialog"
             app:destination="@id/callOptionDialog" />
+        <action
+            android:id="@+id/action_homeFragment_to_immediateDialog"
+            app:destination="@id/immediateDialog" />
+        <action
+            android:id="@+id/action_homeFragment_to_nonImmediateDialog"
+            app:destination="@id/nonImmediateDialog" />
     </fragment>
     <fragment
         android:id="@+id/saveFragment"
@@ -77,4 +83,14 @@
         tools:layout="@layout/fragment_home_category"
         android:name="com.timife.a911.emergencyHome.ui.HomeFragmentCategory"
         android:label="HomeFragmentCategory" />
+    <dialog
+        android:id="@+id/immediateDialog"
+        android:name="com.timife.a911.emergencyHome.ui.dialogs.ImmediateDialog"
+        tools:layout="@layout/fragment_immediate_dialog"
+        android:label="ImmediateDialog" />
+    <dialog
+        android:id="@+id/nonImmediateDialog"
+        tools:layout="@layout/fragment_non_immediate_dialog"
+        android:name="com.timife.a911.emergencyHome.ui.dialogs.NonImmediateDialog"
+        android:label="NonImmediateDialog" />
 </navigation>
