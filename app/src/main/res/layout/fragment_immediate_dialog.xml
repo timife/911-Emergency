@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        tools:context=".emergencyHome.ui.dialogs.ImmediateDialog">
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:id="@+id/cancel"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_cancel"
+            android:layout_gravity="end"
+            android:background="@color/white"
+            android:contentDescription="@string/cancel" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/help_title"
+            android:layout_gravity="center"
+            android:minLines="2"
+            android:textSize="20sp"
+            android:textAppearance="@style/pre_info"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/immediate_help_title" />
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/help_subtitle"
+            android:text="@string/immediate_help_subtitle"
+            android:layout_gravity="center"
+            android:textSize="17sp"
+            android:maxLines="2"
+            android:layout_marginTop="25dp"
+            android:textAppearance="@style/alert_dialog_text" />
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bullet_1"
+            android:letterSpacing="0.015"
+            android:textAppearance="@style/alert_dialog_text"
+            android:text="@string/immediate_text1"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bullet_2"
+            android:textAppearance="@style/alert_dialog_text"
+            android:text="@string/immediate_text2"
+            android:layout_gravity="center"
+            android:letterSpacing="0.015"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bullet_3"
+            android:letterSpacing="0.015"
+            android:textAppearance="@style/alert_dialog_text"
+            android:text="@string/immediate_text3"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bullet_4"
+            android:letterSpacing="0.015"
+            android:textAppearance="@style/alert_dialog_text"
+            android:text="@string/immediate_text4"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/immediate_bottom"
+            android:textAppearance="@style/universal_text"
+            android:text="@string/alert_bottom"
+            android:layout_gravity="center"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:textColor="@color/ripple_color"
+            android:layout_marginTop="50dp" />
+    </LinearLayout>
+</layout>

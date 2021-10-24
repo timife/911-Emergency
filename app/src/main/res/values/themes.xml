@@ -17,7 +17,7 @@
     </style>
 
     <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
-        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimary">@color/on_surface</item>
         <item name="colorSecondary">@color/secondary</item>
         <item name="colorSurface">@color/white</item>
         <item name="colorOnSurface">@color/on_surface</item>
@@ -25,6 +25,7 @@
         <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text</item>
         <item name="materialAlertDialogBodyTextStyle">@style/MaterialAlertDialog.MaterialComponents.Body.Text.style</item>
         <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.App.Button</item>
         <item name="buttonBarNeutralButtonStyle">@style/Widget.App.Button</item>
     </style>
 
@@ -46,6 +47,8 @@
     <style name="DialogTheme" parent="Theme.911Emergency">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">false</item>
+        <item name="titleTextStyle">@style/MaterialAlertDialog.App.Title.Text</item>
+        <item name="buttonBarPositiveButtonStyle">@style/dialog_text_button</item>
         <item name="android:windowIsFloating">false</item>
     </style>
     <style name = "ToolBarStyle" parent="Theme.AppCompat">

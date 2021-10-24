@@ -39,7 +39,7 @@ class EmergencyLocalDataSource @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override fun getEmergencyNumbers(): ArrayList<Emergency> {
+    override suspend fun getEmergencyNumbers(): ArrayList<Emergency> {
         val json = Utils.getJsonDataFromAsset(context, R.raw.emergency_numbers)
         val jsonObject = JSONObject(json!!)
         val emergencyNumbers: JSONArray = jsonObject.getJSONArray("emergency_numbers")
@@ -59,7 +59,7 @@ class EmergencyLocalDataSource @Inject constructor(
     }
 
 
-    override fun getNonEmergencyNumbers(): ArrayList<NonEmergency> {
+    override suspend fun getNonEmergencyNumbers(): ArrayList<NonEmergency> {
         val json = Utils.getJsonDataFromAsset(context, R.raw.non_emergency_numbers)
         val jsonObject = JSONObject(json!!)
         val nonEmergencyNumbers: JSONArray = jsonObject.getJSONArray("non_emergency_numbers")
