@@ -8,9 +8,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
         android:layout_height="match_parent"
-        tools:context=".emergencyHome.ui.dialogs.ImmediateDialog">
+        android:orientation="vertical"
+        tools:context=".emergencyHome.ui.dialogs.NonImmediateDialog">
 
         <ImageButton
             android:layout_width="30dp"
@@ -30,13 +30,13 @@
             android:textStyle="bold"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/immediate_help_title" />
+            android:text="@string/non_immediate_help_title" />
 
         <TextView
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:id="@+id/help_subtitle"
-            android:text="@string/immediate_help_subtitle"
+            android:text="@string/non_immediate_subtitle"
             android:layout_gravity="center"
             android:textSize="14sp"
             android:maxLines="2"
@@ -49,7 +49,7 @@
             android:id="@+id/bullet_1"
             android:letterSpacing="0.015"
             android:textAppearance="@style/alert_dialog_text"
-            android:text="@string/immediate_text1"
+            android:text="@string/non_text1"
             android:layout_gravity="center"
             android:layout_marginTop="12dp" />
 
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/bullet_2"
             android:textAppearance="@style/alert_dialog_text"
-            android:text="@string/immediate_text2"
+            android:text="@string/non_text2"
             android:layout_gravity="center"
             android:letterSpacing="0.015"
             android:layout_marginTop="12dp" />
@@ -69,7 +69,7 @@
             android:id="@+id/bullet_3"
             android:letterSpacing="0.015"
             android:textAppearance="@style/alert_dialog_text"
-            android:text="@string/immediate_text3"
+            android:text="@string/non_text3"
             android:layout_gravity="center"
             android:layout_marginTop="12dp" />
 
@@ -79,7 +79,27 @@
             android:id="@+id/bullet_4"
             android:letterSpacing="0.015"
             android:textAppearance="@style/alert_dialog_text"
-            android:text="@string/immediate_text4"
+            android:text="@string/non_text4"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bullet_5"
+            android:letterSpacing="0.015"
+            android:textAppearance="@style/alert_dialog_text"
+            android:text="@string/non_text5"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bullet_6"
+            android:letterSpacing="0.015"
+            android:textAppearance="@style/alert_dialog_text"
+            android:text="@string/non_text6"
             android:layout_gravity="center"
             android:layout_marginTop="12dp" />
 
@@ -93,5 +113,6 @@
             android:gravity="center"
             android:textColor="@color/ripple_color"
             android:layout_marginTop="50dp" />
+
     </LinearLayout>
 </layout>

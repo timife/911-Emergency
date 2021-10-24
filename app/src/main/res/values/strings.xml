@@ -52,13 +52,19 @@
     <string name="report_number">\u0020 Report Number</string>
     <string name="cancel_low">Cancel</string>
     <string name="send_report"><b>Send Report</b></string>
-    <string name="emergency_alert">
-        <ul>
-            <i>An event that involves an immediate threat to person or property: screams, attacks, gunshots, fire, car accident with injuries or any other medical emergency.</i>
-            <li> A substantive, in-progress crime. This includes fights, break and enters (if there is a suspect on scene) or a report of an impaired driver.</li>
-            <li>A serious crime that has just occurred (e.g., sexual assault or robbery).</li>
-            <li> A suspicious circumstance that may indicate an immediate criminal act (e.g., robber, vandal).</li>
-        </ul>
-    </string>
-    <string name="emergency_alert_title">Situations Requiring Immediate Help…</string>
+    <string name="non_immediate_help_title">Situations Requiring \nNon-Immediate Help…</string>
+    <string name="immediate_help_title">Situations Requiring Immediate \nHelp…</string>
+    <string name="immediate_help_subtitle">Examples of emergency situations could be:</string>
+    <string name="non_immediate_subtitle">Examples of non-emergency situations could \nbe:</string>
+    <string name="immediate_text1">• An event that involves an immediate threat to \nperson or property: screams, attacks, gunshots, \nfire, car accident with injuries or any other \nmedical emergency.</string>
+    <string name="immediate_text2">• A substantive, in-progress crime. This includes \nfights, break and enters (if there is a suspect on \nscene) or a report of an impaired driver.</string>
+    <string name="immediate_text3">• A serious crime that has just occurred (e.g., \nsexual assault or robbery).</string>
+    <string name="immediate_text4">• A suspicious circumstance that may indicate \nan immediate criminal act (e.g., robber, vandal).</string>
+    <string name="alert_bottom">Definitions and examples obtained from E-Comm Emergency \n Communications for British Columbia Incorporated.</string>
+    <string name="non_text1">• Reporting a crime with no suspect (e.g., theft \nof licence plate).</string>
+    <string name="non_text2">• Reporting a crime with suspect, but suspect is \nnot on the scene (e.g.,fraud).</string>
+    <string name="non_text3">• Reporting a serious crime with suspect, but \nwith a lengthy delay (e.g., assault that occurred \nlast night at a bar).</string>
+    <string name="non_text4">• Non-emergency incidents in progress \n(e.g., noisy party, drug use).</string>
+    <string name="non_text5">• Ongoing crime issues or crimes that are not in \nprogress (e.g., graffiti or ongoing drug dealing \nwith no suspect on scene).</string>
+    <string name="non_text6">• A suspicious circumstance that may indicate \nan ongoing criminal activity (e.g., illegal drug \noperation).</string>
 </resources>
