@@ -86,6 +86,22 @@
             @color/on_surface
         </item>
         <item name="android:textSize">
+            15sp
+        </item>
+        <item name="android:textStyle">
+            normal
+        </item>
+        <item name="android:fontFamily">
+            @font/roboto
+        </item>
+
+    </style>
+
+    <style name="back_ground">
+        <item name="android:textColor">
+            @color/on_surface
+        </item>
+        <item name="android:textSize">
             18sp
         </item>
         <item name="android:textStyle">

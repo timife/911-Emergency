@@ -15,12 +15,10 @@ class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private lateinit var navController: NavController
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = FragmentSearchBinding.inflate(inflater)
         return binding.root
     }
@@ -33,8 +31,6 @@ class SearchFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         (requireActivity().application as EmergencyApplication).emergencyComponent.inject(this)
-
-
     }
 
 }

@@ -136,7 +136,6 @@ class HomeFragmentCategory : Fragment() {
         shouldBeBold = true
     ) {
         this.findNavController().navigate(R.id.action_homeFragment_to_nonImmediateDialog)
-
     }
 
 
@@ -178,7 +177,6 @@ class HomeFragmentCategory : Fragment() {
                                 viewModel.passEmergencyDetails(it)
                             }
                         )
-
                     binding.esvRecycler.setHasFixedSize(false)
                     binding.esvRecycler.addItemDecoration(
                         GridItemDecoration(
@@ -229,9 +227,7 @@ class HomeFragmentCategory : Fragment() {
         })
     }
 
-
     companion object {
-
         @JvmStatic
         fun newInstance(fragment: String) =
             HomeFragmentCategory().apply {

@@ -27,8 +27,6 @@ object Utils {
         }
         return jsonString
     }
-
-
 }
 
 fun <A : Activity> Activity.startNewActivity(activity: Class<A>) {
@@ -56,7 +54,6 @@ fun String.getClickableSpan(
             if (!isHavingUnderline) {
                 ds.isUnderlineText = false
             }
-
             if (shouldBeBold) {
                 ds.typeface = Typeface.DEFAULT_BOLD
             }
@@ -81,10 +78,5 @@ fun String.getClickableSpan(
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
     }
-//    signUpSpan.movementMethod =
-//        LinkMovementMethod.getInstance() // without LinkMovementMethod, link can not click
-//    this.setText(spannableString, TextView.BufferType.SPANNABLE)
-
-
     return span
 }

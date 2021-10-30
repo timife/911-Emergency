@@ -24,8 +24,6 @@ class SaveFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         (requireActivity().application as EmergencyApplication).emergencyComponent.inject(this)
-//        navController = findNavController()
-//        binding.saveToolbar.setupWithNavController(navController)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
