@@ -25,7 +25,7 @@
             android:focusable="true"
             android:gravity="center"
             android:text="@string/use_this_emergency_service"
-            android:textAppearance="@style/pre_info" />
+            android:textAppearance="@style/back_ground" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/esv_recycler"
