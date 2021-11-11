@@ -42,7 +42,6 @@ class ESvRecyclerViewAdapter(
                 }
             }
             binding.fragmentEsv.setOnClickListener {
-
                 MaterialAlertDialogBuilder(context,R.style.ThemeOverlay_App_MaterialAlertDialog)
                     .setTitle(context.getString(R.string.place_call))
                     .setMessage("Place a call to ${emergencyInfo.name} at ${emergencyInfo.phone}")

@@ -43,40 +43,29 @@ class CallOptionDialog : BottomSheetDialogFragment() {
         }
         binding.saveOption.setOnClickListener {
             val number = argument.name
-            Toast.makeText(requireContext(), "$number saved successfully", Toast.LENGTH_SHORT)
-                .show()
         }
         binding.reportOption.setOnClickListener {
             val report = argument.phone
-            Toast.makeText(requireContext(), "$report successfully reported", Toast.LENGTH_SHORT)
-                .show()
-
-            val singleItems = arrayOf("Displayed number is disconnected", "Displayed number is incorrect")
+            val singleItems =
+                arrayOf("Displayed number is disconnected", "Displayed number is incorrect")
             var checkedItem = 0
-
             var selectedItem = singleItems[checkedItem]
-
 
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Report this number because...")
-
                 // Single-choice items (initialized with checked item)
                 .setSingleChoiceItems(singleItems, checkedItem) { dialog, which ->
                     // Respond to item chosen
                     checkedItem = which
                     selectedItem = singleItems[which]
                 }
-                .setPositiveButton(getString(R.string.send_report)){ dialog, which ->
+                .setPositiveButton(getString(R.string.send_report)) { dialog, which ->
                     Toast.makeText(requireContext(), "$selectedItem selected", Toast.LENGTH_LONG)
                         .show()
                 }
                 .show()
         }
         return binding.root
-    }
-
-    companion object {
-
     }
 
     override fun getTheme(): Int {
