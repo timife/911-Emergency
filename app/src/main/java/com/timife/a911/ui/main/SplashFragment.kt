@@ -55,7 +55,7 @@ class SplashFragment : Fragment() {
                 val activity = MainActivity::class.java
                 requireActivity().startNewActivity(activity)
                 requireActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out)
-        },2000
+        },7500
         )
         return binding.root
     }
