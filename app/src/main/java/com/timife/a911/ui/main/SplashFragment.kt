@@ -35,10 +35,6 @@ import java.util.ArrayList
 
 class SplashFragment : Fragment() {
     private lateinit var binding: FragmentSplashBinding
-    private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var geocoder: Geocoder
-    private lateinit var mFusedLocationPoviderClient: FusedLocationProviderClient
-
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -59,92 +55,4 @@ class SplashFragment : Fragment() {
         )
         return binding.root
     }
-//    private fun enableMyLocation(map: GoogleMap) {
-//        if (isPermissionGranted()) {
-//            if (ActivityCompat.checkSelfPermission(
-//                    requireContext(),
-//                    Manifest.permission.ACCESS_FINE_LOCATION
-//                )
-//                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-//                    requireContext(),
-//                    Manifest.permission.ACCESS_COARSE_LOCATION
-//                )
-//                != PackageManager.PERMISSION_GRANTED
-//            ) {
-//                return
-//            }
-//            map.isMyLocationEnabled = true
-//            updateLocation()
-//        } else {
-//            requestPermissions(
-//                arrayOf(
-//                    Manifest.permission.ACCESS_FINE_LOCATION,
-//                    Manifest.permission.ACCESS_COARSE_LOCATION
-//                ), REQUEST_LOCATION_PERMISSION
-//            )
-//        }
-//    }
-//
-//    @SuppressLint("VisibleForTests")
-//    private fun updateLocation() {
-//        val locationRequest = LocationRequest()
-//        locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-//        locationRequest.interval = 10000
-//        locationRequest.fastestInterval = 5000
-//        FusedLocationProviderClient(requireActivity()).also {mFusedLocationPoviderClient = it}
-//        if (ActivityCompat.checkSelfPermission(
-//                requireContext(),
-//                Manifest.permission.ACCESS_FINE_LOCATION
-//            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-//                requireContext(),
-//                Manifest.permission.ACCESS_COARSE_LOCATION
-//            ) != PackageManager.PERMISSION_GRANTED
-//        ) {
-//            return
-//        }
-//        mFusedLocationPoviderClient.requestLocationUpdates(
-//            locationRequest,
-//            mLocationCallback,
-//            Looper.myLooper()
-//        )
-//    }
-//
-//    private var mLocationCallback = object : LocationCallback() {
-//        override fun onLocationResult(locationResult: LocationResult?) {
-//            val location: Location = locationResult!!.lastLocation
-//            val homeLatLng = LatLng(location.latitude, location.longitude)
-//            val zoomLevel = 15f
-//            try {
-//                val addressList: ArrayList<Address> = geocoder.getFromLocation(
-//                    location.latitude,
-//                    location.longitude,
-//                    1
-//                ) as ArrayList<Address>
-//
-//                updateAddressUI(location)
-//            } catch (e: IOException) {
-//            }
-//        }
-//    }
-//
-//    @SuppressLint("SetTextI18n")
-//    private fun updateAddressUI(location: Location) {
-//        val addressList: ArrayList<Address>
-//        try {
-//            addressList = geocoder.getFromLocation(
-//                location.latitude,
-//                location.longitude,
-//                1
-//            ) as ArrayList<Address>
-//
-//            // Save Country and state in shared preferences
-//            val editor = sharedPreferences.edit()
-//            editor.apply {
-//                putString("country", addressList[0].countryName)
-//                putString("state", addressList[0].adminArea)
-//                apply()
-//            }
-//        } catch (e: Exception) {
-//        }
-//    }
 }

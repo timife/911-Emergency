@@ -8,6 +8,7 @@ import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -47,6 +48,8 @@ class HomeFragmentCategory : Fragment() {
         arguments?.let {
             emergencyType = it.getString("FRAGMENT")!!
         }
+        viewModel =
+            ViewModelProvider(requireActivity(), viewModelFactory).get(HomeViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -55,18 +58,16 @@ class HomeFragmentCategory : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentHomeCategoryBinding.inflate(inflater)
-        viewModel =
-            ViewModelProvider(requireActivity(), viewModelFactory).get(HomeViewModel::class.java)
         sharedPreferences =
             requireActivity().getSharedPreferences("countryPref", Context.MODE_PRIVATE)
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getCategoryData(emergencyType)
     }
-
 
     private fun getCategoryData(fragment: String) {
         val country = sharedPreferences.getString("country", "Nigeria")
@@ -123,7 +124,11 @@ class HomeFragmentCategory : Fragment() {
         isHavingUnderline = true,
         shouldBeBold = true
     ) {
-        this.findNavController().navigate(R.id.action_homeFragment_to_immediateDialog)
+        try{
+            this.findNavController().navigate(R.id.action_homeFragment_to_immediateDialog)
+        }catch (exception:Exception){
+//            Toast.makeText(requireContext(),"$exception",Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun nonImmediateHelpSpan() = getString(
@@ -135,7 +140,11 @@ class HomeFragmentCategory : Fragment() {
         isHavingUnderline = true,
         shouldBeBold = true
     ) {
-        this.findNavController().navigate(R.id.action_homeFragment_to_nonImmediateDialog)
+        try {
+            this.findNavController().navigate(R.id.action_homeFragment_to_nonImmediateDialog)
+        }catch (e:Exception){
+//            Toast.makeText(requireContext(),"$e",Toast.LENGTH_SHORT).show()
+        }
     }
 
 

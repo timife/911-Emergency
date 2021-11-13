@@ -53,13 +53,13 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
                     repository.getNonEmergencyNumbers()
                 }
 
-                _emergency.value = emergency
-                _nonEmergency.value = nonEmergency
+                _emergency.postValue(emergency)
+                _nonEmergency.postValue(nonEmergency)
                 _status.value = EmergencyStatus.DONE
             } catch (e: Exception) {
                 _status.value = EmergencyStatus.LOADING
-                _emergency.value = ArrayList()
-                _nonEmergency.value = ArrayList()
+                _emergency.postValue(ArrayList())
+                _nonEmergency.postValue(ArrayList())
             }
         }
     }
@@ -67,6 +67,7 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
     fun passEmergencyDetails(number: EmergencyInfo) {
         _navigateToSaveOption.value = number
     }
+
     fun passNonEmergencyDetails(number: EmergencyInfo) {
         _navigateToNonSaveOption.value = number
     }
