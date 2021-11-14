@@ -22,6 +22,13 @@ class PrefFragment : Fragment() {
     ): View {
         binding = FragmentPrefBinding.inflate(inflater)
         val navController = findNavController()
+
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.privacyPolicy.setOnClickListener {
             this.findNavController().navigate(R.id.action_prefFragment_to_privacyFragment)
         }
@@ -31,8 +38,6 @@ class PrefFragment : Fragment() {
         binding.giveFeedback.setOnClickListener {
             this.findNavController().navigate(R.id.action_prefFragment_to_feedBackFragment)
         }
-
-        return binding.root
     }
 
     override fun onAttach(context: Context) {

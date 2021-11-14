@@ -63,7 +63,11 @@
         android:id="@+id/reportIssueFragment"
         tools:layout="@layout/fragment_report_issue"
         android:name="com.timife.a911.emergencyPref.ui.ReportIssueFragment"
-         />
+         >
+        <action
+            android:id="@+id/action_reportIssueFragment_to_otherIssueFragment"
+            app:destination="@id/otherIssueFragment" />
+    </fragment>
     <dialog
         android:id="@+id/createProfileFragment"
         android:name="com.timife.a911.createProfile.ui.CreateProfileFragment"
@@ -93,4 +97,9 @@
         tools:layout="@layout/fragment_non_immediate_dialog"
         android:name="com.timife.a911.emergencyHome.ui.dialogs.NonImmediateDialog"
         android:label="NonImmediateDialog" />
+    <fragment
+        android:id="@+id/otherIssueFragment"
+        android:name="com.timife.a911.emergencyPref.ui.OtherIssueFragment"
+        android:label="fragment_other_issue"
+        tools:layout="@layout/fragment_other_issue" />
 </navigation>

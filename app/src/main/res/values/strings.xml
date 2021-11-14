@@ -98,4 +98,10 @@
     <string name="we_hope_you_re_enjoying_using_911_and_we_d_love_to_hear_what_you_have_to_say_nleave_comments_below">We hope you\'re enjoying using 911+ and we\'d love to hear what you have to say! \nLeave comments below:</string>
     <string name="comments">Comments</string>
     <string name="submit_feedback">Submit Feedback</string>
+    <string name="select_the_category_that_applies_best_to_your_situation">Select the category that applies best to your situation:</string>
+    <string name="my_country_isn_t_listed">My country isn\'t listed</string>
+    <string name="my_location_isn_t_showing">My location isn\'t showing</string>
+    <string name="other_issue_with_the_app">Other issue with the app</string>
+    <string name="note_2_report">Please provide additional details about the problem you\'re experiencing.</string>
+    <string name="for_ticket_status_updates">For ticket status updates.</string>
 </resources>
