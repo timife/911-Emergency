@@ -45,13 +45,13 @@ class SplashFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSplashBinding.inflate(inflater)
+        binding =FragmentSplashBinding.inflate(inflater)
 
         Handler().postDelayed({
                 val activity = MainActivity::class.java
                 requireActivity().startNewActivity(activity)
                 requireActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out)
-        },7500
+        },3000
         )
         return binding.root
     }

@@ -44,82 +44,225 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/privacy_toolbar">
+
             <ScrollView
+                android:id="@+id/scroll_view"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:scrollbars="vertical"
-                android:id="@+id/scroll_view"
-                android:layout_height="match_parent"
-                >
+                tools:layout_editor_absoluteX="-16dp"
+                tools:layout_editor_absoluteY="103dp">
+
                 <LinearLayout
                     android:id="@+id/layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingBottom="60dp"
                     android:orientation="vertical">
-                  <TextView
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_marginTop="30dp"
-                      android:textColor="@color/on_surface"
-                      android:id="@+id/heading"
-                      android:layout_marginStart="10dp"
-                      android:layout_marginEnd="10dp"
-                      android:layout_marginBottom="10dp"
-                      android:textAppearance="@style/alert_dialog_text"
-                      android:text=" Last updated: March 11, 2021"
-                      android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/heading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text=" Last updated: March 11, 2021"
+                        android:textAppearance="@style/alert_dialog_text"
+                        android:textColor="@color/on_surface"
+                        android:textSize="16sp" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:textAppearance="@style/alert_dialog_text"
                         android:layout_marginTop="20dp"
-                        android:text="@string/first_paragraph"/>
+                        android:text="@string/first_paragraph"
+                        android:textAppearance="@style/alert_dialog_text" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/alert_dialog_text"
                         android:layout_margin="10dp"
-                        android:text="@string/we_use_your_personal_data_to_provide_and_improve_the_service_by_using_the_service_you_agree_to_the_collection_and_use_of_information_in_accordance_with_this_privacy_policy_this_privacy_policy_has_been_created_with_the_help_of_the_privacy_policy_generator"/>
+                        android:text="@string/we_use_your_personal_data_to_provide_and_improve_the_service_by_using_the_service_you_agree_to_the_collection_and_use_of_information_in_accordance_with_this_privacy_policy_this_privacy_policy_has_been_created_with_the_help_of_the_privacy_policy_generator"
+                        android:textAppearance="@style/alert_dialog_text" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:text="@string/interpretation_and_definitions"
                         android:textAppearance="@style/alert_dialog_text"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/definitions"
+                        android:textAppearance="@style/alert_dialog_text"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/the_words_of_which_the_initial_letter_is_capitalized_have_meanings_defined_under_the_following_conditions_the_following_definitions_shall_have_the_same_meaning_regardless_of_whether_they_appear_in_singular_or_in_plural"
+                        android:textAppearance="@style/alert_dialog_text" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/interpretation"
+                        android:textAppearance="@style/alert_dialog_text"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="@string/interpretation_note"
+                        android:textAppearance="@style/alert_dialog_text" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/collecting_and_using_your_personal_data"
+                        android:textStyle="bold"
+                        android:textAppearance="@style/pre_info"
+                        android:layout_margin="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/alert_dialog_text"
+                        android:text="@string/note_2"
+                        android:layout_margin="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/pre_info"
+                        android:text="@string/information_collected_while_using_the_application"
+                        android:textStyle="bold"
+                        android:layout_margin="10dp"/>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/alert_dialog_text"
+                        android:text="@string/note_3"
+                        android:layout_margin="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/alert_dialog_text"
+                        android:text="@string/note_4"
+                        android:layout_margin="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:textAppearance="@style/alert_dialog_text"
+                        android:text="@string/note_5"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:textAppearance="@style/pre_info"
+                        android:textStyle="bold"
+                        android:text="@string/retention_of_your_personal_data"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/note_6"
+                        android:textAppearance="@style/alert_dialog_text"
+                        android:layout_margin="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/transfer_of_your_personal_data"
+                        android:layout_margin="10dp"
+                        android:textAppearance="@style/pre_info"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/alert_dialog_text"
+                        android:layout_margin="10dp"
+                        android:text="@string/note_7"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/pre_info"
+                        android:layout_margin="10dp"
+                        android:textStyle="bold"
+                        android:text="@string/disclosure_of_your_personal_data"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/alert_dialog_text"
+                        android:layout_margin="10dp"
+                        android:text="@string/note_8"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/pre_info"
+                        android:textStyle="bold"
+                        android:layout_margin="10dp"
+                        android:text="@string/children_s_privacy"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/alert_dialog_text"
+                        android:layout_margin="10dp"
+                        android:text="@string/note_9"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/pre_info"
+                        android:textStyle="bold"
+                        android:layout_margin="10dp"
+                        android:text="@string/links_to_other_websites"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/alert_dialog_text"
+                        android:text="@string/note_10"
+                        android:layout_margin="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/changes_to_this_privacy_policy"
+                        android:textAppearance="@style/pre_info"
                         android:textStyle="bold"
                         android:layout_margin="10dp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/alert_dialog_text"
+                        android:text="@string/note_11"
+                        android:layout_margin="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contact_us"
+                        android:textAppearance="@style/pre_info"
                         android:textStyle="bold"
-                        android:text="@string/definitions"
-                        android:layout_marginStart="10dp"
-                        />
+                        android:layout_margin="10dp"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/the_words_of_which_the_initial_letter_is_capitalized_have_meanings_defined_under_the_following_conditions_the_following_definitions_shall_have_the_same_meaning_regardless_of_whether_they_appear_in_singular_or_in_plural"
                         android:textAppearance="@style/alert_dialog_text"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="10dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/interpretation"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="10dp"
-                        android:textStyle="bold"
-                        android:textAppearance="@style/alert_dialog_text"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:textAppearance="@style/alert_dialog_text"
-                        android:text="@string/interpretation_note"/><
-
-
+                        android:text="@string/note_12"
+                        android:layout_margin="10dp"/>
 
                 </LinearLayout>
 
