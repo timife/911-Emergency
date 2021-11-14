@@ -41,12 +41,24 @@
         tools:layout="@layout/fragment_pref" >
         <action
             android:id="@+id/action_prefFragment_to_feedBackFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
             app:destination="@id/feedBackFragment" />
         <action
             android:id="@+id/action_prefFragment_to_reportIssueFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
             app:destination="@id/reportIssueFragment" />
         <action
             android:id="@+id/action_prefFragment_to_privacyFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
             app:destination="@id/privacyFragment" />
     </fragment>
     <fragment
@@ -66,6 +78,10 @@
          >
         <action
             android:id="@+id/action_reportIssueFragment_to_otherIssueFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
             app:destination="@id/otherIssueFragment" />
     </fragment>
     <dialog
@@ -100,6 +116,5 @@
     <fragment
         android:id="@+id/otherIssueFragment"
         android:name="com.timife.a911.emergencyPref.ui.OtherIssueFragment"
-        android:label="fragment_other_issue"
         tools:layout="@layout/fragment_other_issue" />
 </navigation>

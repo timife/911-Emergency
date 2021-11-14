@@ -84,9 +84,11 @@ class HomeFragmentCategory : Fragment() {
                     binding.progressBar.visibility = View.VISIBLE
                     setUpEmergencyNumbers(country)
                     viewModel.navigateToSaveOption.observe(viewLifecycleOwner, {
-                        this.findNavController().navigate(
-                            HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
-                        )
+                        try {
+                            this.findNavController().navigate(
+                                HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
+                            )
+                        }catch(e:Exception){}
                     })
                     binding.progressBar.visibility = View.GONE
                 } else {
@@ -103,9 +105,11 @@ class HomeFragmentCategory : Fragment() {
                     binding.progressBar.visibility = View.VISIBLE
                     setUpNonEmergencyNumbers("Lagos")
                     viewModel.navigateToNonSaveOption.observe(viewLifecycleOwner, {
-                        this.findNavController().navigate(
-                            HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
-                        )
+                        try {
+                            this.findNavController().navigate(
+                                HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
+                            )
+                        }catch (e:Exception){}
                     })
                     binding.progressBar.visibility = View.GONE
                 } else {
@@ -127,7 +131,6 @@ class HomeFragmentCategory : Fragment() {
         try{
             this.findNavController().navigate(R.id.action_homeFragment_to_immediateDialog)
         }catch (exception:Exception){
-//            Toast.makeText(requireContext(),"$exception",Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -143,7 +146,6 @@ class HomeFragmentCategory : Fragment() {
         try {
             this.findNavController().navigate(R.id.action_homeFragment_to_nonImmediateDialog)
         }catch (e:Exception){
-//            Toast.makeText(requireContext(),"$e",Toast.LENGTH_SHORT).show()
         }
     }
 
