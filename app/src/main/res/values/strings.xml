@@ -95,4 +95,7 @@
     <string name="note_11">We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page. \n\nWe will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the \'Last updated\' date at the top of this Privacy Policy. \n\nYou are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</string>
     <string name="contact_us">Contact Us</string>
     <string name="note_12">If you have any questions about this Privacy Policy, You can contact us: \n\nBy phone number: 9057838810 \n\nPrivacy Policy for 911+</string>
+    <string name="we_hope_you_re_enjoying_using_911_and_we_d_love_to_hear_what_you_have_to_say_nleave_comments_below">We hope you\'re enjoying using 911+ and we\'d love to hear what you have to say! \nLeave comments below:</string>
+    <string name="comments">Comments</string>
+    <string name="submit_feedback">Submit Feedback</string>
 </resources>
