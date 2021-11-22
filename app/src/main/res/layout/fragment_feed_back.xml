@@ -71,7 +71,7 @@
                     android:layout_marginEnd="15dp"
                     />
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/username"
+                    android:id="@+id/username_cover"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
@@ -107,7 +107,7 @@
                     app:cardCornerRadius="15dp">
 
                     <TextView
-                        android:id="@+id/save_text_from_home"
+                        android:id="@+id/submit"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"

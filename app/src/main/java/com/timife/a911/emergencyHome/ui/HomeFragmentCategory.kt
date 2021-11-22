@@ -8,7 +8,6 @@ import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -88,7 +87,8 @@ class HomeFragmentCategory : Fragment() {
                             this.findNavController().navigate(
                                 HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
                             )
-                        }catch(e:Exception){}
+                        } catch (e: Exception) {
+                        }
                     })
                     binding.progressBar.visibility = View.GONE
                 } else {
@@ -109,7 +109,8 @@ class HomeFragmentCategory : Fragment() {
                             this.findNavController().navigate(
                                 HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
                             )
-                        }catch (e:Exception){}
+                        } catch (e: Exception) {
+                        }
                     })
                     binding.progressBar.visibility = View.GONE
                 } else {
@@ -128,9 +129,9 @@ class HomeFragmentCategory : Fragment() {
         isHavingUnderline = true,
         shouldBeBold = true
     ) {
-        try{
+        try {
             this.findNavController().navigate(R.id.action_homeFragment_to_immediateDialog)
-        }catch (exception:Exception){
+        } catch (exception: Exception) {
         }
     }
 
@@ -145,7 +146,7 @@ class HomeFragmentCategory : Fragment() {
     ) {
         try {
             this.findNavController().navigate(R.id.action_homeFragment_to_nonImmediateDialog)
-        }catch (e:Exception){
+        } catch (e: Exception) {
         }
     }
 

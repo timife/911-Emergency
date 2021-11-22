@@ -33,7 +33,14 @@
         android:id="@+id/searchFragment"
         android:name="com.timife.a911.emergencySearch.ui.SearchFragment"
         android:label="Search Directory"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_immediateDialog"
+            app:destination="@id/immediateDialog" />
+        <action
+            android:id="@+id/action_searchFragment_to_nonImmediateDialog"
+            app:destination="@id/nonImmediateDialog" />
+    </fragment>
     <fragment
         android:id="@+id/prefFragment"
         android:name="com.timife.a911.emergencyPref.ui.PrefFragment"

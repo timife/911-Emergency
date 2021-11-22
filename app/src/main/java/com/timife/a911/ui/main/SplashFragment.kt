@@ -16,6 +16,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -48,9 +49,11 @@ class SplashFragment : Fragment() {
         binding =FragmentSplashBinding.inflate(inflater)
 
         Handler().postDelayed({
+            lifecycleScope.launchWhenResumed {
                 val activity = MainActivity::class.java
                 requireActivity().startNewActivity(activity)
-                requireActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out)
+                requireActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            }
         },3000
         )
         return binding.root
