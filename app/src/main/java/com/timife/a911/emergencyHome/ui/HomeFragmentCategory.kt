@@ -76,11 +76,11 @@ class HomeFragmentCategory : Fragment() {
             EMERGENCY_SERVICES -> {
                 val emergencyHelpSpan = SpannableStringBuilder()
                 emergencyHelpSpan.append(immediateHelpSpan())
-                binding.emergencyTitle.text = emergencyHelpSpan
-                binding.emergencyTitle.movementMethod = LinkMovementMethod.getInstance()
+                binding.emergencyCategoryTitle.text = emergencyHelpSpan
+                binding.emergencyCategoryTitle.movementMethod = LinkMovementMethod.getInstance()
 
                 if (country != null) {
-                    binding.progressBar.visibility = View.VISIBLE
+                    binding.emergencyProgressBar.visibility = View.VISIBLE
                     setUpEmergencyNumbers(country)
                     viewModel.navigateToSaveOption.observe(viewLifecycleOwner, {
                         try {
@@ -90,19 +90,19 @@ class HomeFragmentCategory : Fragment() {
                         } catch (e: Exception) {
                         }
                     })
-                    binding.progressBar.visibility = View.GONE
+                    binding.emergencyProgressBar.visibility = View.GONE
                 } else {
-                    binding.progressBar.visibility = View.VISIBLE
+                    binding.emergencyProgressBar.visibility = View.VISIBLE
                 }
             }
             NON_EMERGENCY_SERVICES -> {
                 val nonEmergencyHelpSpan = SpannableStringBuilder()
                 nonEmergencyHelpSpan.append(nonImmediateHelpSpan())
-                binding.emergencyTitle.text = nonEmergencyHelpSpan
-                binding.emergencyTitle.movementMethod = LinkMovementMethod.getInstance()
+                binding.emergencyCategoryTitle.text = nonEmergencyHelpSpan
+                binding.emergencyCategoryTitle.movementMethod = LinkMovementMethod.getInstance()
 
                 if (state != null) {
-                    binding.progressBar.visibility = View.VISIBLE
+                    binding.emergencyProgressBar.visibility = View.VISIBLE
                     setUpNonEmergencyNumbers("Lagos")
                     viewModel.navigateToNonSaveOption.observe(viewLifecycleOwner, {
                         try {
@@ -112,9 +112,9 @@ class HomeFragmentCategory : Fragment() {
                         } catch (e: Exception) {
                         }
                     })
-                    binding.progressBar.visibility = View.GONE
+                    binding.emergencyProgressBar.visibility = View.GONE
                 } else {
-                    binding.progressBar.visibility = View.GONE
+                    binding.emergencyProgressBar.visibility = View.GONE
                 }
             }
         }

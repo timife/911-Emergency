@@ -19,6 +19,16 @@
         <action
             android:id="@+id/action_homeFragment_to_nonImmediateDialog"
             app:destination="@id/nonImmediateDialog" />
+        <action
+            android:id="@+id/action_homeFragment_to_saveFragment"
+            app:destination="@id/saveFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_prefFragment"
+            app:destination="@id/prefFragment" />
     </fragment>
     <fragment
         android:id="@+id/saveFragment"
@@ -124,4 +134,8 @@
         android:id="@+id/otherIssueFragment"
         android:name="com.timife.a911.emergencyPref.ui.OtherIssueFragment"
         tools:layout="@layout/fragment_other_issue" />
+    <fragment
+        android:id="@+id/splashFragment2"
+        android:name="com.timife.a911.ui.main.SplashFragment"
+        android:label="SplashFragment" />
 </navigation>

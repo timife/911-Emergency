@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         tools:context=".emergencySearch.ui.SearchFragment">
         <TextView
-            android:id="@+id/toolbar_title"
+            android:id="@+id/search_title"
             android:layout_width="wrap_content"
             android:layout_height="53dp"
             android:gravity="center"
@@ -35,7 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar_title">
+            app:layout_constraintTop_toBottomOf="@id/search_title">
 
             <com.mancj.materialsearchbar.MaterialSearchBar
                 android:id="@+id/search_bar"
@@ -72,7 +72,7 @@
                 app:layout_constraintTop_toBottomOf="@id/search_bar" />
 
             <TextView
-                android:id="@+id/emergency_info"
+                android:id="@+id/emergency_search_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"

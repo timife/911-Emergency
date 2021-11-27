@@ -18,7 +18,7 @@ class NonImmediateDialog : DialogFragment() {
     ): View {
         dialog?.window?.setBackgroundDrawableResource(R.drawable.round_corner_dialog)
         binding = FragmentNonImmediateDialogBinding.inflate(inflater)
-        binding.cancel.setOnClickListener {
+        binding.cancelNonImmediateDialog.setOnClickListener {
             dismiss()
         }
         return binding.root

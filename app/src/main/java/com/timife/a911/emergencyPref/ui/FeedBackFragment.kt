@@ -29,9 +29,9 @@ class FeedBackFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.submit.setOnClickListener {
-            if (binding.userName.text!!.isNotEmpty()) {
-                feedBackEmail(binding.userName.text.toString())
+        binding.submitFeedback.setOnClickListener {
+            if (binding.feedbackText.text!!.isNotEmpty()) {
+                feedBackEmail(binding.feedbackText.text.toString())
             } else {
                 Toast.makeText(
                     requireContext(),
@@ -39,7 +39,7 @@ class FeedBackFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            binding.userName.text!!.clear()
+            binding.feedbackText.text!!.clear()
         }
     }
 

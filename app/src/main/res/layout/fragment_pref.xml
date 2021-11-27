@@ -13,7 +13,7 @@
         android:background="@color/primary"
         tools:context=".emergencyPref.ui.PrefFragment">
             <TextView
-                android:id="@+id/toolbar_title"
+                android:id="@+id/pref_toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="53dp"
                 android:layout_marginTop="5dp"
@@ -56,11 +56,11 @@
                 android:clickable="true"
                 android:background="@drawable/custom_ripple"
                 android:focusable="true"
-                android:id="@+id/privacy_policy">
+                android:id="@+id/privacy_policy_pref">
 
 
                 <TextView
-                    android:id="@+id/profile_text"
+                    android:id="@+id/privacy_policy_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="37dp"
@@ -88,10 +88,10 @@
                 android:background="@drawable/custom_ripple"
                 android:focusable="true"
                 android:layout_height="75dp"
-                android:id="@+id/report_issue">
+                android:id="@+id/report_issue_pref">
 
                 <TextView
-                    android:id="@+id/access_control_text"
+                    android:id="@+id/report_issue_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/report_issue"
@@ -102,7 +102,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/report_arrow"
+                    android:id="@+id/report_issue_arrow"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginEnd="28dp"
@@ -118,10 +118,10 @@
                 android:clickable="true"
                 android:background="@drawable/custom_ripple"
                 android:focusable="true"
-                android:id="@+id/give_feedback">
+                android:id="@+id/give_feedback_pref">
 
                 <TextView
-                    android:id="@+id/advanced_text"
+                    android:id="@+id/feedback_pref_text"
                     android:textAppearance="@style/error_text"
                     android:layout_marginStart="37dp"
                     android:layout_width="wrap_content"
@@ -132,7 +132,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/feedback_arrow"
+                    android:id="@+id/feedback_pref_arrow"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginEnd="28dp"

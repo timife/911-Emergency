@@ -15,7 +15,7 @@
 
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/report_toolbar"
+            android:id="@+id/report_issue_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/primary"
@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/privacy_title"
+                android:id="@+id/report_issue_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -38,7 +38,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/pref_constraint"
+            android:id="@+id/report_issue_constraint"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="60dp"
@@ -46,7 +46,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/report_toolbar">
+            app:layout_constraintTop_toBottomOf="@id/report_issue_toolbar">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -86,7 +86,7 @@
 
 
                         <TextView
-                            android:id="@+id/profile_text"
+                            android:id="@+id/my_country_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
@@ -98,7 +98,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
-                            android:id="@+id/privacy_arrow"
+                            android:id="@+id/country_arrow"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginEnd="28dp"
@@ -118,7 +118,7 @@
                         android:focusable="true">
 
                         <TextView
-                            android:id="@+id/access_control_text"
+                            android:id="@+id/my_location_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
@@ -129,7 +129,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
-                            android:id="@+id/report_arrow"
+                            android:id="@+id/location_arrow"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginEnd="28dp"
@@ -141,7 +141,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/other_issue"
+                        android:id="@+id/other_issue_report"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:background="@drawable/custom_ripple"
@@ -149,7 +149,7 @@
                         android:focusable="true">
 
                         <TextView
-                            android:id="@+id/advanced_text"
+                            android:id="@+id/other_issue_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
@@ -160,7 +160,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
-                            android:id="@+id/feedback_arrow"
+                            android:id="@+id/other_issue_arrow"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_marginEnd="28dp"

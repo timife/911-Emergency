@@ -26,14 +26,14 @@ class OtherIssueFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentOtherIssueBinding.inflate(inflater)
         val navController =findNavController()
-        binding.reportIssueToolbar.setupWithNavController(navController)
+        binding.otherIssueToolbar.setupWithNavController(navController)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (binding.comment.text!!.isNotEmpty()) {
-            feedBackEmail(binding.comment.text.toString())
+        if (binding.otherIssueComment.text!!.isNotEmpty()) {
+            feedBackEmail(binding.otherIssueComment.text.toString())
         } else {
             Toast.makeText(
                 requireContext(),
@@ -41,7 +41,7 @@ class OtherIssueFragment : Fragment() {
                 Toast.LENGTH_SHORT
             ).show()
         }
-        binding.comment.text!!.clear()
+        binding.otherIssueComment.text!!.clear()
     }
 
 

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.timife.a911.EmergencyApplication
+import com.timife.a911.R
 import com.timife.a911.databinding.FragmentCreateProfileBinding
 
 class CreateProfileFragment : BottomSheetDialogFragment() {
@@ -25,6 +26,14 @@ class CreateProfileFragment : BottomSheetDialogFragment() {
         super.onAttach(context)
         (requireActivity().application as EmergencyApplication).emergencyComponent.inject(this)
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
+    override fun getTheme(): Int {
+        return R.style.ProfileBottomSheetDialogFragment
     }
 
 

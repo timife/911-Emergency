@@ -29,13 +29,13 @@ class PrefFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.privacyPolicy.setOnClickListener {
+        binding.privacyPolicyPref.setOnClickListener {
             this.findNavController().navigate(R.id.action_prefFragment_to_privacyFragment)
         }
-        binding.reportIssue.setOnClickListener {
+        binding.reportIssuePref.setOnClickListener {
             this.findNavController().navigate(R.id.action_prefFragment_to_reportIssueFragment)
         }
-        binding.giveFeedback.setOnClickListener {
+        binding.giveFeedbackPref.setOnClickListener {
             this.findNavController().navigate(R.id.action_prefFragment_to_feedBackFragment)
         }
     }

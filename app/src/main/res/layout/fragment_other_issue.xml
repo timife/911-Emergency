@@ -15,7 +15,7 @@
 
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/report_issue_toolbar"
+            android:id="@+id/other_issue_toolbar"
             android:layout_width="match_parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:layout_gravity="center"
-                android:id="@+id/feedback_title" />
+                android:id="@+id/other_issue_title" />
         </androidx.appcompat.widget.Toolbar>
 
 
@@ -45,7 +45,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/report_issue_toolbar">
+            app:layout_constraintTop_toBottomOf="@id/other_issue_toolbar">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -83,7 +83,7 @@
                     android:layout_marginEnd="15dp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/comments"
+                    android:id="@+id/otherIssue_comments"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
@@ -104,7 +104,7 @@
                     app:hintTextColor="@color/on_surface">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/comment"
+                        android:id="@+id/other_issue_comment"
                         android:layout_width="match_parent"
                         android:gravity="start"
                         android:layout_height="match_parent" />
@@ -113,7 +113,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/email_container"
+                    android:id="@+id/other_issue_email_container"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
                     app:hintTextColor="@color/on_surface">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/email"
+                        android:id="@+id/other_issue_email"
                         android:layout_width="match_parent"
                         android:gravity="start"
                         android:layout_height="match_parent" />
@@ -149,7 +149,7 @@
                     android:text="@string/for_ticket_status_updates" />
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/submit_feedback"
+                    android:id="@+id/submit_ticket"
                     android:layout_width="164dp"
                     android:layout_height="44dp"
                     android:layout_gravity="end"
@@ -158,7 +158,7 @@
                     app:cardCornerRadius="15dp">
 
                     <TextView
-                        android:id="@+id/submit_issue"
+                        android:id="@+id/submit_issue_ticket"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"

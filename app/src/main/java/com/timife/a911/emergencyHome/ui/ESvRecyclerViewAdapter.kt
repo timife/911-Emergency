@@ -22,9 +22,9 @@ class ESvRecyclerViewAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(emergencyInfo: EmergencyInfo) {
-            binding.emergencyText.text = emergencyInfo.name
-            binding.phone.text = emergencyInfo.phone
-            binding.option.setOnClickListener {
+            binding.emergencyCardText.text = emergencyInfo.name
+            binding.emergencyCardPhone.text = emergencyInfo.phone
+            binding.emergencyCardOption.setOnClickListener {
                 clickListener.onClick(emergencyInfo)
             }
             when (emergencyInfo.name) {
@@ -52,7 +52,7 @@ class ESvRecyclerViewAdapter(
                             dialog, _ ->
                         val intent = Intent(Intent.ACTION_DIAL)
                         intent.data = Uri.parse("tel:${emergencyInfo.phone}")
-                        binding.emergencyText.context.startActivity(intent)
+                        binding.emergencyCardText.context.startActivity(intent)
                         dialog.dismiss()
                     }.show()
             }

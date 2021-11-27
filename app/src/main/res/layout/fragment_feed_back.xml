@@ -36,7 +36,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/pref_constraint"
+            android:id="@+id/feedback_constraint"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="60dp"
@@ -71,7 +71,7 @@
                     android:layout_marginEnd="15dp"
                     />
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/username_cover"
+                    android:id="@+id/feedback_text_container"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
@@ -92,13 +92,13 @@
                     app:hintTextColor="@color/on_surface">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/user_name"
+                        android:id="@+id/feedback_text"
                         android:layout_width="match_parent"
                         android:gravity="start"
                         android:layout_height="match_parent" />
                 </com.google.android.material.textfield.TextInputLayout>
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/submit_feedback"
+                    android:id="@+id/submit_feedback_card"
                     android:layout_width="164dp"
                     android:layout_height="44dp"
                     android:layout_gravity="end"
@@ -107,7 +107,7 @@
                     app:cardCornerRadius="15dp">
 
                     <TextView
-                        android:id="@+id/submit"
+                        android:id="@+id/submit_feedback"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"

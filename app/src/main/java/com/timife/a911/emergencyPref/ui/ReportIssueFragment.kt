@@ -21,9 +21,9 @@ class ReportIssueFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentReportIssueBinding.inflate(inflater)
-        CenterTitle.centerTitle(binding.reportToolbar,true)
+        CenterTitle.centerTitle(binding.reportIssueToolbar,true)
         val navController =findNavController()
-        binding.reportToolbar.setupWithNavController(navController)
+        binding.reportIssueToolbar.setupWithNavController(navController)
         // Inflate the layout for this fragment
 
         return binding.root
@@ -31,7 +31,7 @@ class ReportIssueFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.otherIssue.setOnClickListener {
+        binding.otherIssueReport.setOnClickListener {
             this.findNavController().navigate(R.id.action_reportIssueFragment_to_otherIssueFragment)
         }
         binding.myCountry.setOnClickListener {

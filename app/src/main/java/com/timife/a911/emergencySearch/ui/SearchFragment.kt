@@ -67,8 +67,8 @@ class SearchFragment : Fragment() {
         ss.setSpan(clickableSpan1,40,54,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         ss.setSpan(clickableSpan2,99,117,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-        binding.emergencyInfo.text =ss
-        binding.emergencyInfo.movementMethod = LinkMovementMethod.getInstance()
+        binding.emergencySearchInfo.text =ss
+        binding.emergencySearchInfo.movementMethod = LinkMovementMethod.getInstance()
     }
 
     override fun onAttach(context: Context) {
