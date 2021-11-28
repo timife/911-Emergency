@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "206025054691",
-    "project_id": "emergency-33e13",
-    "storage_bucket": "emergency-33e13.appspot.com"
+    "project_number": "1089055571832",
+    "project_id": "emergency911-da9ad",
+    "storage_bucket": "emergency911-da9ad.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:206025054691:android:6dee799f41929d92b568d6",
+        "mobilesdk_app_id": "1:1089055571832:android:dc05fddca0f214c078528d",
         "android_client_info": {
           "package_name": "com.timife.a911"
         }
       },
       "oauth_client": [
         {
-          "client_id": "206025054691-u72rb3jd7j8t2of1685c0t3hlvbg0ujq.apps.googleusercontent.com",
+          "client_id": "1089055571832-m437j917h0pddjgojssulbg23ddta6b9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBP8y69HQy4oZCwArflzJZGTkwU1kQDj3M"
+          "current_key": "AIzaSyAICH4rrNa7u_0t70gyNkbaEgTfOfKDttI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "206025054691-u72rb3jd7j8t2of1685c0t3hlvbg0ujq.apps.googleusercontent.com",
+              "client_id": "1089055571832-m437j917h0pddjgojssulbg23ddta6b9.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
