@@ -33,11 +33,8 @@ class FeedBackFragment : Fragment() {
             if (binding.feedbackText.text!!.isNotEmpty()) {
                 feedBackEmail(binding.feedbackText.text.toString())
             } else {
-                Toast.makeText(
-                    requireContext(),
-                    "Please fill in the blank space",
-                    Toast.LENGTH_SHORT
-                ).show()
+              binding.feedbackText.error = "Please fill in the blank space"
+                binding.feedbackText.requestFocus()
             }
             binding.feedbackText.text!!.clear()
         }

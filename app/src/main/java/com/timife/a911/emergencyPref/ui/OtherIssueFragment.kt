@@ -3,15 +3,12 @@ package com.timife.a911.emergencyPref.ui
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.timife.a911.R
 import com.timife.a911.databinding.FragmentOtherIssueBinding
 
 
@@ -25,22 +22,24 @@ class OtherIssueFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentOtherIssueBinding.inflate(inflater)
-        val navController =findNavController()
+        val navController = findNavController()
         binding.otherIssueToolbar.setupWithNavController(navController)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (binding.otherIssueComment.text!!.isNotEmpty()) {
-            feedBackEmail(binding.otherIssueComment.text.toString())
-        } else {
-            Toast.makeText(
-                requireContext(),
-                "Please fill in the blank space",
-                Toast.LENGTH_SHORT
-            ).show()
+        binding.submitIssueTicket.setOnClickListener {
+            if (binding.otherIssueComment.text!!.isNotEmpty() && binding.otherIssueEmail.text!!.isNotEmpty() ) {
+                feedBackEmail(binding.otherIssueComment.text.toString())
+            } else {
+                binding.otherIssueComment.error = "Please fill in the blank space"
+                binding.otherIssueComment.requestFocus()
+                binding.otherIssueEmail.error = "Please fill in the required email"
+                binding.otherIssueEmail.requestFocus()
+            }
         }
+
         binding.otherIssueComment.text!!.clear()
     }
 
