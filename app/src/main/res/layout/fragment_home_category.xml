@@ -15,7 +15,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/emergency_title"
+            android:id="@+id/emergency_category_title"
             android:layout_width="match_parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,13 +38,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/emergency_title"
+            app:layout_constraintTop_toBottomOf="@id/emergency_category_title"
             app:layout_constraintVertical_bias="0.0"
             app:spanCount="2"
             tools:listitem="@layout/fragment_e_sv" />
 
         <ProgressBar
-            android:id="@+id/progress_bar"
+            android:id="@+id/emergency_progress_bar"
             emergencyStatus="@{viewModel.status}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

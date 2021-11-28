@@ -67,6 +67,7 @@ class HomeViewModel @Inject constructor(private val repository: EmergencyReposit
     fun passEmergencyDetails(number: EmergencyInfo) {
         _navigateToSaveOption.value = number
     }
+
     fun passNonEmergencyDetails(number: EmergencyInfo) {
         _navigateToNonSaveOption.value = number
     }

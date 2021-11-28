@@ -47,6 +47,8 @@ class HomeFragmentCategory : Fragment() {
         arguments?.let {
             emergencyType = it.getString("FRAGMENT")!!
         }
+        viewModel =
+            ViewModelProvider(requireActivity(), viewModelFactory).get(HomeViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -55,18 +57,16 @@ class HomeFragmentCategory : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentHomeCategoryBinding.inflate(inflater)
-        viewModel =
-            ViewModelProvider(requireActivity(), viewModelFactory).get(HomeViewModel::class.java)
         sharedPreferences =
             requireActivity().getSharedPreferences("countryPref", Context.MODE_PRIVATE)
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getCategoryData(emergencyType)
     }
-
 
     private fun getCategoryData(fragment: String) {
         val country = sharedPreferences.getString("country", "Nigeria")
@@ -76,39 +76,45 @@ class HomeFragmentCategory : Fragment() {
             EMERGENCY_SERVICES -> {
                 val emergencyHelpSpan = SpannableStringBuilder()
                 emergencyHelpSpan.append(immediateHelpSpan())
-                binding.emergencyTitle.text = emergencyHelpSpan
-                binding.emergencyTitle.movementMethod = LinkMovementMethod.getInstance()
+                binding.emergencyCategoryTitle.text = emergencyHelpSpan
+                binding.emergencyCategoryTitle.movementMethod = LinkMovementMethod.getInstance()
 
                 if (country != null) {
-                    binding.progressBar.visibility = View.VISIBLE
+                    binding.emergencyProgressBar.visibility = View.VISIBLE
                     setUpEmergencyNumbers(country)
                     viewModel.navigateToSaveOption.observe(viewLifecycleOwner, {
-                        this.findNavController().navigate(
-                            HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
-                        )
+                        try {
+                            this.findNavController().navigate(
+                                HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
+                            )
+                        } catch (e: Exception) {
+                        }
                     })
-                    binding.progressBar.visibility = View.GONE
+                    binding.emergencyProgressBar.visibility = View.GONE
                 } else {
-                    binding.progressBar.visibility = View.VISIBLE
+                    binding.emergencyProgressBar.visibility = View.VISIBLE
                 }
             }
             NON_EMERGENCY_SERVICES -> {
                 val nonEmergencyHelpSpan = SpannableStringBuilder()
                 nonEmergencyHelpSpan.append(nonImmediateHelpSpan())
-                binding.emergencyTitle.text = nonEmergencyHelpSpan
-                binding.emergencyTitle.movementMethod = LinkMovementMethod.getInstance()
+                binding.emergencyCategoryTitle.text = nonEmergencyHelpSpan
+                binding.emergencyCategoryTitle.movementMethod = LinkMovementMethod.getInstance()
 
                 if (state != null) {
-                    binding.progressBar.visibility = View.VISIBLE
+                    binding.emergencyProgressBar.visibility = View.VISIBLE
                     setUpNonEmergencyNumbers("Lagos")
                     viewModel.navigateToNonSaveOption.observe(viewLifecycleOwner, {
-                        this.findNavController().navigate(
-                            HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
-                        )
+                        try {
+                            this.findNavController().navigate(
+                                HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
+                            )
+                        } catch (e: Exception) {
+                        }
                     })
-                    binding.progressBar.visibility = View.GONE
+                    binding.emergencyProgressBar.visibility = View.GONE
                 } else {
-                    binding.progressBar.visibility = View.GONE
+                    binding.emergencyProgressBar.visibility = View.GONE
                 }
             }
         }
@@ -123,7 +129,10 @@ class HomeFragmentCategory : Fragment() {
         isHavingUnderline = true,
         shouldBeBold = true
     ) {
-        this.findNavController().navigate(R.id.action_homeFragment_to_immediateDialog)
+        try {
+            this.findNavController().navigate(R.id.action_homeFragment_to_immediateDialog)
+        } catch (exception: Exception) {
+        }
     }
 
     private fun nonImmediateHelpSpan() = getString(
@@ -135,7 +144,10 @@ class HomeFragmentCategory : Fragment() {
         isHavingUnderline = true,
         shouldBeBold = true
     ) {
-        this.findNavController().navigate(R.id.action_homeFragment_to_nonImmediateDialog)
+        try {
+            this.findNavController().navigate(R.id.action_homeFragment_to_nonImmediateDialog)
+        } catch (e: Exception) {
+        }
     }
 
 

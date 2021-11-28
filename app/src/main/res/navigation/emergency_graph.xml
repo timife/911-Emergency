@@ -19,6 +19,16 @@
         <action
             android:id="@+id/action_homeFragment_to_nonImmediateDialog"
             app:destination="@id/nonImmediateDialog" />
+        <action
+            android:id="@+id/action_homeFragment_to_saveFragment"
+            app:destination="@id/saveFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_prefFragment"
+            app:destination="@id/prefFragment" />
     </fragment>
     <fragment
         android:id="@+id/saveFragment"
@@ -33,7 +43,14 @@
         android:id="@+id/searchFragment"
         android:name="com.timife.a911.emergencySearch.ui.SearchFragment"
         android:label="Search Directory"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_immediateDialog"
+            app:destination="@id/immediateDialog" />
+        <action
+            android:id="@+id/action_searchFragment_to_nonImmediateDialog"
+            app:destination="@id/nonImmediateDialog" />
+    </fragment>
     <fragment
         android:id="@+id/prefFragment"
         android:name="com.timife.a911.emergencyPref.ui.PrefFragment"
@@ -41,12 +58,24 @@
         tools:layout="@layout/fragment_pref" >
         <action
             android:id="@+id/action_prefFragment_to_feedBackFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
             app:destination="@id/feedBackFragment" />
         <action
             android:id="@+id/action_prefFragment_to_reportIssueFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
             app:destination="@id/reportIssueFragment" />
         <action
             android:id="@+id/action_prefFragment_to_privacyFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
             app:destination="@id/privacyFragment" />
     </fragment>
     <fragment
@@ -63,7 +92,15 @@
         android:id="@+id/reportIssueFragment"
         tools:layout="@layout/fragment_report_issue"
         android:name="com.timife.a911.emergencyPref.ui.ReportIssueFragment"
-         />
+         >
+        <action
+            android:id="@+id/action_reportIssueFragment_to_otherIssueFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:destination="@id/otherIssueFragment" />
+    </fragment>
     <dialog
         android:id="@+id/createProfileFragment"
         android:name="com.timife.a911.createProfile.ui.CreateProfileFragment"
@@ -93,4 +130,12 @@
         tools:layout="@layout/fragment_non_immediate_dialog"
         android:name="com.timife.a911.emergencyHome.ui.dialogs.NonImmediateDialog"
         android:label="NonImmediateDialog" />
+    <fragment
+        android:id="@+id/otherIssueFragment"
+        android:name="com.timife.a911.emergencyPref.ui.OtherIssueFragment"
+        tools:layout="@layout/fragment_other_issue" />
+    <fragment
+        android:id="@+id/splashFragment2"
+        android:name="com.timife.a911.ui.main.SplashFragment"
+        android:label="SplashFragment" />
 </navigation>

@@ -97,12 +97,12 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
             if (isChecked) {
                 binding.map.visibility = View.VISIBLE
                 binding.locationLayout.visibility = View.GONE
-                binding.profileImage.visibility = View.GONE
+                binding.profileImageLogo.visibility = View.GONE
                 binding.mapSwitch.setTextColor(Color.BLACK)
             } else {
                 binding.map.visibility = View.GONE
                 binding.locationLayout.visibility = View.VISIBLE
-                binding.profileImage.visibility = View.VISIBLE
+                binding.profileImageLogo.visibility = View.VISIBLE
                 binding.mapSwitch.setTextColor(Color.WHITE)
             }
         }

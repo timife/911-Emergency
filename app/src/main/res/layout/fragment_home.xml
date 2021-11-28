@@ -118,7 +118,7 @@
 
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
+            android:id="@+id/profile_image_logo"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginTop="10dp"
@@ -132,7 +132,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/emergency_constraint"
+            android:id="@+id/emergency_category_constraint"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="310dp"

@@ -14,11 +14,11 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="140dp"
             android:layout_marginEnd="140dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
             app:layout_constraintTop_toTopOf="parent"
             android:src="@drawable/ic_home_profile_circle"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:textSize="24sp"
             android:textAppearance="@style/error_text"
             android:gravity="center_horizontal"
@@ -39,15 +39,16 @@
             android:id="@+id/edit_profile_text"
             android:text="Create Profile"/>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/name_container"
+            android:id="@+id/profile_name_container"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="34dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="34dp"
+            android:textColorHint="@color/ripple_color"
             android:hint="@string/name"
-            app:hintTextColor="@color/ripple_color"
+            app:hintEnabled="true"
             android:inputType="textPersonName"
             app:boxCornerRadiusBottomEnd="16dp"
             app:boxCornerRadiusBottomStart="16dp"
@@ -60,20 +61,22 @@
             app:layout_constraintTop_toBottomOf="@id/edit_profile_text">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/name"
+                android:id="@+id/profile_name"
                 android:layout_width="match_parent"
-                android:layout_height="44dp" />
+                android:textColor="@color/on_surface"
+                android:layout_height="match_parent" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/email_container"
+            android:id="@+id/profile_email_container"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="34dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="34dp"
             android:hint="@string/email"
-            app:hintTextColor="@color/ripple_color"
+            android:textColorHint="@color/ripple_color"
+            app:hintEnabled="true"
             android:inputType="textEmailAddress"
             app:boxCornerRadiusBottomEnd="16dp"
             app:boxCornerRadiusBottomStart="16dp"
@@ -83,24 +86,28 @@
             app:hintTextAppearance="@style/TextAppearance.AppCompat"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name_container">
+            app:layout_constraintTop_toBottomOf="@id/profile_name_container">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email"
+                android:id="@+id/profile_email"
+                android:textColor="@color/on_surface"
                 android:layout_width="match_parent"
-                android:layout_height="44dp" />
+                android:layout_height="match_parent" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/password_container"
+            android:id="@+id/profile_password_container"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="34dp"
-            android:layout_marginTop="30dp"
+            app:hintEnabled="true"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="34dp"
             android:hint="@string/password"
-            app:hintTextColor="@color/ripple_color"
             android:inputType="textPassword"
+            app:endIconMode="password_toggle"
+            android:gravity="center"
+            android:textColorHint="@color/ripple_color"
             app:boxCornerRadiusBottomEnd="16dp"
             app:boxCornerRadiusBottomStart="16dp"
             app:boxCornerRadiusTopEnd="16dp"
@@ -109,15 +116,16 @@
             app:hintTextAppearance="@style/TextAppearance.AppCompat"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/email_container">
+            app:layout_constraintTop_toBottomOf="@id/profile_email_container">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
-                android:layout_height="44dp" />
+                android:textColor="@color/on_surface"
+                android:layout_height="match_parent" />
         </com.google.android.material.textfield.TextInputLayout>
         <TextView
-            android:id="@+id/privacy_policy"
+            android:id="@+id/profile_privacy_policy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/by_saving_this_profile_you_agree_to_911_s_privacy_policy"
@@ -125,8 +133,8 @@
             android:gravity="center"
             android:textAppearance="@style/pre_info"
             android:minLines="2"
-            app:layout_constraintTop_toBottomOf="@id/password_container"
-            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/profile_password_container"
+            android:layout_marginTop="15dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -134,18 +142,23 @@
             android:id="@+id/save_profile_button"
             android:layout_width="164dp"
             android:layout_height="44dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/custom_ripple"
             app:cardBackgroundColor="@color/primary"
             app:cardCornerRadius="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/privacy_policy">
+            app:layout_constraintTop_toBottomOf="@id/profile_privacy_policy">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/save_profile"
+                android:background="@drawable/custom_ripple"
+                android:clickable="true"
+                android:focusable="true"
                 android:text="@string/save_profile"
                 android:textAppearance="@style/error_text"
                 android:textColor="@color/white"

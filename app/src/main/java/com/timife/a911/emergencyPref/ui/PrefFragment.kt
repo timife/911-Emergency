@@ -22,17 +22,22 @@ class PrefFragment : Fragment() {
     ): View {
         binding = FragmentPrefBinding.inflate(inflater)
         val navController = findNavController()
-        binding.privacyPolicy.setOnClickListener {
-            this.findNavController().navigate(R.id.action_prefFragment_to_privacyFragment)
-        }
-        binding.reportIssue.setOnClickListener {
-            this.findNavController().navigate(R.id.action_prefFragment_to_reportIssueFragment)
-        }
-        binding.giveFeedback.setOnClickListener {
-            this.findNavController().navigate(R.id.action_prefFragment_to_feedBackFragment)
-        }
+
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.privacyPolicyPref.setOnClickListener {
+            this.findNavController().navigate(R.id.action_prefFragment_to_privacyFragment)
+        }
+        binding.reportIssuePref.setOnClickListener {
+            this.findNavController().navigate(R.id.action_prefFragment_to_reportIssueFragment)
+        }
+        binding.giveFeedbackPref.setOnClickListener {
+            this.findNavController().navigate(R.id.action_prefFragment_to_feedBackFragment)
+        }
     }
 
     override fun onAttach(context: Context) {

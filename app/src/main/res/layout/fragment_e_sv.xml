@@ -18,7 +18,7 @@
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/option"
+                android:id="@+id/emergency_card_option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -42,7 +42,7 @@
                 android:src="@drawable/ic_police" />
 
             <TextView
-                android:id="@+id/emergency_text"
+                android:id="@+id/emergency_card_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/image_emer"
@@ -54,10 +54,10 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/phone"
+                android:id="@+id/emergency_card_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/emergency_text"
+                android:layout_below="@id/emergency_card_text"
                 android:gravity="center_horizontal"
                 android:text="@string/_090544342242"
                 android:textColor="@color/ripple_color"

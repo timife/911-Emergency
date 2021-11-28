@@ -6,25 +6,38 @@
     <data>
 
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="270dp"
+            android:layout_height="270dp"
+            android:id="@+id/animation_view"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_colorFilter="@color/primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:lottie_rawRes="@raw/lottieheal"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/splash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:context=".ui.main.SplashFragment">
 
             <ImageView
                 android:id="@+id/nine"
-                android:layout_width="70dp"
-                android:layout_height="90dp"
+                android:layout_width="20dp"
+                android:layout_height="40dp"
                 android:contentDescription="@string/logo"
                 android:src="@drawable/nine"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -33,8 +46,8 @@
 
             <ImageView
                 android:id="@+id/one_1"
-                android:layout_width="49dp"
-                android:layout_height="90dp"
+                android:layout_width="13dp"
+                android:layout_height="40dp"
                 android:contentDescription="@string/logo"
                 android:src="@drawable/one"
                 app:layout_constraintBottom_toBottomOf="@id/nine"
@@ -43,8 +56,8 @@
 
             <ImageView
                 android:id="@+id/one_2"
-                android:layout_width="49dp"
-                android:layout_height="90dp"
+                android:layout_width="13dp"
+                android:layout_height="40dp"
                 android:contentDescription="@string/logo"
                 android:src="@drawable/one"
                 app:layout_constraintBottom_toBottomOf="@id/one_1"
@@ -52,8 +65,8 @@
 
             <ImageView
                 android:id="@+id/plus"
-                android:layout_width="51dp"
-                android:layout_height="51dp"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
                 android:contentDescription="@string/logo"
                 android:src="@drawable/plus"
                 app:layout_constraintBottom_toBottomOf="@id/one_2"
@@ -62,19 +75,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/splash_screen_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:minLines="2"
-            android:text="@string/emergency_and_non_emergency_service_contacts_for_wherever_you_go"
-            android:textAppearance="@style/splash_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/splash" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
