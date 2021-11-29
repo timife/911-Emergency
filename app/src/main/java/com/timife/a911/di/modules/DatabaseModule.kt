@@ -2,6 +2,10 @@ package com.timife.a911.di.modules
 
 import android.content.Context
 import androidx.room.Room
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.timife.a911.createProfile.ui.AuthRepository
+import com.timife.a911.createProfile.ui.AuthRepositoryImpl
 import com.timife.a911.data.source.local.EmergencyDao
 import com.timife.a911.data.source.local.EmergencyDatabase
 import dagger.Module
@@ -27,6 +31,15 @@ object DatabaseModule {
     fun provideEmergencyDao(emergencyDatabase: EmergencyDatabase): EmergencyDao {
         return emergencyDatabase.emergencyDao
     }
+
+    @Singleton
+    @Provides
+    fun provideAuthRepo(
+        firebaseAuth: FirebaseAuth,
+        firebaseDatabase: FirebaseDatabase
+    ): AuthRepository = AuthRepositoryImpl(
+        firebaseAuth,firebaseDatabase
+    )
 
 
 }

@@ -28,7 +28,6 @@ class CreateProfileFragment : BottomSheetDialogFragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         (requireActivity().application as EmergencyApplication).emergencyComponent.inject(this)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
