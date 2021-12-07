@@ -82,6 +82,7 @@ dependencies {
     //Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.1.0'
 
 
     //Retrofit
@@ -119,6 +120,10 @@ dependencies {
 //    implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
+
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.0.0'
+
 
 
     //Moshi

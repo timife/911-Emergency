@@ -4,6 +4,10 @@ import android.content.Context
 import androidx.room.Room
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.timife.a911.createProfile.ui.AuthRepository
 import com.timife.a911.createProfile.ui.AuthRepositoryImpl
 import com.timife.a911.data.source.local.EmergencyDao
@@ -36,10 +40,18 @@ object DatabaseModule {
     @Provides
     fun provideAuthRepo(
         firebaseAuth: FirebaseAuth,
-        firebaseDatabase: FirebaseDatabase
+        firebaseDatabase: FirebaseFirestore
     ): AuthRepository = AuthRepositoryImpl(
         firebaseAuth,firebaseDatabase
     )
+
+    @Singleton
+    @Provides
+    fun provideFirebaseAuth() = FirebaseAuth.getInstance()
+    
+    @Singleton
+    @Provides
+    fun provideFirebaseDatabase() = Firebase.firestore
 
 
 }
