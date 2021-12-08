@@ -1,6 +1,5 @@
 package com.timife.a911.createProfile.ui
 
-import androidx.lifecycle.LiveData
 import com.google.firebase.auth.FirebaseUser
 import com.timife.a911.utils.states.AuthResult
 import com.timife.a911.utils.states.DataState
@@ -9,8 +8,9 @@ import kotlinx.coroutines.flow.Flow
 interface AuthRepository {
     fun createUser(
         fullName: String,
-        email:String,
-        password:String
+        email: String,
+        password: String,
+        confirmPassword:String
     ): Flow<AuthResult<String>>
 
     fun currentUserId(): String

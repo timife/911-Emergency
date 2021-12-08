@@ -28,11 +28,16 @@ class AuthRepositoryImpl @Inject constructor(
     override fun createUser(
         fullName: String,
         email: String,
-        password: String
+        password: String,
+        confirmPassword: String
     ): Flow<AuthResult<String>> = flow {
         emit(AuthResult.Loading)
         if (password.length < Constants.PASSWORD_LENGTH) {
             emit(AuthResult.Failed(Messages.SHORT_PASSWORD))
+            return@flow
+        }
+        if (password != confirmPassword) {
+            emit(AuthResult.Failed(Messages.MISMATCH_PASSWORD))
             return@flow
         }
 
@@ -41,7 +46,7 @@ class AuthRepositoryImpl @Inject constructor(
             return@flow
         }
 
-        val registerUser = auth.createUserWithEmailAndPassword(email, password).result
+        val registerUser = auth.createUserWithEmailAndPassword(email, password).await()
         val firebaseUser = registerUser.user!!
         val user = OnlineUser(
             fullName = fullName,

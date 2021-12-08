@@ -16,7 +16,7 @@ import com.timife.a911.EmergencyApplication
 import com.timife.a911.R
 import com.timife.a911.data.model.databasemodel.EmergencyInfo
 import com.timife.a911.databinding.FragmentHomeCategoryBinding
-import com.timife.a911.getClickableSpan
+import com.timife.a911.utils.getClickableSpan
 import java.util.*
 import javax.inject.Inject
 

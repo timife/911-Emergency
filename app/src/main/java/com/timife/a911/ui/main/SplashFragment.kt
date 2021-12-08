@@ -30,7 +30,7 @@ import com.timife.a911.MainActivity
 import com.timife.a911.R
 import com.timife.a911.databinding.FragmentSplashBinding
 import com.timife.a911.emergencyHome.ui.REQUEST_LOCATION_PERMISSION
-import com.timife.a911.startNewActivity
+import com.timife.a911.utils.startNewActivity
 import java.io.IOException
 import java.util.ArrayList
 

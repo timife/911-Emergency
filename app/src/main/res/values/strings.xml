@@ -104,4 +104,5 @@
     <string name="other_issue_with_the_app">Other issue with the app</string>
     <string name="note_2_report">Please provide additional details about the problem you\'re experiencing.</string>
     <string name="for_ticket_status_updates">For ticket status updates.</string>
+    <string name="confirm_password">Confirm Password</string>
 </resources>
