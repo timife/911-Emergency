@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.theme.overlay.MaterialThemeOverlay
 import com.timife.a911.EmergencyApplication
 import com.timife.a911.R
 import com.timife.a911.databinding.FragmentCallOptionDialogBinding
@@ -21,6 +22,9 @@ class CallOptionDialog : BottomSheetDialogFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+
+//    @Inject
+//    lateinit var
 
     private val viewModel by viewModels<CallOptionViewModel> { viewModelFactory }
 
@@ -43,6 +47,19 @@ class CallOptionDialog : BottomSheetDialogFragment() {
         }
         binding.saveOption.setOnClickListener {
             val number = argument.name
+
+            MaterialAlertDialogBuilder(requireContext(),R.style.ThemeOverlay_MaterialComponents_Dialog)
+                .setIcon(R.drawable.ic_account_circle)
+                .setTitle("Create Profile")
+                .setMessage("Create a Profile so you can save a Number.")
+                .setPositiveButton("Sign-in") { dialog, which ->
+                    Toast.makeText(requireContext(), "sign-in", Toast.LENGTH_SHORT).show()
+
+                }.setNegativeButton("Create-Profile") { dialog, which ->
+                    Toast.makeText(requireContext(), "Create Profile", Toast.LENGTH_SHORT).show()
+                }.show()
+
+
         }
         binding.reportOption.setOnClickListener {
             val report = argument.phone

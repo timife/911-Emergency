@@ -13,13 +13,13 @@
         tools:context=".emergencyHome.ui.dialogs.ImmediateDialog">
 
         <ImageButton
-            android:layout_width="30dp"
             android:id="@+id/cancel_immediate_dialog"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_cancel"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_gravity="end"
             android:background="@color/white"
-            android:contentDescription="@string/cancel" />
+            android:contentDescription="@string/cancel"
+            android:src="@drawable/ic_cancel" />
 
         <TextView
             android:layout_width="match_parent"
@@ -81,15 +81,15 @@
             android:layout_marginTop="12dp" />
 
         <TextView
+            android:id="@+id/immediate_bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/immediate_bottom"
-            android:textAppearance="@style/universal_text"
-            android:text="@string/alert_bottom"
             android:layout_gravity="center"
-            android:textSize="13sp"
+            android:layout_marginTop="35dp"
             android:gravity="center"
-            android:textColor="@color/ripple_color"
-            android:layout_marginTop="35dp" />
+            android:text="@string/alert_bottom"
+            android:textAppearance="@style/universal_text"
+            android:textColor="#546E7A"
+            android:textSize="13sp" />
     </LinearLayout>
 </layout>

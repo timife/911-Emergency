@@ -105,4 +105,5 @@
     <string name="note_2_report">Please provide additional details about the problem you\'re experiencing.</string>
     <string name="for_ticket_status_updates">For ticket status updates.</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="account_save_alert">Create a Profile so you can save this \n number to your account.If you already \n have a profile,sign-in</string>
 </resources>
