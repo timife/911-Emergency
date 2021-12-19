@@ -326,20 +326,20 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
     @SuppressLint("SetTextI18n")
     private fun updateAddressUI(location: Location) {
-        val addressList: ArrayList<Address>
+        val addressList: Address
         try {
             addressList = geocoder.getFromLocation(
                 location.latitude,
                 location.longitude,
                 1
-            ) as ArrayList<Address>
-            binding.locationAddress.text = "You are at " + addressList[0].getAddressLine(0)
+            ) as Address
+            binding.locationAddress.text = "You are at " + addressList.getAddressLine(0)
 
             // Save Country and state in shared preferences
             val editor = sharedPreferences.edit()
             editor.apply {
-                putString("country", addressList[0].countryName)
-                putString("state", addressList[0].adminArea)
+                putString("country", addressList.countryName)
+                putString("state", addressList.adminArea)
                 apply()
             }
         } catch (e: Exception) {

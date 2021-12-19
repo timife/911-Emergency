@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ravikoradiya.library.CenterTitle
 import com.timife.a911.databinding.FragmentFeedBackBinding
+import com.timife.a911.utils.Constants
 
 class FeedBackFragment : Fragment() {
     private lateinit var binding: FragmentFeedBackBinding
@@ -41,8 +42,7 @@ class FeedBackFragment : Fragment() {
     }
 
     private fun feedBackEmail(text: String) {
-        val addresses: Array<String> = arrayOf("angadc412@gmail.com", "timife007@gmail.com")
-
+        val addresses: Array<String> = arrayOf(Constants.FEEDBACK_EMAIL_1,Constants.FEEDBACK_EMAIL_2)
         val intent = Intent(Intent.ACTION_SENDTO).apply {
             data = Uri.parse("mailto:")
             putExtra(Intent.EXTRA_EMAIL, addresses)
