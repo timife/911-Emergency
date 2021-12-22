@@ -1,4 +1,4 @@
-package com.timife.a911.ui.EmergencyPref
+package com.timife.a911.ui.emergencyPref
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

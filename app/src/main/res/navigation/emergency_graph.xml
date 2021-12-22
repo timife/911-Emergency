@@ -108,8 +108,9 @@
         app:popUpToInclusive="true" />
     <fragment
         android:id="@+id/onBoardingFragment"
-        android:name="com.olabode.wilson.pytutor.ui.onboarding.OnBoardingFragment"
-        android:label="OnBoardingFragment">
+        android:name="com.timife.a911.ui.onBoarding.OnBoardingFragment"
+        android:label="OnBoardingFragment"
+        tools:layout="@layout/fragment_on_boarding">
         <action
             android:id="@+id/action_onBoardingFragment_to_auth_navigation"
             app:destination="@id/auth_navigation"
@@ -148,7 +149,7 @@
     </fragment>
     <fragment
         android:id="@+id/saveFragment"
-        android:name="com.timife.a911.ui.EmergencySave.SaveFragment"
+        android:name="com.timife.a911.ui.emergencySave.SaveFragment"
         android:label="Saved Numbers"
         tools:layout="@layout/fragment_save" >
         <action
@@ -157,7 +158,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.timife.a911.ui.EmergencySearch.SearchFragment"
+        android:name="com.timife.a911.ui.emergencySearch.SearchFragment"
         android:label="Search Directory"
         tools:layout="@layout/fragment_search" >
         <action
@@ -169,7 +170,7 @@
     </fragment>
     <fragment
         android:id="@+id/prefFragment"
-        android:name="com.timife.a911.ui.EmergencyPref.PrefFragment"
+        android:name="com.timife.a911.ui.emergencyPref.PrefFragment"
         android:label="Preferences"
         tools:layout="@layout/fragment_pref" >
         <action
@@ -197,17 +198,17 @@
     <fragment
         android:id="@+id/feedBackFragment"
         tools:layout="@layout/fragment_feed_back"
-        android:name="com.timife.a911.ui.EmergencyPref.FeedBackFragment"
+        android:name="com.timife.a911.ui.emergencyPref.FeedBackFragment"
          />
     <fragment
         android:id="@+id/privacyFragment"
         tools:layout="@layout/fragment_privacy"
-        android:name="com.timife.a911.ui.EmergencyPref.PrivacyFragment"
+        android:name="com.timife.a911.ui.emergencyPref.PrivacyFragment"
          />
     <fragment
         android:id="@+id/reportIssueFragment"
         tools:layout="@layout/fragment_report_issue"
-        android:name="com.timife.a911.ui.EmergencyPref.ReportIssueFragment"
+        android:name="com.timife.a911.ui.emergencyPref.ReportIssueFragment"
          >
         <action
             android:id="@+id/action_reportIssueFragment_to_otherIssueFragment"
@@ -248,10 +249,7 @@
         android:label="NonImmediateDialog" />
     <fragment
         android:id="@+id/otherIssueFragment"
-        android:name="com.timife.a911.ui.EmergencyPref.OtherIssueFragment"
+        android:name="com.timife.a911.ui.emergencyPref.OtherIssueFragment"
         tools:layout="@layout/fragment_other_issue" />
-    <fragment
-        android:id="@+id/splashFragment2"
-        android:name="com.timife.a911.ui.splash.SplashFragment"
-        android:label="SplashFragment" />
+
 </navigation>

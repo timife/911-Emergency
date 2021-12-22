@@ -1,4 +1,4 @@
-package com.timife.a911.ui.EmergencySave
+package com.timife.a911.ui.emergencySave
 
 import android.content.Context
 import android.os.Bundle

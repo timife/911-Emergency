@@ -7,9 +7,9 @@ import com.timife.a911.di.modules.*
 import com.timife.a911.ui.emergencyHome.ui.dialogs.CallOptionDialog
 import com.timife.a911.ui.emergencyHome.HomeFragment
 import com.timife.a911.ui.emergencyHome.HomeFragmentCategory
-import com.timife.a911.ui.EmergencyPref.PrefFragment
-import com.timife.a911.ui.EmergencySave.SaveFragment
-import com.timife.a911.ui.EmergencySearch.SearchFragment
+import com.timife.a911.ui.emergencyPref.PrefFragment
+import com.timife.a911.ui.emergencySave.SaveFragment
+import com.timife.a911.ui.emergencySearch.SearchFragment
 import com.timife.a911.ui.splash.SplashFragment
 import dagger.BindsInstance
 import dagger.Component

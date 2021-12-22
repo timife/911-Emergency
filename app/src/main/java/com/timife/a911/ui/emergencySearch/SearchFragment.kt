@@ -1,4 +1,4 @@
-package com.timife.a911.ui.EmergencySearch
+package com.timife.a911.ui.emergencySearch
 
 import android.content.Context
 import android.graphics.Typeface

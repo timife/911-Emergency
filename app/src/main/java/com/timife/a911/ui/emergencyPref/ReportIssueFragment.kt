@@ -1,4 +1,4 @@
-package com.timife.a911.ui.EmergencyPref
+package com.timife.a911.ui.emergencyPref
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.ravikoradiya.library.CenterTitle
 import com.timife.a911.R
 import com.timife.a911.databinding.FragmentReportIssueBinding

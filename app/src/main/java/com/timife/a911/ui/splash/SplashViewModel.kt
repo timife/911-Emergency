@@ -1,4 +1,6 @@
 package com.timife.a911.ui.splash
 
-class SplashViewModel {
+import androidx.lifecycle.ViewModel
+
+class SplashViewModel: ViewModel() {
 }

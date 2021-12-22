@@ -4,15 +4,21 @@ import androidx.lifecycle.ViewModel
 import com.timife.a911.createProfile.ui.CreateProfileViewModel
 import com.timife.a911.ui.emergencyHome.ui.dialogs.CallOptionViewModel
 import com.timife.a911.ui.emergencyHome.HomeViewModel
-import com.timife.a911.ui.EmergencyPref.PrefViewModel
-import com.timife.a911.ui.EmergencySave.SaveViewModel
-import com.timife.a911.ui.EmergencySearch.SearchViewModel
+import com.timife.a911.ui.emergencyPref.PrefViewModel
+import com.timife.a911.ui.emergencySave.SaveViewModel
+import com.timife.a911.ui.emergencySearch.SearchViewModel
+import com.timife.a911.ui.splash.SplashViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
 @Module
 abstract class ViewModelModule {
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SplashViewModel::class)
+    abstract fun bindSplashViewModel(viewModel:SplashViewModel):ViewModel
 
     @Binds
     @IntoMap
