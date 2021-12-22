@@ -5,6 +5,6 @@ package com.timife.a911.data.model
  */
 
 data class LocationModel(
-    val country:String,
-    val city:String
+    val longitude:Double,
+    val latitude:Double
 )

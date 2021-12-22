@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.timife.a911.emergencyHome.ui.HomeViewModel" />
+            type="com.timife.a911.emergencyHome.HomeViewModel" />
 
     </data>
 

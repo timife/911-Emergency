@@ -106,4 +106,21 @@
     <string name="for_ticket_status_updates">For ticket status updates.</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="account_save_alert">Create a Profile so you can save this \n number to your account.If you already \n have a profile,sign-in</string>
+    <string name="enable_gps">Enable GPS</string>
+    <string name="ask_me">ASK ME</string>
+    <string name="no">NO</string>
+    <string name="location_permission">Location Permission</string>
+    <string name="access_location_message">This application requires access to your location to function</string>
+    <string name="gps_required_message">GPS is required for this application to function</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_an_account">ALREADY HAVE AN ACCOUNT?</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="reset_password">Reset Password?</string>
+    <string name="let_s_help_you_reset_your_password">Let\'s help you reset your password,</string>
+    <string name="go_back_to_login">GO BACK TO LOGIN</string>
+    <string name="resend_email_verification_link">Resend Email Verification Link</string>
+    <string name="resend_verification_link">RESEND VERIFICATION LINK</string>
+    <string name="verify_email">Verify Email,</string>
+    <string name="welcome_back">Welcome Back,</string>
 </resources>

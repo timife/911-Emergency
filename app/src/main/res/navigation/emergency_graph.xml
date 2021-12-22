@@ -5,9 +5,110 @@
     android:id="@+id/emergency_graph"
     app:startDestination="@id/homeFragment">
 
+    <navigation
+        android:id="@+id/auth_navigation"
+        app:startDestination="@id/loginFragment">
+        <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.timife.a911.ui.auth.login.LoginFragment">
+            <action
+                android:id="@+id/action_loginFragment_to_signUpFragment2"
+                app:destination="@id/signUpFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right" />
+            <action
+                android:id="@+id/action_loginFragment_to_verifyPasswordFragment"
+                app:destination="@id/verifyPasswordFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:popUpTo="@id/loginFragment" />
+            <action
+                android:id="@+id/action_loginFragment_to_resetPasswordFragment"
+                app:destination="@id/resetPasswordFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:popUpTo="@id/loginFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/signUpFragment"
+            android:name="com.timife.a911.ui.auth.signup.SignupFragment"
+            tools:layout="@layout/fragment_signup" />
+        <action
+            android:id="@+id/action_global_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/emergency_graph"
+            app:popUpToInclusive="true" />
+        <fragment
+            android:id="@+id/verifyPasswordFragment"
+            android:name="com.timife.a911.ui.auth.verifydetails.VerifyDetailsFragment"
+            tools:layout="@layout/fragment_verify_details">
+            <argument
+                android:name="email"
+                app:argType="string" />
+            <argument
+                android:name="password"
+                app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/resetPasswordFragment"
+            android:name="com.timife.a911.ui.auth.forgotpassword.ResetPasswordFragment"
+            tools:layout="@layout/fragment_reset_password" />
+    </navigation>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.timife.a911.ui.main.SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/emergency_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_auth_navigation"
+            app:destination="@id/auth_navigation"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mobile_navigation.xml"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mobile_navigation.xml"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_auth_navigation"
+        app:destination="@id/auth_navigation"
+        app:enterAnim="@anim/slide_up"
+        app:exitAnim="@anim/slide_down"
+        app:popEnterAnim="@anim/slide_up"
+        app:popExitAnim="@anim/slide_down"
+        app:popUpTo="@id/auth_navigation"
+        app:popUpToInclusive="true" />
+
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.timife.a911.emergencyHome.ui.HomeFragment"
+        android:name="com.timife.a911.emergencyHome.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -118,7 +219,7 @@
     <fragment
         android:id="@+id/homeFragmentCategory"
         tools:layout="@layout/fragment_home_category"
-        android:name="com.timife.a911.emergencyHome.ui.HomeFragmentCategory"
+        android:name="com.timife.a911.emergencyHome.HomeFragmentCategory"
         android:label="HomeFragmentCategory" />
     <dialog
         android:id="@+id/immediateDialog"

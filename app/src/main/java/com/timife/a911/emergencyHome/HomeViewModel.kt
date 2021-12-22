@@ -1,4 +1,4 @@
-package com.timife.a911.emergencyHome.ui
+package com.timife.a911.emergencyHome
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,6 +9,7 @@ import com.timife.a911.data.model.databasemodel.EmergencyInfo
 import com.timife.a911.data.model.jsonmodel.Emergency
 import com.timife.a911.data.model.jsonmodel.NonEmergency
 import com.timife.a911.data.repository.EmergencyRepository
+import com.timife.a911.utils.LocationLiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -17,6 +18,14 @@ import javax.inject.Inject
 enum class EmergencyStatus { LOADING, ERROR, DONE }
 
 class HomeViewModel @Inject constructor(private val repository: EmergencyRepository) : ViewModel() {
+
+    @Inject
+    lateinit var locationLivedata : LocationLiveData
+
+
+    fun fetchLocationLiveData() = locationLivedata
+
+
     private val _emergency = MutableLiveData<List<Emergency>>()
     val emergency: LiveData<List<Emergency>>
         get() = _emergency

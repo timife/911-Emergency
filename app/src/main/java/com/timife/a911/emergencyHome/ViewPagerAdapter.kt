@@ -1,4 +1,4 @@
-package com.timife.a911.emergencyHome.ui
+package com.timife.a911.emergencyHome
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

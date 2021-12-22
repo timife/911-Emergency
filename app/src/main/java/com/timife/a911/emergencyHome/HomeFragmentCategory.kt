@@ -1,15 +1,18 @@
-package com.timife.a911.emergencyHome.ui
+package com.timife.a911.emergencyHome
 
 import android.content.Context
-import android.content.SharedPreferences
+import android.location.Address
+import android.location.Geocoder
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.timife.a911.EmergencyApplication
@@ -17,6 +20,7 @@ import com.timife.a911.R
 import com.timife.a911.data.model.databasemodel.EmergencyInfo
 import com.timife.a911.databinding.FragmentHomeCategoryBinding
 import com.timife.a911.utils.getClickableSpan
+import com.timife.a911.utils.observeOnce
 import java.util.*
 import javax.inject.Inject
 
@@ -28,13 +32,14 @@ class HomeFragmentCategory : Fragment() {
 
     private lateinit var emergencyType: String
     private lateinit var binding: FragmentHomeCategoryBinding
-    private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var viewModel: HomeViewModel
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-//    private val viewModel by viewModels<HomeViewModel> { viewModelFactory }
+    @Inject
+    lateinit var geocoder: Geocoder
+
+    private val viewModel by viewModels<HomeViewModel> { viewModelFactory }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -47,8 +52,6 @@ class HomeFragmentCategory : Fragment() {
         arguments?.let {
             emergencyType = it.getString("FRAGMENT")!!
         }
-        viewModel =
-            ViewModelProvider(requireActivity(), viewModelFactory).get(HomeViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -57,8 +60,6 @@ class HomeFragmentCategory : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentHomeCategoryBinding.inflate(inflater)
-        sharedPreferences =
-            requireActivity().getSharedPreferences("countryPref", Context.MODE_PRIVATE)
         return binding.root
     }
 
@@ -69,55 +70,66 @@ class HomeFragmentCategory : Fragment() {
     }
 
     private fun getCategoryData(fragment: String) {
-        val country = sharedPreferences.getString("country", "Nigeria")
-        val state = sharedPreferences.getString("state", "Lagos")
+       viewModel.locationLivedata.observeOnce(viewLifecycleOwner,{
+           val addressList: ArrayList<Address> = geocoder.getFromLocation(
+               it.latitude,
+               it.longitude,
+               1
+           ) as ArrayList<Address>
+           val state = addressList[0].adminArea
+           val country = addressList[0].countryName
 
-        when (fragment) {
-            EMERGENCY_SERVICES -> {
-                val emergencyHelpSpan = SpannableStringBuilder()
-                emergencyHelpSpan.append(immediateHelpSpan())
-                binding.emergencyCategoryTitle.text = emergencyHelpSpan
-                binding.emergencyCategoryTitle.movementMethod = LinkMovementMethod.getInstance()
+           when (fragment) {
+               EMERGENCY_SERVICES -> {
+                   val emergencyHelpSpan = SpannableStringBuilder()
+                   emergencyHelpSpan.append(immediateHelpSpan())
+                   binding.emergencyCategoryTitle.text = emergencyHelpSpan
+                   binding.emergencyCategoryTitle.movementMethod = LinkMovementMethod.getInstance()
 
-                if (country != null) {
-                    binding.emergencyProgressBar.visibility = View.VISIBLE
-                    setUpEmergencyNumbers(country)
-                    viewModel.navigateToSaveOption.observe(viewLifecycleOwner, {
-                        try {
-                            this.findNavController().navigate(
-                                HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
-                            )
-                        } catch (e: Exception) {
-                        }
-                    })
-                    binding.emergencyProgressBar.visibility = View.GONE
-                } else {
-                    binding.emergencyProgressBar.visibility = View.VISIBLE
-                }
-            }
-            NON_EMERGENCY_SERVICES -> {
-                val nonEmergencyHelpSpan = SpannableStringBuilder()
-                nonEmergencyHelpSpan.append(nonImmediateHelpSpan())
-                binding.emergencyCategoryTitle.text = nonEmergencyHelpSpan
-                binding.emergencyCategoryTitle.movementMethod = LinkMovementMethod.getInstance()
+                   if (country != null) {
+                       Toast.makeText(requireContext(),"$country,$state",Toast.LENGTH_SHORT).show()
+                       binding.emergencyProgressBar.visibility = View.VISIBLE
+                       setUpEmergencyNumbers(country)
+                       viewModel.navigateToSaveOption.observe(viewLifecycleOwner, {
+                           try {
+                               this.findNavController().navigate(
+                                   HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
+                               )
+                           } catch (e: Exception) {
+                               setUpEmergencyNumbers(country)
+                           }
+                       })
+                       binding.emergencyProgressBar.visibility = View.GONE
+                   } else {
+                       binding.emergencyProgressBar.visibility = View.VISIBLE
+                   }
+               }
+               NON_EMERGENCY_SERVICES -> {
+                   val nonEmergencyHelpSpan = SpannableStringBuilder()
+                   nonEmergencyHelpSpan.append(nonImmediateHelpSpan())
+                   binding.emergencyCategoryTitle.text = nonEmergencyHelpSpan
+                   binding.emergencyCategoryTitle.movementMethod = LinkMovementMethod.getInstance()
 
-                if (state != null) {
-                    binding.emergencyProgressBar.visibility = View.VISIBLE
-                    setUpNonEmergencyNumbers("Lagos")
-                    viewModel.navigateToNonSaveOption.observe(viewLifecycleOwner, {
-                        try {
-                            this.findNavController().navigate(
-                                HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
-                            )
-                        } catch (e: Exception) {
-                        }
-                    })
-                    binding.emergencyProgressBar.visibility = View.GONE
-                } else {
-                    binding.emergencyProgressBar.visibility = View.GONE
-                }
-            }
-        }
+                   if (state != null) {
+                       binding.emergencyProgressBar.visibility = View.VISIBLE
+                       setUpNonEmergencyNumbers(state)
+                       viewModel.navigateToNonSaveOption.observe(viewLifecycleOwner, {
+                           try {
+                               this.findNavController().navigate(
+                                   HomeFragmentDirections.actionHomeFragmentToCallOptionDialog(it)
+                               )
+                           } catch (e: Exception) {
+                           }
+                       })
+                       binding.emergencyProgressBar.visibility = View.GONE
+                   } else {
+                       binding.emergencyProgressBar.visibility = View.GONE
+                   }
+               }
+           }
+       })
+
+
     }
 
     private fun immediateHelpSpan() = getString(

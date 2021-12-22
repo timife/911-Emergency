@@ -3,7 +3,7 @@ package com.timife.a911.di.modules
 import androidx.lifecycle.ViewModel
 import com.timife.a911.createProfile.ui.CreateProfileViewModel
 import com.timife.a911.emergencyHome.ui.dialogs.CallOptionViewModel
-import com.timife.a911.emergencyHome.ui.HomeViewModel
+import com.timife.a911.emergencyHome.HomeViewModel
 import com.timife.a911.emergencyPref.ui.PrefViewModel
 import com.timife.a911.emergencySave.ui.SaveViewModel
 import com.timife.a911.emergencySearch.ui.SearchViewModel

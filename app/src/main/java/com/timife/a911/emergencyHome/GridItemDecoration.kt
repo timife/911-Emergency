@@ -1,4 +1,4 @@
-package com.timife.a911.emergencyHome.ui
+package com.timife.a911.emergencyHome
 
 import android.graphics.Rect
 import android.view.View

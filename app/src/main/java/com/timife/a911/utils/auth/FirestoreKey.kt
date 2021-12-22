@@ -1,4 +1,4 @@
-package com.timife.a911.utils
+package com.timife.a911.utils.auth
 
 /**
  * Created by timife on 06/12/21

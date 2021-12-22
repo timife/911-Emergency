@@ -1,6 +1,7 @@
 package com.timife.a911.di.modules
 
 import android.content.Context
+import android.location.Geocoder
 import androidx.room.Room
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -10,12 +11,24 @@ import com.timife.a911.createProfile.ui.AuthRepository
 import com.timife.a911.createProfile.ui.AuthRepositoryImpl
 import com.timife.a911.data.source.local.EmergencyDao
 import com.timife.a911.data.source.local.EmergencyDatabase
+import com.timife.a911.utils.LocationLiveData
 import dagger.Module
 import dagger.Provides
+import java.util.*
 import javax.inject.Singleton
 
 @Module
 object DatabaseModule {
+
+    @Singleton
+    @Provides
+    fun provideLocationLiveData(context: Context): LocationLiveData {
+        return LocationLiveData(context)
+    }
+
+    @Singleton
+    @Provides
+    fun provideGeoCoder(context: Context)= Geocoder(context, Locale.getDefault())
 
     @Singleton
     @Provides
@@ -27,6 +40,8 @@ object DatabaseModule {
             "EmergencyInfo.db"
         ).build()
     }
+
+
 
     @Singleton
     @Provides

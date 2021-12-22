@@ -1,20 +1,16 @@
-package com.timife.a911.emergencyHome.ui
+package com.timife.a911.emergencyHome
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.location.Address
 import android.location.Geocoder
-import android.location.Location
-import android.location.LocationManager
 import android.os.Bundle
-import android.os.Looper
-import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,21 +21,21 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationCallback
-import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.location.LocationResult
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.timife.a911.EmergencyApplication
+import com.timife.a911.R
 import com.timife.a911.databinding.FragmentHomeBinding
-import java.io.IOException
+import com.timife.a911.utils.Constants.GPS_REQUEST_CHECK_SETTINGS
+import com.timife.a911.utils.GpsUtil
+import com.timife.a911.utils.observeOnce
 import java.util.*
 import javax.inject.Inject
 
@@ -47,26 +43,29 @@ const val REQUEST_LOCATION_PERMISSION = 1
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class HomeFragment : Fragment(), OnMapReadyCallback {
-
-    private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var geocoder: Geocoder
+    private var isGPSEnabled = false
 
     companion object {
         private const val MAPVIEW_BUNDLE_KEY = "MapViewBundleKey"
+        private val REQUIRED_PERMISSIONS = arrayOf(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        )
+        const val LOCATION_REQUEST_CODE = 123
     }
 
     private lateinit var mapView: MapView
     private lateinit var map: GoogleMap
     private lateinit var binding: FragmentHomeBinding
     private lateinit var adapter: ViewPagerAdapter
-
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
 
-    private lateinit var mFusedLocationPoviderClient: FusedLocationProviderClient
-
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    @Inject
+    lateinit var geocoder: Geocoder
 
     private val viewModel by viewModels<HomeViewModel> { viewModelFactory }
 
@@ -75,22 +74,31 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         (requireActivity().application as EmergencyApplication).emergencyComponent.inject(this)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        GpsUtil(requireContext()).turnGPSOn(object : GpsUtil.OnGpsListener {
+            override fun gpsStatus(isGPSEnabled: Boolean) {
+                this@HomeFragment.isGPSEnabled = isGPSEnabled
+            }
+        })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        sharedPreferences =
-            requireActivity().getSharedPreferences("countryPref", Context.MODE_PRIVATE)
 
         binding = FragmentHomeBinding.inflate(inflater)
-        geocoder = Geocoder(requireContext(), Locale.getDefault())
-        isLocationServicesEnabled()
+
         initGoogleMap(savedInstanceState)
         viewPager = binding.viewPager
         tabLayout = binding.tabLayout
         setupViewPager(tabLayout, viewPager)
+        switchVisibility()
+        return binding.root
+    }
 
+    private fun switchVisibility() {
         //MapView Switch functionality
         val switch: SwitchCompat = binding.mapSwitch
         switch.setOnCheckedChangeListener { _, isChecked ->
@@ -105,29 +113,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                 binding.profileImageLogo.visibility = View.VISIBLE
                 binding.mapSwitch.setTextColor(Color.WHITE)
             }
-        }
-        return binding.root
-    }
-
-    // TAKE USER TO SETTING TO TURN ON LOCATION IF OFF
-    private fun isLocationServicesEnabled() {
-        val lm: LocationManager =
-            requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        var gpsEnabled = false
-
-        try {
-            gpsEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER)
-        } catch (ex: java.lang.Exception) {
-        }
-        if (!gpsEnabled) {
-            // notify user
-            AlertDialog.Builder(context)
-                .setMessage("You need to turn on Location Services")
-                .setPositiveButton(
-                    "Enable Location"
-                ) { _, _ -> requireActivity().startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)) }
-                .setNegativeButton("Close", null)
-                .show()
         }
     }
     //View pager different fragments
@@ -173,15 +158,16 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     }
 
     override fun onResume() {
-        requestLocationPermissions()
         mapView.onResume()
         super.onResume()
     }
 
     override fun onStart() {
-        mapView.onStart()
         super.onStart()
+        invokeLocationAction()
+        mapView.onStart()
     }
+
 
     override fun onStop() {
         mapView.onStop()
@@ -191,7 +177,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     override fun onMapReady(map: GoogleMap) {
         this.map = map
         enableMyLocation(map)
-
     }
 
     override fun onPause() {
@@ -202,6 +187,7 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     override fun onDestroy() {
         mapView.onDestroy()
         super.onDestroy()
+
     }
 
     override fun onLowMemory() {
@@ -209,46 +195,52 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         mapView.onLowMemory()
     }
 
-    //recheck
-    private fun isPermissionGranted(): Boolean {
-        return ContextCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
-    }
+    private fun invokeLocationAction() {
+        when {
+            allPermissionsGranted() -> {
+                viewModel.fetchLocationLiveData().observeOnce(
+                    viewLifecycleOwner
+                ) { location ->
+                    if (location != null) {
+//                            mapDetails()
+//                                viewModel.getWeather(location)
+//                                setupWorkManager()
 
-    private fun requestLocationPermissions() {
-        if (isPermissionGranted()) {
-            return
+                    }
+                }
+            }
+
+            shouldShowRequestPermissionRationale() -> {
+                AlertDialog.Builder(requireContext())
+                    .setTitle(getString(R.string.location_permission))
+                    .setMessage(getString(R.string.access_location_message))
+                    .setNegativeButton(
+                        getString(R.string.no)
+                    ) { _, _ -> requireActivity().finish() }
+                    .setPositiveButton(
+                        getString(R.string.ask_me)
+                    ) { _, _ ->
+                        requestPermissions(REQUIRED_PERMISSIONS, LOCATION_REQUEST_CODE)
+                    }
+                    .show()
+            }
+
+            !isGPSEnabled -> {
+                Snackbar.make(
+                    requireView(),
+                    getString(R.string.gps_required_message),
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+
+            else -> {
+                requestPermissions(REQUIRED_PERMISSIONS, LOCATION_REQUEST_CODE)
+            }
         }
-
-        if (ActivityCompat.shouldShowRequestPermissionRationale(
-                requireActivity(),
-                Manifest.permission.ACCESS_FINE_LOCATION
-            )
-        ) {
-            showPermissionRationale()
-        }
-    }
-
-    private fun showPermissionRationale() {
-
-        AlertDialog.Builder(requireContext())
-            .setTitle("Location permission")
-            .setMessage("Emergency-911 needs the permission to send your location")
-            .setPositiveButton("YES") { dialog, _ ->
-                dialog.dismiss()
-                requestPermissions(
-                    arrayOf(
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                    ), REQUEST_LOCATION_PERMISSION
-                )
-            }.show()
     }
 
     private fun enableMyLocation(map: GoogleMap) {
-        if (isPermissionGranted()) {
+        if (allPermissionsGranted()) {
             if (ActivityCompat.checkSelfPermission(
                     requireContext(),
                     Manifest.permission.ACCESS_FINE_LOCATION
@@ -262,89 +254,68 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                 return
             }
             map.isMyLocationEnabled = true
-            updateLocation()
+            mapDetails()
         } else {
             requestPermissions(
-                arrayOf(
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                ), REQUEST_LOCATION_PERMISSION
+                REQUIRED_PERMISSIONS, LOCATION_REQUEST_CODE
             )
         }
     }
 
-    @SuppressLint("VisibleForTests")
-    private fun updateLocation() {
-        val locationRequest = LocationRequest()
-        locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        locationRequest.interval = 10000
-        locationRequest.fastestInterval = 5000
-        FusedLocationProviderClient(requireActivity()).also { mFusedLocationPoviderClient = it }
-        if (ActivityCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            return
-        }
-        mFusedLocationPoviderClient.requestLocationUpdates(
-            locationRequest,
-            mLocationCallback,
-            Looper.myLooper()
-        )
-    }
-
-    private var mLocationCallback = object : LocationCallback() {
-        override fun onLocationResult(locationResult: LocationResult?) {
-            val location: Location = locationResult!!.lastLocation
+    @SuppressLint("SetTextI18n")
+    fun mapDetails() {
+        viewModel.locationLivedata.observeOnce(viewLifecycleOwner, {
             map.clear()
-            val homeLatLng = LatLng(location.latitude, location.longitude)
+            val homeLatLng = LatLng(it.latitude, it.longitude)
             val zoomLevel = 15f
             try {
                 val addressList: ArrayList<Address> = geocoder.getFromLocation(
-                    location.latitude,
-                    location.longitude,
+                    it.latitude,
+                    it.longitude,
                     1
                 ) as ArrayList<Address>
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
-                val state = sharedPreferences.getString("state", "loading...")
-                val country = sharedPreferences.getString("country", "loading...")
-                val address = "$state,$country"
+                val mapTag = "${addressList[0].adminArea},${addressList[0].countryName}"
                 val snippet = "You are at " + addressList[0].getAddressLine(0)
                 val infoWindow = map.addMarker(
-                    MarkerOptions().position(homeLatLng).title(address).snippet(snippet)
+                    MarkerOptions().position(homeLatLng).title(mapTag).snippet(snippet)
                 )
-                updateAddressUI(location)
+                binding.locationAddress.text = "You are at " + addressList[0].getAddressLine(0)
                 infoWindow!!.showInfoWindow()
-            } catch (e: IOException) {
+            } catch (exception: java.lang.Exception) {
+                binding.locationLayout.visibility = View.GONE
+            }
+        })
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            GPS_REQUEST_CHECK_SETTINGS -> {
+                when (resultCode) {
+                    Activity.RESULT_OK -> {
+                        isGPSEnabled = true
+                        invokeLocationAction()
+                    }
+
+                    Activity.RESULT_CANCELED -> {
+                        Snackbar.make(
+                            binding.root,
+                            getString(R.string.enable_gps),
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
+                }
             }
         }
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun updateAddressUI(location: Location) {
-        val addressList: Address
-        try {
-            addressList = geocoder.getFromLocation(
-                location.latitude,
-                location.longitude,
-                1
-            ) as Address
-            binding.locationAddress.text = "You are at " + addressList.getAddressLine(0)
+    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
+        ContextCompat.checkSelfPermission(requireContext(), it) == PackageManager.PERMISSION_GRANTED
+    }
 
-            // Save Country and state in shared preferences
-            val editor = sharedPreferences.edit()
-            editor.apply {
-                putString("country", addressList.countryName)
-                putString("state", addressList.adminArea)
-                apply()
-            }
-        } catch (e: Exception) {
-            binding.locationLayout.visibility = View.GONE
-        }
+    private fun shouldShowRequestPermissionRationale() = REQUIRED_PERMISSIONS.all {
+        shouldShowRequestPermissionRationale(it)
     }
 
     override fun onRequestPermissionsResult(
@@ -352,9 +323,9 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        if (requestCode == REQUEST_LOCATION_PERMISSION) {
+        if (requestCode == LOCATION_REQUEST_CODE) {
             if (grantResults.isNotEmpty() && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                enableMyLocation(map)
+                invokeLocationAction()
             }
         }
     }

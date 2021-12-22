@@ -6,7 +6,7 @@ import com.google.firebase.auth.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.timife.a911.data.model.OnlineUser
 import com.timife.a911.utils.Constants
-import com.timife.a911.utils.FirestoreKey
+import com.timife.a911.utils.auth.FirestoreKey
 import com.timife.a911.utils.Messages
 import com.timife.a911.utils.states.AuthResult
 import com.timife.a911.utils.states.DataState

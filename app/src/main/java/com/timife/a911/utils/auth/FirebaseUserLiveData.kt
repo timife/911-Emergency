@@ -1,4 +1,4 @@
-package com.timife.a911.utils
+package com.timife.a911.utils.auth
 
 import androidx.lifecycle.LiveData
 import com.google.firebase.auth.FirebaseAuth
