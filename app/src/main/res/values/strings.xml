@@ -123,4 +123,6 @@
     <string name="resend_verification_link">RESEND VERIFICATION LINK</string>
     <string name="verify_email">Verify Email,</string>
     <string name="welcome_back">Welcome Back,</string>
+    <string name="skip_intro">SKIP</string>
+    <string name="next">NEXT</string>
 </resources>
