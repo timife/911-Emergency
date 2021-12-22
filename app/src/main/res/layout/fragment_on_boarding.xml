@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/primary"/>
+        android:textColor="@color/white"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/next"
@@ -34,8 +34,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/skip_onboarding"
         app:layout_constraintTop_toTopOf="@+id/skip_onboarding"
-        android:textColor="@color/primary"
-        app:strokeColor="@color/on_surface"/>
+        android:textColor="@color/white"
+        app:strokeColor="@color/white"/>
 
     <LinearLayout
         android:id="@+id/indicator_container"
