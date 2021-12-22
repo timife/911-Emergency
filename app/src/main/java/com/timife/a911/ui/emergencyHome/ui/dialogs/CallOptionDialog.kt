@@ -1,4 +1,4 @@
-package com.timife.a911.emergencyHome.ui.dialogs
+package com.timife.a911.ui.emergencyHome.ui.dialogs
 
 import android.content.Context
 import android.os.Bundle

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/primary"
-        tools:context=".emergencyPref.ui.FeedBackFragment">
+        tools:context=".ui.EmergencyPref.FeedBackFragment">
 
 
             <androidx.appcompat.widget.Toolbar

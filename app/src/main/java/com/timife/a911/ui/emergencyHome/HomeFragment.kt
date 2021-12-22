@@ -1,4 +1,4 @@
-package com.timife.a911.emergencyHome
+package com.timife.a911.ui.emergencyHome
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -32,7 +32,6 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.timife.a911.EmergencyApplication
 import com.timife.a911.R
-import com.timife.a911.databinding.FragmentHomeBinding
 import com.timife.a911.utils.Constants.GPS_REQUEST_CHECK_SETTINGS
 import com.timife.a911.utils.GpsUtil
 import com.timife.a911.utils.observeOnce

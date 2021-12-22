@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".emergencyHome.ui.dialogs.CallOptionDialog">
+        tools:context=".ui.emergencyHome.ui.dialogs.CallOptionDialog">
 
         <!-- TODO: Update blank fragment layout -->
         <androidx.cardview.widget.CardView

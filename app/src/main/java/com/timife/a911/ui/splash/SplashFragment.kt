@@ -1,4 +1,4 @@
-package com.timife.a911.ui.main
+package com.timife.a911.ui.splash
 
 import android.content.Context
 import android.os.Bundle

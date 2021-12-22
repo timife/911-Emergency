@@ -1,4 +1,4 @@
-package com.timife.a911.emergencySearch.ui
+package com.timife.a911.ui.EmergencySearch
 
 import androidx.lifecycle.ViewModel
 import com.timife.a911.data.repository.EmergencyRepository

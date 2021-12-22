@@ -1,4 +1,4 @@
-package com.timife.a911.emergencyHome
+package com.timife.a911.ui.emergencyHome
 
 import android.content.Context
 import android.location.Address

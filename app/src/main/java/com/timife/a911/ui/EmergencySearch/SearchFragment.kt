@@ -1,4 +1,4 @@
-package com.timife.a911.emergencySearch.ui
+package com.timife.a911.ui.EmergencySearch
 
 import android.content.Context
 import android.graphics.Typeface
@@ -11,7 +11,6 @@ import android.text.style.ClickableSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController

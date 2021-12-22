@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent"
-        tools:context=".emergencyHome.ui.dialogs.ImmediateDialog">
+        tools:context=".ui.emergencyHome.ui.dialogs.ImmediateDialog">
 
         <ImageButton
             android:id="@+id/cancel_immediate_dialog"

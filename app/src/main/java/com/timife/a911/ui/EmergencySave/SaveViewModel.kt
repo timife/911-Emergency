@@ -1,4 +1,4 @@
-package com.timife.a911.emergencySave.ui
+package com.timife.a911.ui.EmergencySave
 
 import androidx.lifecycle.ViewModel
 import com.timife.a911.data.repository.EmergencyRepository
