@@ -125,4 +125,10 @@
     <string name="welcome_back">Welcome Back,</string>
     <string name="skip_intro">SKIP</string>
     <string name="next">NEXT</string>
+    <string name="onboardingTitle1">Immediate Location Calls</string>
+    <string name="onboardingSubtitle1">One time click sends a call through to emergency services</string>
+    <string name="onboardingTitle2">Instant Search for Emergency Numbers</string>
+    <string name="onboardingSubtitle2">Are you in a remote location? Search dynamically for remote numbers</string>
+    <string name="onboardingTitle3">"Save for Offline Situations "</string>
+    <string name="onboardingSubtitle3">Save Using Options Log On Emergency Numbers.</string>
 </resources>

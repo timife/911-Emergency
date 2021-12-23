@@ -69,6 +69,7 @@
         <entry key="app/src/main/res/layout/fragment_verify_details.xml" value="0.2767543859649123" />
         <entry key="app/src/main/res/layout/loading_item.xml" value="0.2767543859649123" />
         <entry key="app/src/main/res/layout/search_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/slide_item_container.xml" value="0.2771929824561403" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
         <entry key="app/src/main/res/menu/save_menu.xml" value="0.25" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.12203947368421053" />
