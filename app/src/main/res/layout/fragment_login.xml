@@ -154,7 +154,7 @@
                         android:layout_gravity="end"
                         android:id="@+id/progress_signIn"
                         style="?android:attr/progressBarStyle"
-                        android:indeterminate="true"
+                        android:visibility="gone"
                         android:indeterminateTintMode="src_atop"
                         android:indeterminateTint="@color/white" />
 

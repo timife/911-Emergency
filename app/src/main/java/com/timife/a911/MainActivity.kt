@@ -1,8 +1,10 @@
 package com.timife.a911
 
 import android.os.Bundle
+import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -56,7 +58,11 @@ class MainActivity : AppCompatActivity() {
                     bottomNavigation.hide()
                 }
                 else -> {
-                    bottomNavigation.show()
+                    Handler().postDelayed({
+                        applicationContext.let {
+                            bottomNavigation.show()
+                        }
+                    }, 1000)
                 }
             }
 

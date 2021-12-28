@@ -75,8 +75,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:id="@+id/progress_verify"
+                    android:visibility="gone"
                     style="?android:attr/progressBarStyle"
-                    android:indeterminate="true"
                     android:indeterminateTintMode="src_atop"
                     android:indeterminateTint="@color/white" />
             </androidx.cardview.widget.CardView>

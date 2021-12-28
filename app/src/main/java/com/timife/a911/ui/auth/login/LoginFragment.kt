@@ -59,7 +59,9 @@ class LoginFragment : BaseFragment() {
             Snackbar.make(binding.loginCoordinator, it, Snackbar.LENGTH_LONG).show()
         })
         binding.createAccount.setOnClickListener {
-            LoginFragmentDirections.actionLoginFragmentToSignUpFragment2()
+            navigateSafe(
+                LoginFragmentDirections.actionLoginFragmentToSignUpFragment()
+            )
         }
 
         binding.signIn.setOnClickListener {

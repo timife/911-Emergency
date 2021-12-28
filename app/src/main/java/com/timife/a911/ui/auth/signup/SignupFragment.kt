@@ -10,12 +10,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.timife.a911.EmergencyApplication
 import com.timife.a911.R
 import com.timife.a911.databinding.FragmentSignupBinding
 import com.timife.a911.extensions.disableClick
 import com.timife.a911.extensions.enableClick
+import com.timife.a911.extensions.navigateSafe
 import com.timife.a911.ui.BaseFragment
 import com.timife.a911.utils.EventObserver
 import com.timife.a911.utils.Messages
@@ -55,6 +57,12 @@ class SignupFragment : BaseFragment() {
 
             validateAndCreate(
                 profileName, email, password, confirmPassword
+            )
+        }
+
+        binding.backToLogin.setOnClickListener {
+            navigateSafe(
+                SignupFragmentDirections.actionGlobalAuthNavigation()
             )
         }
     }
@@ -117,6 +125,7 @@ class SignupFragment : BaseFragment() {
                     binding.progressSignUp.visibility =View.GONE
                     binding.saveProfileButton.enableClick()
                     Toast.makeText(requireContext(),result.data, Toast.LENGTH_SHORT).show()
+                    findNavController().navigateUp()
                 }
                 else -> {/* no-op */
                 }

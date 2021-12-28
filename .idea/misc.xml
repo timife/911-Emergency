@@ -74,6 +74,8 @@
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
         <entry key="app/src/main/res/menu/save_menu.xml" value="0.25" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.12203947368421053" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher2.xml" value="0.287012987012987" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher2_round.xml" value="0.287012987012987" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.12203947368421053" />
       </map>
     </option>

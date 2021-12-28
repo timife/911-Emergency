@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
+import android.view.ContextThemeWrapper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +23,7 @@ import com.timife.a911.utils.states.AuthResult
 import javax.inject.Inject
 
 class SplashFragment : Fragment() {
-    private lateinit var binding: FragmentSplashBinding
+//    private lateinit var binding: FragmentSplashBinding
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -41,10 +42,10 @@ class SplashFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding =FragmentSplashBinding.inflate(inflater)
-
-
-        return binding.root
+//        binding =FragmentSplashBinding.inflate(inflater)
+        val contextThemeWrapper = ContextThemeWrapper(requireContext(),R.style.Theme_SplashActivity)
+        val localInflater = inflater.cloneInContext(contextThemeWrapper)
+        return localInflater.inflate(R.layout.fragment_splash,container,false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

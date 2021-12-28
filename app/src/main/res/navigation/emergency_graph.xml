@@ -13,7 +13,7 @@
             tools:layout="@layout/fragment_login"
             android:name="com.timife.a911.ui.auth.login.LoginFragment">
             <action
-                android:id="@+id/action_loginFragment_to_signUpFragment2"
+                android:id="@+id/action_loginFragment_to_signUpFragment"
                 app:destination="@id/signUpFragment"
                 app:enterAnim="@anim/slide_in_right"
                 app:exitAnim="@anim/slide_out_left"
