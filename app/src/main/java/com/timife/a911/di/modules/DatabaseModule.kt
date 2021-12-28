@@ -1,6 +1,8 @@
 package com.timife.a911.di.modules
 
+import android.app.Application
 import android.content.Context
+import android.content.SharedPreferences
 import android.location.Geocoder
 import androidx.room.Room
 import com.google.firebase.auth.FirebaseAuth
@@ -9,8 +11,11 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.timife.a911.createProfile.ui.AuthRepository
 import com.timife.a911.createProfile.ui.AuthRepositoryImpl
+import com.timife.a911.data.repository.UserRepository
+import com.timife.a911.data.repository.UserRepositoryImpl
 import com.timife.a911.data.source.local.EmergencyDao
 import com.timife.a911.data.source.local.EmergencyDatabase
+import com.timife.a911.utils.Constants
 import com.timife.a911.utils.LocationLiveData
 import dagger.Module
 import dagger.Provides
@@ -66,5 +71,34 @@ object DatabaseModule {
     @Provides
     fun provideFirebaseDatabase() = Firebase.firestore
 
+    @Singleton
+    @Provides
+    fun provideUserRepo(
+        firebaseAuth: FirebaseAuth,
+        firebaseDatabase: FirebaseFirestore
+    ): UserRepository = UserRepositoryImpl(
+        firebaseAuth,
+        firebaseDatabase
+    )
+
+    @Singleton
+    @Provides
+    fun provideSharedPreferences(
+        context: Context
+    ): SharedPreferences {
+        return context
+            .getSharedPreferences(
+                Constants.APP_PREFERENCES,
+                Context.MODE_PRIVATE
+            )
+    }
+
+    @Singleton
+    @Provides
+    fun provideSharedPrefsEditor(
+        sharedPreferences: SharedPreferences
+    ): SharedPreferences.Editor {
+        return sharedPreferences.edit()
+    }
 
 }

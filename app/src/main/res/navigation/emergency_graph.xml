@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/emergency_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/splashScreenFragment">
 
     <navigation
         android:id="@+id/auth_navigation"

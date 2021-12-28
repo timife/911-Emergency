@@ -32,6 +32,8 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.timife.a911.EmergencyApplication
 import com.timife.a911.R
+import com.timife.a911.databinding.FragmentHomeBinding
+import com.timife.a911.ui.BaseFragment
 import com.timife.a911.utils.Constants.GPS_REQUEST_CHECK_SETTINGS
 import com.timife.a911.utils.GpsUtil
 import com.timife.a911.utils.observeOnce
@@ -41,7 +43,7 @@ import javax.inject.Inject
 const val REQUEST_LOCATION_PERMISSION = 1
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
-class HomeFragment : Fragment(), OnMapReadyCallback {
+class HomeFragment : BaseFragment(), OnMapReadyCallback {
     private var isGPSEnabled = false
 
     companion object {
@@ -60,13 +62,11 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     @Inject
     lateinit var geocoder: Geocoder
 
-    private val viewModel by viewModels<HomeViewModel> { viewModelFactory }
+    private val viewModel by viewModels<HomeViewModel> { viewModelFactoryProvider }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

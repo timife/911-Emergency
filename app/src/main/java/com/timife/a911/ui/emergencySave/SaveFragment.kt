@@ -47,10 +47,7 @@ class SaveFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.profileButton.setOnClickListener {
-            this.findNavController().navigate(R.id.action_saveFragment_to_createProfileFragment)
 
-        }
     }
 
 }

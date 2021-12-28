@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.timife.a911.emergencyHome.ui.dialogs.CallOptionViewModel" />
+            type="com.timife.a911.ui.emergencyHome.ui.dialogs.CallOptionViewModel" />
 
     </data>
 

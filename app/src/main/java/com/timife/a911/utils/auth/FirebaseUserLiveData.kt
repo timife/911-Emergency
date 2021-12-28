@@ -10,7 +10,6 @@ class FirebaseUserLiveData(private val auth: FirebaseAuth) : LiveData<FirebaseUs
     private val authStateListener = FirebaseAuth.AuthStateListener {
         value = it.currentUser
     }
-
     //When this object has an active observer,
     // start observing the FirebaseAuth state
     // to see if there is currently a logged in user.

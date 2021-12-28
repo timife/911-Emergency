@@ -4,6 +4,7 @@ package com.timife.a911.utils
  * Created by timife on 06/12/21
  */
 object Messages {
+    const val VERIFY_EMAIL = "Check your email box for verification link"
     const val MISMATCH_PASSWORD = "Passwords Do Not Match!"
     const val LOGIN_FAILED = "Login Failed. Try Again."
     const val GENERIC_SUCCESS = "SUCCESS"

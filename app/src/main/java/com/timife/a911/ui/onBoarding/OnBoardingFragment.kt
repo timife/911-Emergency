@@ -1,5 +1,6 @@
 package com.timife.a911.ui.onBoarding
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
+import com.timife.a911.EmergencyApplication
 import com.timife.a911.R
 import com.timife.a911.data.OnBoardingSlideItem
 import com.timife.a911.databinding.FragmentOnBoardingBinding
@@ -22,6 +24,12 @@ import com.timife.a911.utils.DepthPageTransformer
 class OnBoardingFragment : Fragment() {
  private lateinit var binding : FragmentOnBoardingBinding
     private lateinit var adapter: OnBoardingAdapter
+
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity().application as EmergencyApplication).emergencyComponent.inject(this)
+    }
 
 
     override fun onCreateView(

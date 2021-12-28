@@ -14,21 +14,21 @@ import javax.inject.Inject
 
 class CreateProfileViewModel @Inject constructor(private val authRepository: AuthRepository) :
     ViewModel() {
-
-    private val _showSnackBar = MutableLiveData<Event<String>>()
-    val showSnackBar: LiveData<Event<String>>
-        get() = _showSnackBar
-
-    fun snackBarMessage(message: String) {
-        _showSnackBar.value = Event(message)
-    }
-
-    fun registerNewUser(
-        fullName: String,
-        email: String,
-        password: String,
-        confirmPassword: String
-    ): LiveData<AuthResult<String>> {
-        return authRepository.createUser(fullName, email, password, confirmPassword).asLiveData()
-    }
+//
+//    private val _showSnackBar = MutableLiveData<Event<String>>()
+//    val showSnackBar: LiveData<Event<String>>
+//        get() = _showSnackBar
+//
+//    fun snackBarMessage(message: String) {
+//        _showSnackBar.value = Event(message)
+//    }
+//
+//    fun registerNewUser(
+//        fullName: String,
+//        email: String,
+//        password: String,
+//        confirmPassword: String
+//    ): LiveData<AuthResult<String>> {
+//        return authRepository.createUser(fullName, email, password, confirmPassword).asLiveData()
+//    }
 }
