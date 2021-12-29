@@ -15,7 +15,6 @@ class UserPreferences(context: Context) {
         name = "my_data_store"
     )
 
-
     val authToken: kotlinx.coroutines.flow.Flow<String?>
         get() = dataStore.data.map { preferences ->
             preferences[KEY_AUTH]

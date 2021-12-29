@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".emergencyHome.ui.dialogs.NonImmediateDialog">
+        tools:context=".ui.emergencyHome.ui.dialogs.NonImmediateDialog">
 
         <ImageButton
             android:layout_width="30dp"

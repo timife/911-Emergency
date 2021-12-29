@@ -6,14 +6,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.timife.a911.emergencyHome.ui.dialogs.CallOptionViewModel" />
+            type="com.timife.a911.ui.emergencyHome.ui.dialogs.CallOptionViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".emergencyHome.ui.dialogs.CallOptionDialog">
+        tools:context=".ui.emergencyHome.ui.dialogs.CallOptionDialog">
 
         <!-- TODO: Update blank fragment layout -->
         <androidx.cardview.widget.CardView
